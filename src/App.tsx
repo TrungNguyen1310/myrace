@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { routes } from './routes'
 
-function App() {
+import './App.scss'
+import { ProtectedRoute } from './routes/ProtectedRoutes'
+import PageNotFound from './features/PageNotFound'
+
+const token = 'ss'
+
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      {/* _________________ PROTECTED ROUTES _________________ */}
+      <Route element={<ProtectedRoute token={token} />}>
+        {routes.map((route, index) => (
+          <Route path={route.path} key={`${route.name}_${index}`} element={route.element} />
+        ))}
+      </Route>
+
+      {/* _________________ PUBLIC ROUTES _________________ */}
+      <Route>
+        <Route
+          path='/login'
+          element={<>{token ? <Navigate to='/' replace /> : <h1>Login Page</h1>}</>}
+        />
+        <Route path='/home' element={<div>Home</div>} />
+        <Route path='*' element={<PageNotFound />} />
+      </Route>
+    </Routes>
+  )
 }
 
-export default App;
+export default App
