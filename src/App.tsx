@@ -1,10 +1,12 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { routes } from './routes'
 
-import './App.scss'
+import { routes } from './routes'
 import { ProtectedRoute } from './routes/ProtectedRoutes'
 import PageNotFound from './features/PageNotFound'
+import DefaultLayout from './layouts/defaultLayout'
+import AuthLayout from './layouts/authLayout'
+import './App.scss'
 
 const token = 'ss'
 
@@ -14,7 +16,11 @@ function App(): JSX.Element {
       {/* _________________ PROTECTED ROUTES _________________ */}
       <Route element={<ProtectedRoute token={token} />}>
         {routes.map((route, index) => (
-          <Route path={route.path} key={`${route.name}_${index}`} element={route.element} />
+          <Route
+            path={route.path}
+            key={`${route.name}_${index}`}
+            element={<AuthLayout>{route.element}</AuthLayout>}
+          />
         ))}
       </Route>
 
@@ -24,7 +30,14 @@ function App(): JSX.Element {
           path='/login'
           element={<>{token ? <Navigate to='/' replace /> : <h1>Login Page</h1>}</>}
         />
-        <Route path='/home' element={<div>Home</div>} />
+        <Route
+          path='/home'
+          element={
+            <DefaultLayout>
+              <div>Home</div>
+            </DefaultLayout>
+          }
+        />
         <Route path='*' element={<PageNotFound />} />
       </Route>
     </Routes>

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-right-footer {
+    @apply text-xs leading-[18px] text-black font-bold;
+  }
+
+  .text-right-footer {
+    &:last-child {
+      @apply font-medium text-vl_gray_2;
+    }
+  }
+
+  .selectInput {
+    @apply font-bold text-sm leading-[21px];
+  }
+
+  .selectInput {
+    .MuiSelect-select {
+      @apply pr-[6px] focus:bg-transparent #{!important};
+    }
+  }
+
+  .darkmode {
+    svg {
+      path {
+       @apply fill-white;
+      }
+    }
+  }
+}

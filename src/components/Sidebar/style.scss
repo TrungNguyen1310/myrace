@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .menu,
+  .active-menu {
+    @apply w-full h-[56px] rounded-[28px] justify-start hover:bg-vl_gray_1 font-bold text-sm leading-[21px] text-vl_gray hover:text-black;
+  }
+
+  .active-menu {
+    @apply bg-vl_gray_1;
+  }
+
+  .active-menu {
+    .menu-title {
+      @apply text-black;
+    }
+  }
+
+  .active-menu ,
+  .active-menu-mobile {
+    svg {
+      path {
+        @apply fill-black
+      }
+    }
+  }
+
+  .dark-active-menu-mobile {
+    svg {
+      path {
+        @apply fill-white
+      }
+    }
+  }
+
+  .menu {
+    &:hover {
+      svg {
+        path {
+          @apply fill-black
+        }
+      }
+    }
+  }
+}

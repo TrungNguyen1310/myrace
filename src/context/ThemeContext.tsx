@@ -18,14 +18,16 @@ const getInitialTheme = () => {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface ITheme {}
+interface ITheme {
+  theme: string
+}
 
 type IThemeContext = [
-  ITheme[] | undefined,
-  React.Dispatch<React.SetStateAction<ITheme[] | undefined>>
+  ITheme | undefined | 'dark' | 'light',
+  React.Dispatch<React.SetStateAction<ITheme | undefined | 'dark' | 'light'>>
 ]
 
-export const ThemeContext = createContext<IThemeContext>([[], () => null])
+export const ThemeContext = createContext<IThemeContext>(['light', () => null])
 
 export const ThemeProvider = ({ initialTheme, children }: any) => {
   const [theme, setTheme] = useState<any>(getInitialTheme)
