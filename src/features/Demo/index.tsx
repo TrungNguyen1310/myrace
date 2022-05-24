@@ -1,11 +1,18 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from './demoSlice'
+import React, { useEffect } from 'react'
+import { decrement, fetchAlbums, increment } from './demoSlice'
 import { RootState } from '../../store'
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
 
 const Demo: React.FC = () => {
-  const count = useSelector((state: RootState) => state.demoReducer.value)
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
+  const demoReducer = useAppSelector((state: RootState) => state.demoReducer)
+  const { value: count, listAlbums: albumsList } = demoReducer
+
+  useEffect(() => {
+    dispatch(fetchAlbums())
+  }, [])
+
+  console.log('albumsList: ', albumsList)
 
   return (
     <div>
