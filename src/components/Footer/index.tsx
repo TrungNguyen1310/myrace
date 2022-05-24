@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { IconButton } from '@mui/material'
+import { IconButton, SelectChangeEvent } from '@mui/material'
 import { MenuItem, Select } from '@mui/material'
 import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrowdown.svg'
 import { ReactComponent as EarthIcon } from '../../assets/icons/earth.svg'
@@ -8,12 +8,20 @@ import { ThemeContext } from '../../context/ThemeContext'
 import './style.scss'
 
 const Footer: React.FC = () => {
-  const [currency, setCurrency] = useState<string | number>(1)
-  const [language, setLanguage] = useState<string | number>(1)
+  const [currency, setCurrency] = useState<string>('1')
+  const [language, setLanguage] = useState<string>('1')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+
+  const onChangeSelect = (e: SelectChangeEvent<string>, type: string) => {
+    if (type === 'currency') {
+      setCurrency(e.target.value)
+    } else {
+      setLanguage(e.target.value)
+    }
   }
 
   return (
@@ -31,25 +39,25 @@ const Footer: React.FC = () => {
           variant='standard'
           disableUnderline
           value={currency}
-          onChange={e => setCurrency(e.target.value)}
+          onChange={e => onChangeSelect(e, 'currency')}
           className={`selectInput dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <ArrowDownIcon />}
           MenuProps={{ disableScrollLock: true }}
         >
-          <MenuItem value={1}>Currency - USD</MenuItem>
-          <MenuItem value={2}>Currency - VND</MenuItem>
+          <MenuItem value='1'>Currency - USD</MenuItem>
+          <MenuItem value='2'>Currency - VND</MenuItem>
         </Select>
         <Select
           variant='standard'
           disableUnderline
           value={language}
-          onChange={e => setLanguage(e.target.value)}
+          onChange={e => onChangeSelect(e, 'language')}
           className={`selectInput px-[17px] dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <EarthIcon className='w-4' />}
           MenuProps={{ disableScrollLock: true }}
         >
-          <MenuItem value={1}>English</MenuItem>
-          <MenuItem value={2}>French</MenuItem>
+          <MenuItem value='1'>English</MenuItem>
+          <MenuItem value='2'>French</MenuItem>
         </Select>
         <IconButton
           onClick={toggleDarkMode}

@@ -9,7 +9,7 @@ interface ISidebarDesktop {
 }
 
 const SidebarDesktop: React.FC<ISidebarDesktop> = ({
-  open,
+  open = false,
   activeMenu = 0,
   onClickMenu = () => undefined
 }) => {
