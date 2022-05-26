@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react'
 import { decrement, fetchAlbums, increment } from './demoSlice'
-import { RootState } from '../../store'
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
+import LoadingSpinner from '../../components/LoadingSpinner'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
-  const demoReducer = useAppSelector((state: RootState) => state.demoReducer)
-  const { value: count, listAlbums: albumsList } = demoReducer
+  const demoReducer = useAppSelector(state => state.demoReducer)
+  const { value: count, listAlbums: albumsList, loading } = demoReducer
 
   useEffect(() => {
     dispatch(fetchAlbums())
   }, [])
+
+  if (loading) return <LoadingSpinner />
 
   console.log('albumsList: ', albumsList)
 

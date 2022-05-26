@@ -1,13 +1,14 @@
-import Dashboard from '../features/Dashboard'
-import Inventory from '../features/Inventory'
-import Marketplace from '../features/Marketplace'
-import Social from '../features/Social'
-import Wallet from '../features/Wallet'
-import BuyToken from '../features/BuyToken'
-import RentRaffle from '../features/RentRaffle'
-import Setting from '../features/Setting'
-import Demo from '../features/Demo'
-import { ReactNode } from 'react'
+import { lazy, ReactNode } from 'react'
+
+const Dashboard = lazy(() => import('../features/Dashboard'))
+const Inventory = lazy(() => import('../features/Inventory'))
+const Marketplace = lazy(() => import('../features/Marketplace'))
+const Social = lazy(() => import('../features/Social'))
+const Wallet = lazy(() => import('../features/Wallet'))
+const BuyToken = lazy(() => import('../features/BuyToken'))
+const RentRaffle = lazy(() => import('../features/RentRaffle'))
+const Setting = lazy(() => import('../features/Setting'))
+const Demo = lazy(() => import('../features/Demo'))
 
 interface IRouteItem {
   name: string

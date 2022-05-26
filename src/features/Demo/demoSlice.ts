@@ -8,11 +8,13 @@ export interface CounterState {
     id: number
     title: string
   }[]
+  loading: boolean
 }
 
 const initialState: CounterState = {
   value: 0,
-  listAlbums: []
+  listAlbums: [],
+  loading: false
 }
 
 export const fetchAlbums = createAsyncThunk('dashboardSlice/fetchAlbums', async () => {
