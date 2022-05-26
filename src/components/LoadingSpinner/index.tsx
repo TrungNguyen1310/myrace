@@ -1,4 +1,4 @@
-import { Backdrop, CircularProgress } from '@mui/material'
+import { Backdrop } from '@mui/material'
 import React from 'react'
 import './style.scss'
 
@@ -6,10 +6,13 @@ interface LoadingProps {
   color?: string
 }
 
-const LoadingSpinner: React.FC<LoadingProps> = ({ color = '#FFF' }) => {
+const LoadingSpinner: React.FC<LoadingProps> = ({ color = '#FFFFFF' }) => {
   return (
-    <Backdrop sx={{ color: `${color}`, zIndex: theme => theme.zIndex.drawer + 1 }} open={true}>
-      <CircularProgress color='inherit' />
+    <Backdrop sx={{ zIndex: theme => theme.zIndex.drawer }} open={true}>
+      <div className='lds-ripple'>
+        <div style={{ borderColor: color }} />
+        <div style={{ borderColor: color }} />
+      </div>
     </Backdrop>
   )
 }
