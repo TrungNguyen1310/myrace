@@ -9,8 +9,6 @@ module.exports = {
         bold: 700
       },
       colors: {
-        main: '#B6FF00',
-        primary: '#949494',
         vl_gray: '#949494',
         vl_gray_1: '#F1F1F1',
         vl_gray_2: '#6B6B6B',
