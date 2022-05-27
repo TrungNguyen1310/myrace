@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { IconButton, SelectChangeEvent } from '@mui/material'
 import { MenuItem, Select } from '@mui/material'
-import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrowdown.svg'
-import { ReactComponent as EarthIcon } from '../../assets/icons/earth.svg'
-import { ReactComponent as MoonIcon } from '../../assets/icons/moon.svg'
-import { ThemeContext } from '../../context/ThemeContext'
+import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrowdown.svg'
+import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
+import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
+import { ThemeContext } from 'context/ThemeContext'
 import './style.scss'
 
 const Footer: React.FC = () => {
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           onClick={toggleDarkMode}
           className={`${
             theme === 'dark' && 'darkmode'
-          } border-solid border border-vl_grey-300 w-[46px] h-[46px]`}
+          } border-solid border border-vl_grey-500 w-[46px] h-[46px]`}
         >
           <MoonIcon />
         </IconButton>

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { request } from '../../utils/request'
+import { request } from 'utils/request'
 
 export interface CounterState {
   value: number

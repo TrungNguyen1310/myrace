@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import Logo from '../../assets/images/Logo.svg'
+import Logo from 'assets/images/Logo.svg'
 import AppMenu from '../AppMenu'
 
 interface INavbarProps {

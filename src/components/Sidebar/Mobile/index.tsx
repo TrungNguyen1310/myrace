@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react'
 import { IconButton } from '@mui/material'
 
 import MobileMenu from '../MobileMenu'
-import { IListMenu, listMenu } from '../../../utils/sideMenu'
-import { ThemeContext } from '../../../context/ThemeContext'
-import { ReactComponent as MenuIcon } from '../../../assets/icons/menu.svg'
+import { IListMenu, listMenu } from 'utils/sideMenu'
+import { ThemeContext } from 'context/ThemeContext'
+import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg'
 import '../style.scss'
 
 interface ISidebarMobile {

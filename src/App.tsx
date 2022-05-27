@@ -1,11 +1,11 @@
 import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ProtectedRoutes } from './routes/ProtectedRoutes'
+import { ProtectedRoutes } from 'routes/ProtectedRoutes'
 
 import './App.scss'
-import LoadingSpinner from './components/LoadingSpinner'
-import { PrivateListRoutes } from './routes/ListRoutes/protected'
-import { PublicListRoutes } from './routes/ListRoutes/public'
+import LoadingSpinner from 'components/LoadingSpinner'
+import { PrivateListRoutes } from 'routes/ListRoutes/protected'
+import { PublicListRoutes } from 'routes/ListRoutes/public'
 
 const isAuth = 'sss'
 

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { InputBase } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import Navbar from '../components/Navbar'
+import Navbar from 'components/Navbar'
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) => {
   return (

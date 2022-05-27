@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Navigate } from 'react-router-dom'
 
-import DefaultLayout from '../../layouts/defaultLayout'
-import PageNotFound from '../../features/PageNotFound'
+import DefaultLayout from 'layouts/defaultLayout'
+import PageNotFound from 'features/PageNotFound'
 import { routes } from '..'
 
 const PublicListRoutes = (isAuth?: string) => {

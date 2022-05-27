@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { decrement, fetchAlbums, increment } from './demoSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks'
-import LoadingSpinner from '../../components/LoadingSpinner'
+import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
+import LoadingSpinner from 'components/LoadingSpinner'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import demoReducer from '../features/Demo/demoSlice'
+import demoReducer from 'features/Demo/demoSlice'
 
 const appReducer = combineReducers({
   demoReducer

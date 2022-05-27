@@ -1,5 +1,5 @@
 import React from 'react'
-import { IListMenu, listMenu } from '../../../utils/sideMenu'
+import { IListMenu, listMenu } from 'utils/sideMenu'
 import '../style.scss'
 
 interface ISidebarDesktop {

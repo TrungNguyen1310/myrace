@@ -3,11 +3,11 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { IListMenu, listMenu } from '../utils/sideMenu'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import SidebarMobile from '../components/Sidebar/Mobile'
-import SidebarDesktop from '../components/Sidebar/Desktop'
+import { IListMenu, listMenu } from 'utils/sideMenu'
+import Footer from 'components/Footer'
+import Navbar from 'components/Navbar'
+import SidebarMobile from 'components/Sidebar/Mobile'
+import SidebarDesktop from 'components/Sidebar/Desktop'
 import './style.scss'
 
 interface IAuthLayoutProps {
