@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
 interface IRouteProps {
-  token: string
+  isAuth: string
 }
 
-export const ProtectedRoute: React.FC<IRouteProps> = ({ token }) => {
-  if (!token) {
+export const ProtectedRoutes: React.FC<IRouteProps> = ({ isAuth }) => {
+  if (!isAuth) {
     return <Navigate to='/login' replace />
   }
 

@@ -16,50 +16,64 @@ interface IRouteItem {
   path: string
 }
 
-export const routes: IRouteItem[] = [
-  {
-    name: 'Home',
-    path: '/',
-    element: <Demo />
-  },
-  {
-    name: 'Dashboard',
-    path: '/dashboard',
-    element: <Dashboard />
-  },
-  {
-    name: 'Inventory',
-    path: '/inventory',
-    element: <Inventory />
-  },
-  {
-    name: 'Marketplace',
-    path: '/marketplace',
-    element: <Marketplace />
-  },
-  {
-    name: 'Social',
-    path: '/social',
-    element: <Social />
-  },
-  {
-    name: 'Wallet',
-    path: '/wallet',
-    element: <Wallet />
-  },
-  {
-    name: 'Buy Token',
-    path: '/buy-token',
-    element: <BuyToken />
-  },
-  {
-    name: 'RentRaffle',
-    path: '/rent-raffle',
-    element: <RentRaffle />
-  },
-  {
-    name: 'Setting',
-    path: '/setting',
-    element: <Setting />
-  }
-]
+interface IRoutes {
+  public: IRouteItem[]
+  private: IRouteItem[]
+}
+
+export const routes: IRoutes = {
+  public: [
+    {
+      name: 'Home',
+      path: '/home',
+      element: <div>Landing page</div>
+    }
+  ],
+  private: [
+    {
+      name: 'Demo',
+      path: '/',
+      element: <Demo />
+    },
+    {
+      name: 'Dashboard',
+      path: '/dashboard',
+      element: <Dashboard />
+    },
+    {
+      name: 'Inventory',
+      path: '/inventory',
+      element: <Inventory />
+    },
+    {
+      name: 'Marketplace',
+      path: '/marketplace',
+      element: <Marketplace />
+    },
+    {
+      name: 'Social',
+      path: '/social',
+      element: <Social />
+    },
+    {
+      name: 'Wallet',
+      path: '/wallet',
+      element: <Wallet />
+    },
+    {
+      name: 'Buy Token',
+      path: '/buy-token',
+      element: <BuyToken />
+    },
+    {
+      name: 'RentRaffle',
+      path: '/rent-raffle',
+      element: <RentRaffle />
+    },
+    {
+      name: 'Setting',
+      path: '/setting',
+      element: <Setting />
+    }
+  ]
+}
