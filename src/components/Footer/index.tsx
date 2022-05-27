@@ -6,6 +6,13 @@ import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import './style.scss'
+import { styled } from '@mui/system'
+
+const StyledSelect = styled(Select)(() => ({
+  '& .MuiSelect-select': {
+    background: 'transparent'
+  }
+}))
 
 const Footer: React.FC = () => {
   const [currency, setCurrency] = useState<string>('1')
@@ -43,6 +50,14 @@ const Footer: React.FC = () => {
           className={`footer-select dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <ArrowDownIcon />}
           MenuProps={{ disableScrollLock: true }}
+          sx={{
+            '& .MuiSelect-select': {
+              paddingRight: '6px !important',
+              '&:focus': {
+                background: 'transparent'
+              }
+            }
+          }}
         >
           <MenuItem value='1'>Currency - USD</MenuItem>
           <MenuItem value='2'>Currency - VND</MenuItem>
@@ -55,6 +70,14 @@ const Footer: React.FC = () => {
           className={`footer-select px-[17px] dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <EarthIcon className='w-4' />}
           MenuProps={{ disableScrollLock: true }}
+          sx={{
+            '& .MuiSelect-select': {
+              paddingRight: '6px !important',
+              '&:focus': {
+                background: 'transparent'
+              }
+            }
+          }}
         >
           <MenuItem value='1'>English</MenuItem>
           <MenuItem value='2'>French</MenuItem>
