@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white_1 absolute z-20 dark:bg-black md:flex items-center justify-between'>
+    <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
       <div className='flex items-center justify-between'>
         <p className='text-right-footer pr-[22px] dark:text-white'>Privacy Policy</p>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
           onClick={toggleDarkMode}
           className={`${
             theme === 'dark' && 'darkmode'
-          } border-solid border border-vl_gray w-[46px] h-[46px]`}
+          } border-solid border border-vl_grey-300 w-[46px] h-[46px]`}
         >
           <MoonIcon />
         </IconButton>

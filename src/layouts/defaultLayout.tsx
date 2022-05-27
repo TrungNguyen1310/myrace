@@ -8,7 +8,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) =
     <>
       <div className='flex min-h-screen layout'>
         <Navbar>
-          <div className='container w-full relative rounded-[23px] bg-vl_white_1'>
+          <div className='container w-full relative rounded-[23px] bg-vl_white-200'>
             <div className='absolute h-full flex justify-center items-center'>
               <SearchIcon />
             </div>

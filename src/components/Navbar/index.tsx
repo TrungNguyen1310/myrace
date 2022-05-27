@@ -14,7 +14,7 @@ const Navbar: React.FC<INavbarProps> = ({
   children = null
 }) => {
   return (
-    <nav className='bg-white shadow-primary duration-300 dark:bg-black px-8 fixed z-[100] w-full h-[84px] flex'>
+    <nav className='bg-white shadow-primary_100 duration-300 dark:bg-black px-8 fixed z-[100] w-full h-[84px] flex'>
       <div className='flex flex-wrap items-center justify-end w-full md:justify-between'>
         <div
           className='hidden cursor-pointer md:flex md:items-center'
