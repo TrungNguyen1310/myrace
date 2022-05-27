@@ -32,8 +32,8 @@ const SidebarDesktop: React.FC<ISidebarDesktop> = ({
               >
                 <div>{menu.icon}</div>
                 <p
-                  className={`ml-3 whitespace-nowrap duration-300 menu-title ${
-                    open ? 'opacity-1 block' : 'opacity-0 hidden'
+                  className={`ml-3 whitespace-nowrap duration-300 font-bold menu-title ${
+                    open ? 'opacity-1 visible' : 'opacity-0 invisible'
                   }`}
                 >
                   {menu.name}

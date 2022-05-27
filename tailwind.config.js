@@ -193,8 +193,8 @@ module.exports = {
           fontWeight: theme('fontWeight.800')
         },
         p: {
-          fontSize: theme('fontSize.base'),
-          lineHeight: theme('lineHeight.base'),
+          fontSize: theme('fontSize.sm'),
+          lineHeight: theme('lineHeight.sm'),
           fontStyle: theme('fontStyle.normal')
         }
       }),

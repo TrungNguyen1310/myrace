@@ -5,7 +5,7 @@
 @layer components {
   .menu,
   .active-menu {
-    @apply w-full h-[56px] rounded-[28px] justify-start hover:bg-vl_grey-100 font-bold text-sm leading-[21px] text-vl_grey-300 hover:text-black;
+    @apply w-full h-[56px] rounded-[28px] justify-start hover:bg-vl_grey-100 text-vl_grey-600 hover:text-black hover:font-bold;
   }
 
   .active-menu {
