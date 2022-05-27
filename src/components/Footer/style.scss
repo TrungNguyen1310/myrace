@@ -13,13 +13,18 @@
     }
   }
 
-  .selectInput {
-    @apply font-bold text-sm leading-[21px];
+  .footer-select {
+    font-weight: theme('fontWeight.bold');
+    font-size: theme('fontSize.sm');
+    line-height: theme('lineHeight.sm');
   }
 
-  .selectInput {
+  .footer-select {
     .MuiSelect-select {
-      @apply pr-[6px] focus:bg-transparent #{!important};
+      padding-right: 6px;
+      &:focus {
+        background: transparent;
+      }
     }
   }
 

@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
           disableUnderline
           value={currency}
           onChange={e => onChangeSelect(e, 'currency')}
-          className={`selectInput dark:text-white ${theme === 'dark' && 'darkmode'}`}
+          className={`footer-select dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <ArrowDownIcon />}
           MenuProps={{ disableScrollLock: true }}
         >
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
           disableUnderline
           value={language}
           onChange={e => onChangeSelect(e, 'language')}
-          className={`selectInput px-[17px] dark:text-white ${theme === 'dark' && 'darkmode'}`}
+          className={`footer-select px-[17px] dark:text-white ${theme === 'dark' && 'darkmode'}`}
           IconComponent={() => <EarthIcon className='w-4' />}
           MenuProps={{ disableScrollLock: true }}
         >

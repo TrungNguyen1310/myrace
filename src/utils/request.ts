@@ -8,7 +8,7 @@ export const request = async (url = '', method = '', data = {}, params = {}) => 
   }
 
   const config: AxiosRequestConfig = {
-    baseURL: 'https://jsonplaceholder.typicode.com',
+    baseURL: process.env.REACT_APP_URL,
     headers,
     params
   }
