@@ -34,7 +34,10 @@ const MobileMenu: React.FC<IMobileMenu> = ({ toggleDrawer = () => undefined, ope
       }}
       className='swipeableDrawer'
     >
-      <div className='bg-white dark:bg-black min-h-[700px]'>
+      <div
+        className='bg-white dark:bg-black'
+        style={{ minHeight: `${window.innerHeight - 126}px` }} // 126px is a distance between the Drawer menu and the top of the device
+      >
         <Puller className='bg-black dark:bg-white opacity-50' />
         <div className='text-black dark:text-white py-9 px-6 flex items-center justify-center'>
           menu
