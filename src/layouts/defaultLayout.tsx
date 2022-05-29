@@ -15,7 +15,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) =
             <InputBase
               placeholder='Search…'
               inputProps={{ 'aria-label': 'search' }}
-              className='pl-6 h-[40px]'
+              className='pl-6 h-[40px] xl:w-[519px]'
               sx={{
                 '& .MuiInputBase-input': {
                   background: 'transparent'
