@@ -24,7 +24,7 @@ const Button: React.FC<BtnProps | any> = props => {
           : ''
       } rounded-[23px] h-[40px] p-[12px] normal-case text-vl_black font-bold ${className}`}
     >
-      <p>{children}</p>
+      {children}
     </MuiButton>
   )
 }
