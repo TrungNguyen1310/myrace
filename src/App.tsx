@@ -7,7 +7,7 @@ import LoadingSpinner from 'components/LoadingSpinner'
 import { PrivateListRoutes } from 'routes/ListRoutes/protected'
 import { PublicListRoutes } from 'routes/ListRoutes/public'
 
-const isAuth = 'sss'
+const isAuth = ''
 
 function App(): JSX.Element {
   return (

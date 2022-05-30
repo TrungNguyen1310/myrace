@@ -9,6 +9,11 @@ const BuyToken = lazy(() => import('features/BuyToken'))
 const RentRaffle = lazy(() => import('features/RentRaffle'))
 const Setting = lazy(() => import('features/Setting'))
 const Demo = lazy(() => import('features/Demo'))
+const Home = lazy(() => import('features/Home'))
+const Gameplay = lazy(() => import('features/Gameplay'))
+const NFTSystem = lazy(() => import('features/NFTSystem'))
+const Roadmap = lazy(() => import('features/Roadmap'))
+const Login = lazy(() => import('features/Login'))
 
 interface IRouteItem {
   name: string
@@ -21,58 +26,95 @@ interface IRoutes {
   private: IRouteItem[]
 }
 
+export const ROUTES = {
+  HOME: '/',
+  SIGNIN: '/signin',
+  GAMEPLAY: '/game-play',
+  NFTS_SYSTEM: '/nfts-system',
+  ROADMAP: '/roadmap',
+  DEMO: '/demo',
+  DASHBOARD: '/dashboard',
+  INVENTORY: '/inventory',
+  MARKETPLACE: '/marketplace',
+  SOCIAL: '/social',
+  WALLET: '/wallet',
+  BUY_TOKEN: '/buy-token',
+  RENT_RAFFLE: '/rent-raffle',
+  SETTING: '/setting'
+}
+
 export const routes: IRoutes = {
   public: [
     {
       name: 'Home',
-      path: '/home',
-      element: <div>Landing page</div>
+      path: ROUTES.HOME,
+      element: <Home />
+    },
+    {
+      name: 'Gameplay',
+      path: ROUTES.GAMEPLAY,
+      element: <Gameplay />
+    },
+    {
+      name: 'NFTs system',
+      path: ROUTES.NFTS_SYSTEM,
+      element: <NFTSystem />
+    },
+    {
+      name: 'Roadmap',
+      path: '/roadmap',
+      element: <Roadmap />
+    },
+    {
+      name: 'Login',
+      path: ROUTES.SIGNIN,
+      element: <Login />
     }
   ],
   private: [
     {
       name: 'Demo',
-      path: '/',
+      path: ROUTES.DEMO,
       element: <Demo />
     },
     {
       name: 'Dashboard',
-      path: '/dashboard',
+      path: ROUTES.DASHBOARD,
       element: <Dashboard />
     },
     {
       name: 'Inventory',
-      path: '/inventory',
+      path: ROUTES.INVENTORY,
       element: <Inventory />
     },
     {
       name: 'Marketplace',
-      path: '/marketplace',
+      path: ROUTES.MARKETPLACE,
       element: <Marketplace />
     },
     {
       name: 'Social',
-      path: '/social',
+      path: ROUTES.SOCIAL,
       element: <Social />
     },
     {
       name: 'Wallet',
-      path: '/wallet',
+      path: ROUTES.WALLET,
       element: <Wallet />
     },
     {
       name: 'Buy Token',
-      path: '/buy-token',
+      path: ROUTES.BUY_TOKEN,
       element: <BuyToken />
     },
     {
       name: 'RentRaffle',
-      path: '/rent-raffle',
+      path: ROUTES.RENT_RAFFLE,
       element: <RentRaffle />
     },
     {
       name: 'Setting',
-      path: '/setting',
+      path: ROUTES.SETTING,
       element: <Setting />
     }
   ]

@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react'
-import Logo from 'assets/images/Logo.svg'
+import { Link, useNavigate } from 'react-router-dom'
+import Button from '../Button'
+import { ROUTES } from 'routes'
 import AppMenu from '../AppMenu'
-import { Link } from 'react-router-dom'
+import Logo from 'assets/images/Logo.svg'
 
 const isAuth = ''
 interface INavbarProps {
@@ -15,21 +17,33 @@ const Navbar: React.FC<INavbarProps> = ({
   open = false,
   children = null
 }) => {
+  const navigate = useNavigate()
+
   const LandingMenu = () => {
     return (
       <div className='text-vl_grey-600'>
-        <Link to='/' className='text-base'>
+        <Link to={ROUTES.HOME} className='text-base'>
           Home
         </Link>
-        <Link to='/game-play' className='px-[29px] text-base'>
+        <Link to={ROUTES.GAMEPLAY} className='px-[29px] text-base'>
           Gameplay
         </Link>
-        <Link to='/nfts-system' className='px-[29px] text-base'>
+        <Link to={ROUTES.NFTS_SYSTEM} className='px-[29px] text-base'>
           NFTs system
         </Link>
-        <Link to='/roadmap' className='px-[29px] text-base'>
+        <Link to={ROUTES.ROADMAP} className='px-[29px] text-base'>
           Roadmap / Team / White paper
         </Link>
+        <Button className='bg-vl_neon ml-[37px] w-[98px]'>dApp</Button>
+        <Button
+          customprops={{
+            border: true
+          }}
+          className='ml-[6px] w-[98px]'
+          onClick={() => navigate(ROUTES.SIGNIN)}
+        >
+          Sign In
+        </Button>
       </div>
     )
   }
