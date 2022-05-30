@@ -6,13 +6,6 @@ import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import './style.scss'
-import { styled } from '@mui/system'
-
-const StyledSelect = styled(Select)(() => ({
-  '& .MuiSelect-select': {
-    background: 'transparent'
-  }
-}))
 
 const Footer: React.FC = () => {
   const [currency, setCurrency] = useState<string>('1')
