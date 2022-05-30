@@ -22,7 +22,7 @@ const Button: React.FC<BtnProps | any> = props => {
         customprops.border
           ? `border-solid border ${customprops.borderColor || 'border-vl_grey-500'}`
           : ''
-      } rounded-[23px] h-[46px] p-[12px] normal-case text-vl_black font-bold ${className}`}
+      } rounded-[23px] h-[40px] p-[12px] normal-case text-vl_black font-bold ${className}`}
     >
       <p>{children}</p>
     </MuiButton>

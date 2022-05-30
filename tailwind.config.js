@@ -6,6 +6,10 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        '2xl': '1440px'
+        // => @media (min-width: 992px) { ... }
+      },
       fontSize: {
         xs: [
           '12px',
