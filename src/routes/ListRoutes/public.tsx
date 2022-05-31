@@ -3,7 +3,8 @@ import { Route, Navigate } from 'react-router-dom'
 
 import DefaultLayout from 'layouts/defaultLayout'
 import PageNotFound from 'features/PageNotFound'
-import { routes } from '..'
+import { ROUTES, routes } from '..'
+import Login from 'features/Login'
 
 const PublicListRoutes = (isAuth?: string) => {
   return (
@@ -19,8 +20,8 @@ const PublicListRoutes = (isAuth?: string) => {
       </Route>
 
       <Route
-        path='/login'
-        element={<>{isAuth ? <Navigate to='/' replace /> : <h1>Login Page</h1>}</>}
+        path={ROUTES.SIGNIN}
+        element={<>{isAuth ? <Navigate to={ROUTES.HOME} replace /> : <Login />}</>}
       />
       <Route path='*' element={<PageNotFound />} />
     </>

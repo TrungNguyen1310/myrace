@@ -1,19 +1,18 @@
-import { lazy, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
-const Dashboard = lazy(() => import('features/Dashboard'))
-const Inventory = lazy(() => import('features/Inventory'))
-const Marketplace = lazy(() => import('features/Marketplace'))
-const Social = lazy(() => import('features/Social'))
-const Wallet = lazy(() => import('features/Wallet'))
-const BuyToken = lazy(() => import('features/BuyToken'))
-const RentRaffle = lazy(() => import('features/RentRaffle'))
-const Setting = lazy(() => import('features/Setting'))
-const Demo = lazy(() => import('features/Demo'))
-const Home = lazy(() => import('features/Home'))
-const Gameplay = lazy(() => import('features/Gameplay'))
-const NFTSystem = lazy(() => import('features/NFTSystem'))
-const Roadmap = lazy(() => import('features/Roadmap'))
-const Login = lazy(() => import('features/Login'))
+import Dashboard from 'features/Dashboard'
+import Inventory from 'features/Inventory'
+import Marketplace from 'features/Marketplace'
+import Social from 'features/Social'
+import Wallet from 'features/Wallet'
+import BuyToken from 'features/BuyToken'
+import RentRaffle from 'features/RentRaffle'
+import Setting from 'features/Setting'
+import Demo from 'features/Demo'
+import Home from 'features/Home'
+import Gameplay from 'features/Gameplay'
+import NFTSystem from 'features/NFTSystem'
+import Roadmap from 'features/Roadmap'
 
 interface IRouteItem {
   name: string
@@ -64,11 +63,6 @@ export const routes: IRoutes = {
       name: 'Roadmap',
       path: '/roadmap',
       element: <Roadmap />
-    },
-    {
-      name: 'Login',
-      path: ROUTES.SIGNIN,
-      element: <Login />
     }
   ],
   private: [

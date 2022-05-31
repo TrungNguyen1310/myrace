@@ -7,11 +7,12 @@ import { ReactComponent as BuyTokenIcon } from 'assets/icons/dollar.svg'
 import { ReactComponent as RentRaffleIcon } from 'assets/icons/rent.svg'
 import { ReactComponent as SettingIcon } from 'assets/icons/setting.svg'
 import { ReactNode } from 'react'
+import { ROUTES } from 'routes'
 
 export interface IListMenu {
   id: number
   name: string
-  icon: ReactNode
+  icon?: ReactNode
   path: string
 }
 
@@ -20,48 +21,71 @@ export const listMenu: IListMenu[] = [
     id: 1,
     name: 'Dashboard',
     icon: <DashboardIcon />,
-    path: '/dashboard'
+    path: ROUTES.DASHBOARD
   },
   {
     id: 2,
     name: 'Inventory',
     icon: <InventoryIcon />,
-    path: '/inventory'
+    path: ROUTES.INVENTORY
   },
   {
     id: 3,
     name: 'Marketplace',
     icon: <MarketplaceIcon />,
-    path: '/marketplace'
+    path: ROUTES.MARKETPLACE
   },
   {
     id: 4,
     name: 'Social',
     icon: <SocialIcon />,
-    path: '/social'
+    path: ROUTES.SOCIAL
   },
   {
     id: 5,
     name: 'Wallet',
     icon: <WalletIcon />,
-    path: '/wallet'
+    path: ROUTES.WALLET
   },
   {
     id: 6,
     name: 'Buy Token',
     icon: <BuyTokenIcon />,
-    path: '/buy-token'
+    path: ROUTES.BUY_TOKEN
   },
   {
     id: 7,
     name: 'Rent/Raffle',
     icon: <RentRaffleIcon />,
-    path: '/rent-raffle'
+    path: ROUTES.RENT_RAFFLE
   },
   {
     id: 8,
     name: 'Setting',
     icon: <SettingIcon />,
-    path: '/setting'
+    path: ROUTES.SETTING
+  }
+]
+
+export const listLandingMenu: IListMenu[] = [
+  {
+    id: 1,
+    name: 'Home',
+    path: ROUTES.HOME
+  },
+  {
+    id: 2,
+    name: 'Gameplay',
+    path: ROUTES.GAMEPLAY
+  },
+  {
+    id: 3,
+    name: 'NFTs system',
+    path: ROUTES.NFTS_SYSTEM
+  },
+  {
+    id: 4,
+    name: 'Roadmap / Team / White paper',
+    path: ROUTES.ROADMAP
   }
 ]

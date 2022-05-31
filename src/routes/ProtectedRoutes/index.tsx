@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import { ROUTES } from 'routes'
 
 interface IRouteProps {
   isAuth: string
@@ -6,7 +7,7 @@ interface IRouteProps {
 
 export const ProtectedRoutes: React.FC<IRouteProps> = ({ isAuth }) => {
   if (!isAuth) {
-    return <Navigate to='/login' replace />
+    return <Navigate to={ROUTES.SIGNIN} replace />
   }
 
   return <Outlet />
