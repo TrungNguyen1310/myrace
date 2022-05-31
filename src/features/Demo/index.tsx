@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { decrement, fetchAlbums, increment } from './demoSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import LoadingSpinner from 'components/LoadingSpinner'
+import AnimationLayouts from 'layouts/animationLayouts'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -17,7 +18,7 @@ const Demo: React.FC = () => {
   console.log('albumsList: ', albumsList)
 
   return (
-    <div>
+    <AnimationLayouts>
       <div>
         <button aria-label='Increment value' onClick={() => dispatch(increment())}>
           Increment
@@ -27,7 +28,7 @@ const Demo: React.FC = () => {
           Decrement
         </button>
       </div>
-    </div>
+    </AnimationLayouts>
   )
 }
 

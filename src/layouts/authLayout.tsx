@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState, useTransition } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -8,6 +8,7 @@ import Footer from 'components/Footer'
 import Navbar from 'components/Navbar'
 import SidebarMobile from 'components/Sidebar/Mobile'
 import SidebarDesktop from 'components/Sidebar/Desktop'
+import AnimationLayouts from 'layouts/animationLayouts'
 import './style.scss'
 
 interface IAuthLayoutProps {
@@ -18,6 +19,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
   const theme = useTheme()
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const [pending, startTransition] = useTransition()
   const mobileScreen = useMediaQuery(theme.breakpoints.down('md')) // min-width: 768px
   const [activeMenu, setActiveMenu] = useState<number>(1)
   const [openMenuDesktop, setOpenMenuDesktop] = useState<boolean>(false)
@@ -36,8 +38,10 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
   }
 
   const onClickMenu = (menu: IListMenu) => {
-    setActiveMenu(menu.id)
-    navigate(menu.path)
+    startTransition(() => {
+      setActiveMenu(menu.id)
+      navigate(menu.path)
+    })
   }
 
   const toggleAppBarDesktop = (value: boolean) => {
@@ -60,7 +64,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
         </Navbar>
         <SidebarDesktop open={openMenuDesktop} activeMenu={activeMenu} onClickMenu={onClickMenu} />
         <div className={`flex-1 h-auto flex justify-start pt-[100px] duration-300 ${className()}`}>
-          {children}
+          <AnimationLayouts>{children}</AnimationLayouts>
         </div>
       </div>
       {mobileScreen && <SidebarMobile activeMenu={activeMenu} onClickMenu={onClickMenu} />}

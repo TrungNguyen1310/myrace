@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import ViewMobile from 'components/Navbar/LandingMenu/Mobile'
@@ -10,6 +10,7 @@ const LandingMenu: React.FC = () => {
   const theme = useTheme()
   const navigate = useNavigate()
   const { pathname } = useLocation()
+  const [pending, startTransition] = useTransition()
   const [activeMenu, setActiveMenu] = useState<number>(1)
   const mobileScreen = useMediaQuery(theme.breakpoints.down('md')) // min-width: 768px
 
@@ -27,19 +28,13 @@ const LandingMenu: React.FC = () => {
   }
 
   const onClickMenu = (menu: IListMenu) => {
-    setActiveMenu(menu.id)
-    navigate(menu.path)
+    startTransition(() => {
+      setActiveMenu(menu.id)
+      navigate(menu.path)
+    })
   }
 
-  return (
-    <>
-      {mobileScreen ? (
-        <ViewMobile />
-      ) : (
-        <ViewMenuDesktop onClickMenu={onClickMenu} activeMenu={activeMenu} />
-      )}
-    </>
-  )
+  return <>{mobileScreen ? <ViewMobile /> : <ViewMenuDesktop onClickMenu={onClickMenu} activeMenu={activeMenu} />}</>
 }
 
 export default LandingMenu

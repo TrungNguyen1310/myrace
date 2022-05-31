@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useTransition } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'routes'
 import Button from 'components/Button'
@@ -13,7 +13,7 @@ interface MenuDesktopProps {
 
 const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMenu }) => {
   const navigate = useNavigate()
-
+  const [pending, startTransition] = useTransition()
   const className1 = menu => {
     return `${menu.id !== listLandingMenu.length && 'pr-[18px] 2xl:pr-[26px]'}`
   }
@@ -40,7 +40,11 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
             border: true
           }}
           className='ml-[6px] w-[98px] dark:text-white text-xs xl:text-sm'
-          onClick={() => navigate(ROUTES.SIGNIN)}
+          onClick={() =>
+            startTransition(() => {
+              navigate(ROUTES.SIGNIN)
+            })
+          }
         >
           Sign In
         </Button>

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import SearchIcon from '@mui/icons-material/Search'
 import Navbar from 'components/Navbar'
 import { InputBase } from '@mui/material'
+import AnimationLayouts from 'layouts/animationLayouts'
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) => {
   return (
@@ -37,7 +38,9 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) =
             />
           </div>
         </Navbar>
-        <div className={'flex-1 h-auto flex justify-start pt-[100px] duration-300'}>{children}</div>
+        <div className={'flex-1 h-auto flex justify-start pt-[100px] duration-300'}>
+          <AnimationLayouts>{children}</AnimationLayouts>
+        </div>
       </div>
     </>
   )
