@@ -1,3 +1,4 @@
+import { API_FETCH_ALBUMS } from './../../apis/index'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { request } from 'utils/request'
 
@@ -18,7 +19,7 @@ const initialState: CounterState = {
 }
 
 export const fetchAlbums = createAsyncThunk('dashboardSlice/fetchAlbums', async () => {
-  return await request('/albums', 'GET')
+  return await request(API_FETCH_ALBUMS, 'GET')
 })
 
 export const demoSlice = createSlice({
