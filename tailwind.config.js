@@ -205,20 +205,17 @@ module.exports = {
         addUtilities({
           // ==================== PRIMARY PURPLE ====================
           '.color-primary_purple_100': {
-            background:
-              'linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), #7A52F4;'
+            background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), #7A52F4;'
           },
           '.color-primary_purple_200': {
             background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #7A52F4;'
           },
           // ==================== SECONDARY YELLOW + PINK ====================
           '.color-secondary_yellow_100': {
-            background:
-              'linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), #FFBD00;'
+            background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), #FFBD00;'
           },
           '.color-secondary_pink_100': {
-            background:
-              'linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), #F20089;'
+            background: 'linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), #F20089;'
           }
           // ==================== BASE ====================
         })

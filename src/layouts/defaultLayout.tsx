@@ -20,6 +20,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) =
               sx={{
                 '& .MuiInputBase-input': {
                   background: 'transparent',
+                  padding: 0,
                   paddingLeft: '13px',
                   '&::placeholder': {
                     color: '#949494',
