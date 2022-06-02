@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { ReactComponent as DashboardIcon } from 'assets/icons/dashboard.svg'
 import { ReactComponent as InventoryIcon } from 'assets/icons/inventory.svg'
 import { ReactComponent as MarketplaceIcon } from 'assets/icons/marketplace.svg'
@@ -6,17 +7,16 @@ import { ReactComponent as WalletIcon } from 'assets/icons/wallet.svg'
 import { ReactComponent as BuyTokenIcon } from 'assets/icons/dollar.svg'
 import { ReactComponent as RentRaffleIcon } from 'assets/icons/rent.svg'
 import { ReactComponent as SettingIcon } from 'assets/icons/setting.svg'
-import { ReactNode } from 'react'
 import { ROUTES } from 'routes'
 
-export interface IListMenu {
+export interface IMenuItem {
   id: number
   name: string
   icon?: ReactNode
   path: string
 }
 
-export const listMenu: IListMenu[] = [
+export const sideMenu: IMenuItem[] = [
   {
     id: 1,
     name: 'Dashboard',
@@ -67,7 +67,7 @@ export const listMenu: IListMenu[] = [
   }
 ]
 
-export const listLandingMenu: IListMenu[] = [
+export const clientMenu: IMenuItem[] = [
   {
     id: 1,
     name: 'Home',

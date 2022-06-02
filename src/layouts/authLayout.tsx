@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import { IListMenu, listMenu } from 'utils/sideMenu'
+import { IMenuItem, sideMenu } from 'utils/menuList'
 import Footer from 'components/Footer'
 import UserNarbar from 'components/Navbar/User/UserNarbar'
 import SidebarMobile from 'components/Sidebar/Mobile'
@@ -29,7 +29,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
   }, [])
 
   const setActiveMenuByCurrentRoute = () => {
-    const getCurrentMenu = listMenu.find(menu => menu.path === pathname)
+    const getCurrentMenu = sideMenu.find(menu => menu.path === pathname)
     if (getCurrentMenu) {
       setActiveMenu(getCurrentMenu.id)
     } else {
@@ -37,7 +37,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
     }
   }
 
-  const onClickMenu = (menu: IListMenu) => {
+  const onClickMenu = (menu: IMenuItem) => {
     startTransition(() => {
       setActiveMenu(menu.id)
       navigate(menu.path)

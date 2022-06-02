@@ -6,7 +6,7 @@ import './App.scss'
 import { PrivateListRoutes } from 'routes/ListRoutes/protected'
 import { PublicListRoutes } from 'routes/ListRoutes/public'
 
-const isAuth = ''
+const isAuth = 's'
 
 function App(): JSX.Element {
   return (

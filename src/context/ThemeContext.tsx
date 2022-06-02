@@ -22,10 +22,7 @@ interface ITheme {
   theme: string
 }
 
-type IThemeContext = [
-  ITheme | undefined | 'dark' | 'light',
-  React.Dispatch<React.SetStateAction<ITheme | undefined | 'dark' | 'light'>>
-]
+type IThemeContext = [ITheme | undefined | 'dark' | 'light', React.Dispatch<React.SetStateAction<ITheme | undefined | 'dark' | 'light'>>]
 
 export const ThemeContext = createContext<IThemeContext>(['light', () => null])
 

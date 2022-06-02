@@ -2,13 +2,13 @@ import { createTheme } from '@mui/material/styles'
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
-    xs?: true // removes the `xs` breakpoint
+    xs?: true
     sm?: true
     md?: true
     lg?: true
     xl?: true
     xxl?: true
-    mobile?: true // adds the `mobile` breakpoint
+    mobile?: true
     tablet?: true
     laptop?: true
     desktop?: true

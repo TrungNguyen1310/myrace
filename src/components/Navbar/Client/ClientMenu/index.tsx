@@ -4,7 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import ViewMobile from 'components/Navbar/Client/ClientMenu/Mobile'
 import ViewMenuDesktop from 'components/Navbar/Client/ClientMenu/Desktop'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { IListMenu, listLandingMenu } from 'utils/sideMenu'
+import { IMenuItem, clientMenu } from 'utils/menuList'
 
 const LandingMenu: React.FC = () => {
   const theme = useTheme()
@@ -19,7 +19,7 @@ const LandingMenu: React.FC = () => {
   }, [])
 
   const setActiveMenuByCurrentRoute = () => {
-    const getCurrentMenu = listLandingMenu.find(menu => menu.path === pathname)
+    const getCurrentMenu = clientMenu.find(menu => menu.path === pathname)
     if (getCurrentMenu) {
       setActiveMenu(getCurrentMenu.id)
     } else {
@@ -27,7 +27,7 @@ const LandingMenu: React.FC = () => {
     }
   }
 
-  const onClickMenu = (menu: IListMenu) => {
+  const onClickMenu = (menu: IMenuItem) => {
     startTransition(() => {
       setActiveMenu(menu.id)
       navigate(menu.path)
