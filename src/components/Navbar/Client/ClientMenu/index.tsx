@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useTransition } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import ViewMobile from 'components/Navbar/LandingMenu/Mobile'
-import ViewMenuDesktop from 'components/Navbar/LandingMenu/Desktop'
+import ViewMobile from 'components/Navbar/Client/ClientMenu/Mobile'
+import ViewMenuDesktop from 'components/Navbar/Client/ClientMenu/Desktop'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { IListMenu, listLandingMenu } from 'utils/sideMenu'
 
@@ -12,7 +12,7 @@ const LandingMenu: React.FC = () => {
   const { pathname } = useLocation()
   const [pending, startTransition] = useTransition()
   const [activeMenu, setActiveMenu] = useState<number>(1)
-  const mobileScreen = useMediaQuery(theme.breakpoints.down('md')) // min-width: 768px
+  const mobileScreen = useMediaQuery(theme.breakpoints.down('lg')) // min-width: 768px
 
   useEffect(() => {
     setActiveMenuByCurrentRoute()

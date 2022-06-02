@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import { IListMenu, listMenu } from 'utils/sideMenu'
 import Footer from 'components/Footer'
-import Navbar from 'components/Navbar'
+import UserNarbar from 'components/Navbar/User/UserNarbar'
 import SidebarMobile from 'components/Sidebar/Mobile'
 import SidebarDesktop from 'components/Sidebar/Desktop'
 import AnimationLayouts from 'layouts/animationLayouts'
@@ -59,9 +59,9 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
   return (
     <>
       <div className='flex min-h-screen layout'>
-        <Navbar toggleAppBar={toggleAppBarDesktop} open={openMenuDesktop}>
+        <UserNarbar toggleAppBar={toggleAppBarDesktop} open={openMenuDesktop}>
           <span className='text-black font-bold text-base leading-6 dark:text-white'>MyRace</span>
-        </Navbar>
+        </UserNarbar>
         <SidebarDesktop open={openMenuDesktop} activeMenu={activeMenu} onClickMenu={onClickMenu} />
         <div className={`flex-1 h-auto flex justify-start pt-[100px] duration-300 ${className()}`}>
           <AnimationLayouts>{children}</AnimationLayouts>
