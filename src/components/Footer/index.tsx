@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { IconButton, SelectChangeEvent } from '@mui/material'
 import { MenuItem, Select } from '@mui/material'
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrowdown.svg'
@@ -26,6 +26,16 @@ const Footer: React.FC = () => {
       setLanguage(e.target.value)
     }
   }
+
+  const getCurrentLanguage = () => {
+    const lang = localStorage.getItem('i18nextLng') || 'en'
+    setLanguage(lang)
+    i18n.changeLanguage(lang)
+  }
+
+  useEffect(() => {
+    getCurrentLanguage()
+  }, [])
 
   return (
     <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>

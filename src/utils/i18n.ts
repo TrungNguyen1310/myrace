@@ -21,7 +21,6 @@ i18n
   .use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    lng: 'en',
     ns: ['common'],
     defaultNS,
     resources,
