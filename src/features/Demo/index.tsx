@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { decrement, fetchAlbums, increment } from './demoSlice'
+import { decrement, increment, fetchAll } from './demoSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
 import LoadingSpinner from 'components/LoadingSpinner'
 import AnimationLayouts from 'layouts/animationLayouts'
@@ -7,15 +7,16 @@ import AnimationLayouts from 'layouts/animationLayouts'
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
   const demoReducer = useAppSelector(state => state.demoReducer)
-  const { value: count, listAlbums: albumsList, loading } = demoReducer
+  const { value: count, listAlbums: albumsList, loading, users } = demoReducer
 
   useEffect(() => {
-    dispatch(fetchAlbums())
+    dispatch(fetchAll())
   }, [])
 
   if (loading) return <LoadingSpinner />
 
   console.log('albumsList: ', albumsList)
+  console.log('users: ', users)
 
   return (
     <AnimationLayouts>
