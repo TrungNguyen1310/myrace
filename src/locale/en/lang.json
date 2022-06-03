@@ -5,10 +5,33 @@
       "game_play": "Gameplay",
       "nfts_system": "NFTs system",
       "roadmap": "Roadmap / Team / White paper",
-      "sign_in": "Sign In"
+      "sign_in": "Sign In",
+      "connect_wallet": "Connect Wallet"
     },
-    "sidebar": {},
-    "footer": {}
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "inventory": "Inventory",
+      "marketplace": "Marketplace",
+      "social": "Social",
+      "wallet": "Wallet",
+      "buy_token": "Buy Token",
+      "rent_raffle": "Rent/Raffle",
+      "setting": "Setting"
+    },
+    "footer": {
+      "privacy_policy": "Privacy Policy",
+      "license": "License",
+      "api": "API",
+      "copywrite": "© 2021 All rights reserved",
+      "currency": {
+        "usd": "Currency - USD",
+        "vnd": "Currency - VND"
+      },
+      "language": {
+        "english": "English",
+        "german": "German"
+      }
+    }
   },
   "features": {
     "demo": {},

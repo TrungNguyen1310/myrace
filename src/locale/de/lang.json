@@ -5,10 +5,33 @@
       "game_play": "Spielweise",
       "nfts_system": "NFTs system",
       "roadmap": "Fahrplan / Mannschaft / Weißes Papier",
-      "sign_in": "Einloggen"
+      "sign_in": "Einloggen",
+      "connect_wallet": "Brieftasche Verbinden"
     },
-    "sidebar": {},
-    "footer": {}
+    "sidebar": {
+      "dashboard": "Armaturenbrett",
+      "inventory": "Inventar",
+      "marketplace": "Marktplatz",
+      "social": "Sozial",
+      "wallet": "Geldbörse",
+      "buy_token": "Token Kaufen",
+      "rent_raffle": "Miete/Tombola",
+      "setting": "Einstellung"
+    },
+    "footer": {
+      "privacy_policy": "Datenschutz Bestimmungen",
+      "license": "Lizenz",
+      "api": "API",
+      "copywrite": "© 2021 Alle rechte vorbehalten",
+      "currency": {
+        "usd": "Währung - USD",
+        "vnd": "Währung - VND"
+      },
+      "language": {
+        "english": "Englisch",
+        "german": "Deutsch"
+      }
+    }
   },
   "features": {
     "demo": {},

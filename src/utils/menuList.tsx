@@ -19,49 +19,49 @@ export interface IMenuItem {
 export const sideMenu: IMenuItem[] = [
   {
     id: 1,
-    name: 'Dashboard',
+    name: 'components.sidebar.dashboard', // i18n
     icon: <DashboardIcon />,
     path: ROUTES.DASHBOARD
   },
   {
     id: 2,
-    name: 'Inventory',
+    name: 'components.sidebar.inventory', // i18n
     icon: <InventoryIcon />,
     path: ROUTES.INVENTORY
   },
   {
     id: 3,
-    name: 'Marketplace',
+    name: 'components.sidebar.marketplace', // i18n
     icon: <MarketplaceIcon />,
     path: ROUTES.MARKETPLACE
   },
   {
     id: 4,
-    name: 'Social',
+    name: 'components.sidebar.social', // i18n
     icon: <SocialIcon />,
     path: ROUTES.SOCIAL
   },
   {
     id: 5,
-    name: 'Wallet',
+    name: 'components.sidebar.wallet', // i18n
     icon: <WalletIcon />,
     path: ROUTES.WALLET
   },
   {
     id: 6,
-    name: 'Buy Token',
+    name: 'components.sidebar.buy_token', // i18n
     icon: <BuyTokenIcon />,
     path: ROUTES.BUY_TOKEN
   },
   {
     id: 7,
-    name: 'Rent/Raffle',
+    name: 'components.sidebar.rent_raffle', // i18n
     icon: <RentRaffleIcon />,
     path: ROUTES.RENT_RAFFLE
   },
   {
     id: 8,
-    name: 'Setting',
+    name: 'components.sidebar.setting', // i18n
     icon: <SettingIcon />,
     path: ROUTES.SETTING
   }
@@ -70,22 +70,22 @@ export const sideMenu: IMenuItem[] = [
 export const clientMenu: IMenuItem[] = [
   {
     id: 1,
-    name: 'Home',
+    name: 'components.navbar.home', // i18n
     path: ROUTES.HOME
   },
   {
     id: 2,
-    name: 'Gameplay',
+    name: 'components.navbar.game_play', // i18n
     path: ROUTES.GAMEPLAY
   },
   {
     id: 3,
-    name: 'NFTs system',
+    name: 'components.navbar.nfts_system', // i18n
     path: ROUTES.NFTS_SYSTEM
   },
   {
     id: 4,
-    name: 'Roadmap / Team / White paper',
+    name: 'components.navbar.roadmap', // i18n
     path: ROUTES.ROADMAP
   }
 ]

@@ -9,7 +9,7 @@ import './style.scss'
 import { useTranslation } from 'react-i18next'
 
 const Footer: React.FC = () => {
-  const { i18n } = useTranslation()
+  const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
   const [theme, setTheme] = useContext(ThemeContext)
@@ -31,10 +31,10 @@ const Footer: React.FC = () => {
     <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
       <div className='flex items-center justify-between'>
-        <p className='text-right-footer pr-[22px] dark:text-white'>Privacy Policy</p>
-        <p className='text-right-footer pr-[22px] dark:text-white'>License</p>
-        <p className='text-right-footer pr-[22px] dark:text-white'>API</p>
-        <p className='text-right-footer'>© 2021 All rights reserved</p>
+        <p className='text-right-footer pr-[22px] dark:text-white'>{t('components.footer.privacy_policy')}</p>
+        <p className='text-right-footer pr-[22px] dark:text-white'>{t('components.footer.license')}</p>
+        <p className='text-right-footer pr-[22px] dark:text-white'>{t('components.footer.api')}</p>
+        <p className='text-right-footer'>{t('components.footer.copywrite')}</p>
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
@@ -55,8 +55,8 @@ const Footer: React.FC = () => {
             }
           }}
         >
-          <MenuItem value='1'>Currency - USD</MenuItem>
-          <MenuItem value='2'>Currency - VND</MenuItem>
+          <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
+          <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>
         </Select>
         <Select
           variant='standard'
@@ -75,8 +75,8 @@ const Footer: React.FC = () => {
             }
           }}
         >
-          <MenuItem value='en'>English</MenuItem>
-          <MenuItem value='de'>German</MenuItem>
+          <MenuItem value='en'>{t('components.footer.language.english')}</MenuItem>
+          <MenuItem value='de'>{t('components.footer.language.german')}</MenuItem>
         </Select>
         <IconButton onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
           <MoonIcon />

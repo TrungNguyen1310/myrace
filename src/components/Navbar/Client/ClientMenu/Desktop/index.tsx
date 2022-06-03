@@ -14,7 +14,7 @@ interface MenuDesktopProps {
 
 const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMenu }) => {
   const navigate = useNavigate()
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [pending, startTransition] = useTransition()
   const className1 = menu => {
     return `${menu.id !== clientMenu.length && 'pr-[18px] 2xl:pr-[26px]'}`
@@ -29,7 +29,7 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
       {clientMenu.map(menu => (
         <li key={menu.id}>
           <p onClick={() => onClickMenu(menu)} className={`${className1(menu)} ${className2(menu)} text-sm xl:text-base font-bold cursor-pointer`}>
-            {menu.name}
+            {t(menu.name)}
           </p>
         </li>
       ))}
