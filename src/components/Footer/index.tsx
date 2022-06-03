@@ -6,10 +6,12 @@ import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import './style.scss'
+import { useTranslation } from 'react-i18next'
 
 const Footer: React.FC = () => {
+  const { i18n } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
-  const [language, setLanguage] = useState<string>('1')
+  const [language, setLanguage] = useState<string>('en')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -20,6 +22,7 @@ const Footer: React.FC = () => {
     if (type === 'currency') {
       setCurrency(e.target.value)
     } else {
+      i18n.changeLanguage(e.target.value)
       setLanguage(e.target.value)
     }
   }
@@ -72,15 +75,10 @@ const Footer: React.FC = () => {
             }
           }}
         >
-          <MenuItem value='1'>English</MenuItem>
-          <MenuItem value='2'>French</MenuItem>
+          <MenuItem value='en'>English</MenuItem>
+          <MenuItem value='de'>German</MenuItem>
         </Select>
-        <IconButton
-          onClick={toggleDarkMode}
-          className={`${
-            theme === 'dark' && 'darkmode'
-          } border-solid border border-vl_grey-500 w-[46px] h-[46px]`}
-        >
+        <IconButton onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
           <MoonIcon />
         </IconButton>
       </div>

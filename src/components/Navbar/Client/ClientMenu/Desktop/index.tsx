@@ -5,6 +5,7 @@ import Button from 'components/Button'
 import { IMenuItem, clientMenu } from 'utils/menuList'
 
 import '../style.scss'
+import { useTranslation } from 'react-i18next'
 
 interface MenuDesktopProps {
   onClickMenu: (menu: IMenuItem) => void
@@ -13,6 +14,7 @@ interface MenuDesktopProps {
 
 const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMenu }) => {
   const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
   const [pending, startTransition] = useTransition()
   const className1 = menu => {
     return `${menu.id !== clientMenu.length && 'pr-[18px] 2xl:pr-[26px]'}`
@@ -46,7 +48,7 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
             })
           }
         >
-          Sign In
+          {t('components.navbar.sign_in')}
         </Button>
       </li>
     </ul>

@@ -1,0 +1,30 @@
+{
+  "components": {
+    "navbar": {
+      "home": "Home",
+      "game_play": "Gameplay",
+      "nfts_system": "NFTs system",
+      "roadmap": "Roadmap / Team / White paper",
+      "sign_in": "Sign In"
+    },
+    "sidebar": {},
+    "footer": {}
+  },
+  "features": {
+    "demo": {},
+    "dashboard": {},
+    "buy_token": {},
+    "game_play": {},
+    "home": {},
+    "inventory": {},
+    "login": {},
+    "marketplace": {},
+    "nfts_system": {},
+    "page_not_found": {},
+    "rent_raffle": {},
+    "road_map": {},
+    "setting": {},
+    "social": {},
+    "wallet": {}
+  }
+}

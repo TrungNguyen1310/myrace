@@ -11,6 +11,7 @@ import { ThemeProvider as ThemeProviderContext } from './context/ThemeContext'
 
 import './index.scss'
 import App from './App'
+import 'utils/i18n'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

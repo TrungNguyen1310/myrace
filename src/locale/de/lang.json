@@ -1,0 +1,30 @@
+{
+  "components": {
+    "navbar": {
+      "home": "Heim",
+      "game_play": "Spielweise",
+      "nfts_system": "NFTs system",
+      "roadmap": "Fahrplan / Mannschaft / Weißes Papier",
+      "sign_in": "Einloggen"
+    },
+    "sidebar": {},
+    "footer": {}
+  },
+  "features": {
+    "demo": {},
+    "dashboard": {},
+    "buy_token": {},
+    "game_play": {},
+    "home": {},
+    "inventory": {},
+    "login": {},
+    "marketplace": {},
+    "nfts_system": {},
+    "page_not_found": {},
+    "rent_raffle": {},
+    "road_map": {},
+    "setting": {},
+    "social": {},
+    "wallet": {}
+  }
+}
