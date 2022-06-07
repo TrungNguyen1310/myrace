@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .footer-select {
+    font-weight: theme('fontWeight.bold');
+    font-size: theme('fontSize.sm');
+    line-height: theme('lineHeight.sm');
+  }
+
+  .darkmode {
+    svg {
+      path {
+       @apply fill-white;
+      }
+    }
+  }
+  
+  .arrow-icon {
+    svg {
+      path {
+       @apply fill-vl_grey-700 dark:fill-vl_white;
+      }
+    }
+  }
+}

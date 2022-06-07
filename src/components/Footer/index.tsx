@@ -1,17 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { MenuItem } from '@mui/material'
 import { IconButton, SelectChangeEvent } from '@mui/material'
-import { MenuItem, Select } from '@mui/material'
-import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrowdown.svg'
 import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
+import VlSelect from '../Select'
 import './style.scss'
-import { useTranslation } from 'react-i18next'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
+  const [country, setCountry] = useState<string>('vn')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -48,46 +49,18 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <Select
-          variant='standard'
-          disableUnderline
-          value={currency}
-          onChange={e => onChangeSelect(e, 'currency')}
-          className={`footer-select dark:text-white ${theme === 'dark' && 'darkmode'}`}
-          IconComponent={() => <ArrowDownIcon />}
-          MenuProps={{ disableScrollLock: true }}
-          sx={{
-            '& .MuiSelect-select': {
-              paddingRight: '6px !important',
-              '&:focus': {
-                background: 'transparent'
-              }
-            }
-          }}
-        >
+        <VlSelect value={country} onChange={e => setCountry(e.target.value)} className='mx-8 w-[360px]'>
+          <MenuItem value='vn'>Viet Nam</MenuItem>
+          <MenuItem value='usa'>United State of America</MenuItem>
+        </VlSelect>
+        <VlSelect variant='standard' disableUnderline value={currency} onChange={e => onChangeSelect(e, 'currency')}>
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>
-        </Select>
-        <Select
-          variant='standard'
-          disableUnderline
-          value={language}
-          onChange={e => onChangeSelect(e, 'language')}
-          className={`footer-select px-[17px] dark:text-white ${theme === 'dark' && 'darkmode'}`}
-          IconComponent={() => <EarthIcon className='w-4' />}
-          MenuProps={{ disableScrollLock: true }}
-          sx={{
-            '& .MuiSelect-select': {
-              paddingRight: '6px !important',
-              '&:focus': {
-                background: 'transparent'
-              }
-            }
-          }}
-        >
+        </VlSelect>
+        <VlSelect variant='standard' disableUnderline value={language} onChange={e => onChangeSelect(e, 'language')} className='px-[17px]' icon={<EarthIcon className='w-4' />}>
           <MenuItem value='en'>{t('components.footer.language.english')}</MenuItem>
           <MenuItem value='de'>{t('components.footer.language.german')}</MenuItem>
-        </Select>
+        </VlSelect>
         <IconButton onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
           <MoonIcon />
         </IconButton>
