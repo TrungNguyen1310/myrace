@@ -1,7 +1,7 @@
 import React, { useTransition } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'routes'
-import Button from 'components/Button'
+import VlButton from 'components/Button'
 import { IMenuItem, clientMenu } from 'utils/menuList'
 
 import '../style.scss'
@@ -34,14 +34,12 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
         </li>
       ))}
       <li>
-        <Button className='bg-vl_neon ml-[12px] 2xl:ml-[37px] w-[98px] text-xs xl:text-sm hover:bg-lime-500'>dApp</Button>
+        <VlButton className='bg-vl_neon ml-[12px] 2xl:ml-[37px] w-[98px] hover:bg-lime-500'>dApp</VlButton>
       </li>
       <li>
-        <Button
-          customprops={{
-            border: true
-          }}
-          className='ml-[6px] w-[98px] dark:text-white text-xs xl:text-sm'
+        <VlButton
+          primary
+          className='ml-[6px] w-[98px]'
           onClick={() =>
             startTransition(() => {
               navigate(ROUTES.SIGNIN)
@@ -49,7 +47,7 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
           }
         >
           {t('components.navbar.sign_in')}
-        </Button>
+        </VlButton>
       </li>
     </ul>
   )
