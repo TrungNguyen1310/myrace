@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .vl-input {
+    font-weight: theme('fontWeight.bold');
+    font-size: theme('fontSize.sm');
+    line-height: theme('lineHeight.sm');
+  }
+}

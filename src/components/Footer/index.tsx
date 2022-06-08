@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { MenuItem } from '@mui/material'
 import { IconButton, SelectChangeEvent } from '@mui/material'
-import { ReactComponent as EarthIcon } from 'assets/icons/earth.svg'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import VlSelect from '../Select'
@@ -12,7 +11,6 @@ const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
-  const [country, setCountry] = useState<string>('')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -49,10 +47,6 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <VlSelect label='Field text' placeholder='Select Item...' value={country} onChange={e => setCountry(e.target.value)} className='w-[360px]'>
-          <MenuItem value='vn'>Viet Nam</MenuItem>
-          <MenuItem value='usa'>United State of America</MenuItem>
-        </VlSelect>
         <VlSelect variant='standard' disableUnderline value={currency} onChange={e => onChangeSelect(e, 'currency')}>
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>
