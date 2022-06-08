@@ -6,11 +6,13 @@ import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import VlSelect from '../Select'
 import './style.scss'
+import VlInput from 'components/Input'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
+  const [text, setText] = useState<string>('')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -47,6 +49,7 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
+        <VlInput label='Text field' placeholder='Input...' value={text} onChange={e => setText(e.target.value)} />
         <VlSelect variant='standard' disableUnderline value={currency} onChange={e => onChangeSelect(e, 'currency')}>
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>

@@ -19,10 +19,12 @@ const InputStyled = styled(TextField)(({ theme }) => ({
   '.MuiOutlinedInput-notchedOutline': {
     border: 'none'
   },
+  '.MuiInputBase-input': {
+    height: '100%'
+  },
   '.MuiInput-input': {
     padding: 0,
-    paddingBottom: '15px',
-    height: 'auto'
+    height: '100%'
   },
   '.MuiOutlinedInput-input': {
     padding: '0 20px'
@@ -30,25 +32,29 @@ const InputStyled = styled(TextField)(({ theme }) => ({
   '& .MuiOutlinedInput-root': {
     '&.Mui-focused': {
       borderColor: theme.palette.color.vl_grey[700],
-      transition: 'all .2s ease-in-out'
+      transition: 'all .15s ease-in-out',
+      '&:hover': {
+        borderColor: theme.palette.color.vl_grey[700]
+      }
+    },
+    '&:hover': {
+      borderColor: theme.palette.color.vl_grey[600]
     }
   },
   '.MuiInput-root:before': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[600]}`,
-    bottom: '6px'
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`,
+    height: 0
   },
   '.MuiInput-root:hover:before': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[700]}`,
-    bottom: '6px'
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`,
+    height: 0
   },
   '.MuiInput-root:after': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[700]}`,
-    bottom: '6px'
+    border: `1px solid ${theme.palette.color.vl_grey[700]}`
   }
 }))
 
 const InputLabelStyle = styled(InputLabel)(() => ({
-  position: 'relative',
   transform: 'initial'
 }))
 
@@ -56,11 +62,12 @@ const VlInput: React.FC<IInput> = ({ className, label = '', placeholder = '', va
   const [theme] = useContext(ThemeContext)
   const baseStyle = `vl-input dark:text-white h-[48px] rounded-[24px] ${theme === 'dark' && 'darkmode'}`
   const borderStyle = `${props.variant === 'standard' ? '' : 'border-solid border border-vl_grey-600'}`
+  const labelStyle = `${props.variant === 'standard' ? '-mt-2' : '-translate-y-full pb-2'}`
 
   return (
     <FormControl>
       {label && (
-        <InputLabelStyle focused={false} htmlFor='my-input' className='text-xs font-medium text-black dark:text-white not-italic'>
+        <InputLabelStyle focused={false} htmlFor='my-input' className={`${labelStyle} absolute top-0 text-xs font-medium text-black dark:text-white not-italic`}>
           {label}
         </InputLabelStyle>
       )}

@@ -14,7 +14,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       paddingLeft: '8px'
     },
     '&::placeholder': {
-      color: theme.palette.color.vl_grey[600],
+      color: theme.palette.color.vl_black[100],
       fontFamily: 'Inter',
       fontStyle: 'normal',
       fontWeight: 400,
