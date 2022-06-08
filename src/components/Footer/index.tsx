@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
-  const [country, setCountry] = useState<string>('vn')
+  const [country, setCountry] = useState<string>('')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <VlSelect value={country} onChange={e => setCountry(e.target.value)} className='mx-8 w-[360px]'>
+        <VlSelect variant='standard' label='Field text' placeholder='Select Item...' value={country} onChange={e => setCountry(e.target.value)} className='w-[360px]'>
           <MenuItem value='vn'>Viet Nam</MenuItem>
           <MenuItem value='usa'>United State of America</MenuItem>
         </VlSelect>
@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>
         </VlSelect>
-        <VlSelect variant='standard' disableUnderline value={language} onChange={e => onChangeSelect(e, 'language')} className='px-[17px]' icon={<EarthIcon className='w-4' />}>
+        <VlSelect variant='standard' disableUnderline value={language} onChange={e => onChangeSelect(e, 'language')} className='px-[41px]'>
           <MenuItem value='en'>{t('components.footer.language.english')}</MenuItem>
           <MenuItem value='de'>{t('components.footer.language.german')}</MenuItem>
         </VlSelect>
