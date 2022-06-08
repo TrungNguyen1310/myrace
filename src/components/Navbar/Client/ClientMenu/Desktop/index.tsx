@@ -25,7 +25,7 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
   }
 
   return (
-    <ul className='text-vl_grey-600 dark:text-white flex items-center'>
+    <ul className='text-vl_grey-700 dark:text-white flex items-center'>
       {clientMenu.map(menu => (
         <li key={menu.id}>
           <p onClick={() => onClickMenu(menu)} className={`${className1(menu)} ${className2(menu)} text-sm xl:text-base font-bold cursor-pointer`}>

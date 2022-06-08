@@ -23,7 +23,7 @@ const ViewMobile = () => {
           </IconButton>
         </li>
         <li className='flex justify-center items-center'>
-          <IconButton className='dark:user-icon p-[11px] border-solid border border-vl_grey-600'>
+          <IconButton className='dark:user-icon p-[11px] border-solid border border-vl_grey-700'>
             <UserIcon />
           </IconButton>
         </li>

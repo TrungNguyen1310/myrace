@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .footer-select {
+  .vl-select {
     font-weight: theme('fontWeight.bold');
     font-size: theme('fontSize.sm');
     line-height: theme('lineHeight.sm');
@@ -20,7 +20,7 @@
   .arrow-icon {
     svg {
       path {
-       @apply fill-vl_grey-700 dark:fill-vl_white;
+       @apply fill-vl_grey-800 dark:fill-vl_white;
       }
     }
   }

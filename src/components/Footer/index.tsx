@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <VlSelect variant='standard' label='Field text' placeholder='Select Item...' value={country} onChange={e => setCountry(e.target.value)} className='w-[360px]'>
+        <VlSelect label='Field text' placeholder='Select Item...' value={country} onChange={e => setCountry(e.target.value)} className='w-[360px]'>
           <MenuItem value='vn'>Viet Nam</MenuItem>
           <MenuItem value='usa'>United State of America</MenuItem>
         </VlSelect>

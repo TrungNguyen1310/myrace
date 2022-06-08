@@ -14,15 +14,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       paddingLeft: '8px'
     },
     '&::placeholder': {
-      color: '#949494',
+      color: theme.palette.color.vl_grey[600],
       fontFamily: 'Inter',
       fontStyle: 'normal',
       fontWeight: 400,
-      fontSize: '14px',
-      lineHeight: '21px',
+      fontSize: theme.palette.fontSize.sm,
+      lineHeight: theme.palette.lineHeight.sm,
       [theme.breakpoints.down('xl')]: {
-        fontSize: '12px',
-        lineHeight: '18px'
+        fontSize: theme.palette.fontSize.xs,
+        lineHeight: theme.palette.lineHeight.xs
       }
     }
   },
