@@ -46,11 +46,13 @@ const InputStyled = styled(TextField)(({ theme }) => ({
     height: 0
   },
   '.MuiInput-root:hover:before': {
-    border: `1px solid ${theme.palette.color.vl_grey[600]}`,
-    height: 0
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`
   },
   '.MuiInput-root:after': {
     border: `1px solid ${theme.palette.color.vl_grey[700]}`
+  },
+  '.MuiInput-root:hover:not(.Mui-disabled):before': {
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`
   }
 }))
 
