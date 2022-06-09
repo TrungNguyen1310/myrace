@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .vl-badge {
+    .MuiBadge-badge {
+        @apply dark:text-white dark:bg-primary_blue dark:border-none
+    }
+}
+
+    .vl-badge-primary {
+      .MuiBadge-badge {
+          @apply dark:text-black dark:bg-white dark:border-none
+      }
+
+  }
+}
