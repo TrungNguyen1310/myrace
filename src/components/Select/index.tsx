@@ -34,19 +34,21 @@ const SelectStyle = styled(Select)(({ theme }) => ({
     marginTop: 0
   },
   '& .MuiSelect-select': {
+    padding: 0,
     paddingRight: '0 !important'
   },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
     border: `1px solid ${theme.palette.color.vl_grey[600]}`
   },
   '&.MuiInput-underline:before': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[600]}`
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`,
+    height: 0
   },
   '&.MuiInput-underline:hover:before': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[600]}`
+    border: `1px solid ${theme.palette.color.vl_grey[600]}`
   },
   '&.MuiInput-underline:after': {
-    borderBottom: `1px solid ${theme.palette.color.vl_grey[700]}`
+    border: `1px solid ${theme.palette.color.vl_grey[700]}`
   }
 }))
 
@@ -60,13 +62,14 @@ const InputLabelStyle = styled(InputLabel)(({ theme }) => ({
 
 const VlSelect: React.FC<ISelect> = ({ children, label = '', className, value, placeholder = '', onChange, icon = <ArrowDownIcon />, ...props }) => {
   const [theme] = useContext(ThemeContext)
-  const baseStyle = `vl-select dark:text-white h-[48px] rounded-[24px] ${theme === 'dark' && 'darkmode'}`
+  const baseStyle = `vl-select dark:text-white ${props.variant === 'standard' ? '' : 'pl-[20px]'} h-[48px] rounded-[24px] ${theme === 'dark' && 'darkmode'}`
   const borderStyle = `${props.variant === 'standard' ? '' : 'border-solid border border-vl_grey-600'}`
+  const labelStyle = `${props.variant === 'standard' ? 'absolute -top-2' : ''}`
 
   return (
     <FormControl>
       {label && (
-        <InputLabelStyle focused={false} htmlFor='my-input' className='text-xs font-medium text-black dark:text-white not-italic'>
+        <InputLabelStyle focused={false} htmlFor='my-input' className={`${labelStyle} text-xs font-medium text-black dark:text-white not-italic`}>
           {label}
         </InputLabelStyle>
       )}
