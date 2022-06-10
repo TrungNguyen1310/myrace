@@ -2,6 +2,7 @@
 import React from 'react'
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import './style.scss'
 
 interface ICheckbox {
   // Require
@@ -47,6 +48,7 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
 }))
 
 const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, onChange, ...props }) => {
+  const labelStyle = `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
   return (
     <FormGroup>
       <FormControlLabel
@@ -61,7 +63,7 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, onChange, 
             }}
             disableRipple
             checkedIcon={<BpCheckedIcon />}
-            icon={<BpIcon />}
+            icon={<BpIcon className='bp-icon' />}
             {...props}
             checked={checked}
             onChange={onChange}
@@ -69,7 +71,7 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, onChange, 
           />
         }
         label={label}
-        className='text-vl_black-100 font-bold text-xs'
+        className={[labelStyle, 'font-bold text-xs'].join(' ')}
       />
     </FormGroup>
   )

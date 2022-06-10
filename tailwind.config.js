@@ -121,6 +121,7 @@ module.exports = {
         },
         vl_white: {
           DEFAULT: '#FFFFFF',
+          100: 'rgba(255, 255, 255, 0.5)',
           200: '#F9F9F9'
         },
         vl_neon: '#B6FF00',
