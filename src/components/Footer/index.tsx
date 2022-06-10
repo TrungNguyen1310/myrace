@@ -6,13 +6,13 @@ import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import VlSelect from '../Select'
 import './style.scss'
-import VlCheckbox from '../Checkbox'
+import VlRadio from 'components/Radio/intex'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
   const [currency, setCurrency] = useState<string>('1')
   const [language, setLanguage] = useState<string>('en')
-  const [checked, setChecked] = useState<boolean>(false)
+  const [value, setValue] = useState('')
   const [theme, setTheme] = useContext(ThemeContext)
 
   const toggleDarkMode = () => {
@@ -38,6 +38,10 @@ const Footer: React.FC = () => {
     getCurrentLanguage()
   }, [])
 
+  const onChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue((event.target as HTMLInputElement).value)
+  }
+
   return (
     <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
@@ -49,7 +53,15 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <VlCheckbox label='LABEL' checked={checked} onChange={e => setChecked(e.target.checked)} />
+        <VlRadio
+          onChangeRadio={onChangeRadio}
+          value={value}
+          primary
+          listRadio={[
+            { value: 'female', label: 'Femaleee' },
+            { value: 'male', label: 'Males' }
+          ]}
+        />
         <VlSelect variant='standard' disableUnderline value={currency} onChange={e => onChangeSelect(e, 'currency')}>
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bp-radio-icon {
+    @apply dark:bg-vl_white-100
+  }
+
+  .label-radio {
+    span:last-child {
+        @apply text-xs font-bold
+    }
+  }
+
+  .bp-check-radio-icon {
+    &::before {
+      @apply dark:bg-gradient-radial
+    }
+  }
+}

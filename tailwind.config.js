@@ -152,6 +152,9 @@ module.exports = {
       width: {
         sidebarOpen: '248px',
         sidebarClose: '74px'
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(#000,#000 24%,transparent 34%)'
       }
     },
     fontFamily: {
