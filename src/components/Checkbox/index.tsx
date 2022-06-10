@@ -6,11 +6,13 @@ import './style.scss'
 
 interface ICheckbox {
   // Require
-  checked: boolean
   onChange: any
   // Optional
-  className?: string
+  checked?: boolean // => for single checkbox
+  arrayChecked?: string[] // => for multiple checkboxes
   label?: string
+  listCheckboxes?: { value: string; name: string; label: string }[]
+  className?: string
   disabled?: boolean
 }
 
@@ -47,34 +49,76 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   }
 }))
 
-const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, onChange, ...props }) => {
+const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayChecked, onChange, listCheckboxes = [], ...props }) => {
   const labelStyle = `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
-  return (
-    <FormGroup>
-      <FormControlLabel
-        sx={{
-          marginRight: 0
-        }}
-        control={
-          <Checkbox
-            sx={{
-              '&:hover': { bgcolor: 'transparent' },
-              padding: '10px'
-            }}
-            disableRipple
-            checkedIcon={<BpCheckedIcon />}
-            icon={<BpIcon className='bp-icon' />}
-            {...props}
-            checked={checked}
-            onChange={onChange}
-            className={[className].join(' ')}
-          />
-        }
-        label={label}
-        className={[labelStyle, 'font-bold text-xs'].join(' ')}
-      />
-    </FormGroup>
+  const SingleCheckbox = () => (
+    <FormControlLabel
+      sx={{
+        marginRight: 0
+      }}
+      control={
+        <Checkbox
+          sx={{
+            '&:hover': { bgcolor: 'transparent' },
+            padding: '10px'
+          }}
+          disableRipple
+          checkedIcon={<BpCheckedIcon />}
+          icon={<BpIcon className='bp-icon' />}
+          {...props}
+          checked={checked}
+          onChange={onChange}
+          className={[className].join(' ')}
+        />
+      }
+      label={label}
+      className={[labelStyle, 'font-bold text-xs'].join(' ')}
+    />
   )
+
+  const GroupCheckbox = () => {
+    console.log('arrayChecked: ', arrayChecked)
+
+    const onChecked = (val: string) => {
+      return arrayChecked?.includes(val)
+    }
+
+    return (
+      <>
+        {listCheckboxes?.map(({ value, name, label: labelItem }, index) => (
+          <FormControlLabel
+            key={`checkbox-${index}`}
+            sx={{
+              marginRight: 0
+            }}
+            control={
+              <Checkbox
+                sx={{
+                  '&:hover': { bgcolor: 'transparent' },
+                  padding: '10px'
+                }}
+                disableRipple
+                checkedIcon={<BpCheckedIcon />}
+                icon={<BpIcon className='bp-icon' />}
+                {...props}
+                name={name}
+                value={value}
+                checked={onChecked(value)}
+                onChange={onChange}
+                className={[className].join(' ')}
+              />
+            }
+            label={labelItem}
+            className={[labelStyle, 'font-bold text-xs'].join(' ')}
+          />
+        ))}
+      </>
+    )
+  }
+
+  const renderCheckbox = listCheckboxes?.length === 0 ? SingleCheckbox() : GroupCheckbox()
+
+  return <FormGroup>{renderCheckbox}</FormGroup>
 }
 
 export default VlCheckbox
