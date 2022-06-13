@@ -77,10 +77,13 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayCheck
   )
 
   const GroupCheckbox = () => {
-    console.log('arrayChecked: ', arrayChecked)
-
     const onChecked = (val: string) => {
       return arrayChecked?.includes(val)
+    }
+
+    const labelStyle = (val: string) => {
+      const checked = arrayChecked?.includes(val)
+      return `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
     }
 
     return (
@@ -109,7 +112,7 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayCheck
               />
             }
             label={labelItem}
-            className={[labelStyle, 'font-bold text-xs'].join(' ')}
+            className={[labelStyle(value), 'font-bold text-xs'].join(' ')}
           />
         ))}
       </>
