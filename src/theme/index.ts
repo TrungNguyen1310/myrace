@@ -40,6 +40,7 @@ declare module '@mui/material/styles/createPalette' {
         600: string
         700: string
         800: string
+        '#F5F5FA': string
       }
       vl_white: {
         DEFAULT: string
@@ -99,6 +100,7 @@ declare module '@mui/material/styles/createPalette' {
         600: string
         700: string
         800: string
+        '#F5F5FA': string
       }
       vl_white: {
         DEFAULT: string
@@ -161,7 +163,8 @@ const theme = createTheme({
         500: 'rgba(207, 219, 213, 0.6)',
         600: '#E8E8E8',
         700: '#949494',
-        800: '#6B6B6B'
+        800: '#6B6B6B',
+        '#F5F5FA': '#F5F5FA'
       },
       vl_white: {
         DEFAULT: '#FFFFFF',
