@@ -10,6 +10,7 @@ interface ICheckbox {
   // Optional
   label?: string
   className?: string
+  classNameCheckbox?: string
   checked?: boolean // => for single checkbox
   disabled?: boolean
   arrayChecked?: string[] // => for multiple checkboxes
@@ -49,7 +50,7 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   }
 }))
 
-const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayChecked, onChange, listCheckboxes = [], ...props }) => {
+const VlCheckbox: React.FC<ICheckbox> = ({ className, classNameCheckbox, label, checked, arrayChecked, onChange, listCheckboxes = [], ...props }) => {
   const labelStyle = `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
   const SingleCheckbox = () => (
     <FormControlLabel
@@ -87,7 +88,7 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayCheck
     }
 
     return (
-      <>
+      <div>
         {listCheckboxes?.map(({ value, name, label: labelItem }, index) => (
           <FormControlLabel
             key={`checkbox-${index}`}
@@ -108,14 +109,14 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, label, checked, arrayCheck
                 value={value}
                 checked={onChecked(value)}
                 onChange={onChange}
-                className={[className].join(' ')}
+                className={[classNameCheckbox].join(' ')}
               />
             }
             label={labelItem}
-            className={[labelStyle(value), 'font-bold text-xs'].join(' ')}
+            className={[labelStyle(value), className, 'font-bold text-xs'].join(' ')}
           />
         ))}
-      </>
+      </div>
     )
   }
 
