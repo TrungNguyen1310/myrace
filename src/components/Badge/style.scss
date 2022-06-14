@@ -5,14 +5,19 @@
 @layer components {
   .vl-badge {
     .MuiBadge-badge {
-        @apply dark:text-white dark:bg-primary_blue dark:border-none
+        @apply text-xs font-bold min-w-[26px] min-h-[18px] h-auto px-[9px] border-solid border border-vl_grey-500
     }
-}
+  }
 
-    .vl-badge-primary {
-      .MuiBadge-badge {
-          @apply dark:text-black dark:bg-white dark:border-none
-      }
+  .vl-badge-base {
+    .MuiBadge-badge {
+      @apply text-vl_black
+    }
+  }
 
+  .vl-badge-primary {
+    .MuiBadge-badge {
+      @apply text-vl_white border-none
+    }
   }
 }
