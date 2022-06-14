@@ -8,12 +8,12 @@ interface ICheckbox {
   // Require
   onChange: any
   // Optional
-  checked?: boolean // => for single checkbox
-  arrayChecked?: string[] // => for multiple checkboxes
   label?: string
-  listCheckboxes?: { value: string; name: string; label: string }[]
   className?: string
+  checked?: boolean // => for single checkbox
   disabled?: boolean
+  arrayChecked?: string[] // => for multiple checkboxes
+  listCheckboxes?: { value: string; name: string; label: string }[] // => for multiple checkboxes
 }
 
 const BpIcon = styled('span')(({ theme }) => ({

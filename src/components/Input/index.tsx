@@ -6,8 +6,10 @@ import { ThemeContext } from 'context/ThemeContext'
 import './style.scss'
 
 interface IInput {
+  // REQUIRED
   value: string | number | boolean | null | undefined
   onChange: any
+  // OPTIONAL
   label?: string
   placeholder?: string
   className?: string

@@ -4,7 +4,9 @@ import Box from '@mui/material/Box'
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
 
 interface IProgress {
+  // REQUIRED
   value: number
+  // OPTIONAL
   primary?: boolean
   secondaryYellow?: boolean
   secondaryPink?: boolean
