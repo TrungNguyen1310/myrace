@@ -41,6 +41,23 @@ const Demo: React.FC = () => {
       checked: true
     }
   ])
+  const [value4, setvalue4] = useState<ICheckboxList[]>([
+    {
+      label: 'Apple',
+      value: 'apple',
+      checked: true
+    },
+    {
+      label: 'Melon',
+      value: 'melon',
+      checked: false
+    },
+    {
+      label: 'Orange',
+      value: 'orange',
+      checked: true
+    }
+  ])
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -76,15 +93,20 @@ const Demo: React.FC = () => {
       <VlCheckbox darkMode={false} label='Checkbox without darkMode' onChange={e => setvalue(e.target.checked)} checked={value} />
       <VlCheckbox label='Checkbox' disabled onChange={e => setvalue1(e.target.checked)} checked={value1} />
       <VlCheckbox
-        className={value2 ? 'text-primary_blue dark:text-secondary_pink' : 'text-red-400 dark:text-secondary_yellow'}
+        labelStyle={value2 ? 'text-primary_blue dark:text-secondary_pink' : 'text-red-400 dark:text-secondary_yellow'}
         label='Checkbox - Custom color'
         onChange={e => setvalue2(e.target.checked)}
         checked={value2}
       />
-      {/* <div className='flex flex-row items-center'> */}
-      <strong className='mr-4'>Checkbox Group: </strong>
-      <CheckboxGroup checkboxesList={value3} onCheckboxGroupChange={val => setvalue3(val)} checkAll />
-      {/* </div> */}
+      <strong className='mr-4'>Checkbox Group (without darkMode): </strong>
+      <CheckboxGroup darkMode={false} className='flex' checkboxesList={value3} onCheckboxGroupChange={val => setvalue3(val)} checkAll />
+      <strong className='mr-4'>Checkbox Group (with darkMode): </strong>
+      <CheckboxGroup
+        labelStyleActive='text-primary_blue dark:text-secondary_pink'
+        labelStyleInActive='text-green-400 dark:text-primary_purple'
+        checkboxesList={value4}
+        onCheckboxGroupChange={val => setvalue4(val)}
+      />
     </AnimationLayouts>
   )
 }

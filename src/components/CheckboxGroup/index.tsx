@@ -13,9 +13,25 @@ interface ICheckboxGroup {
   checkboxesList: ICheckboxList[]
   onCheckboxGroupChange: any
   checkAll?: boolean
+  darkMode?: boolean
+  className?: string
+  classNameFormCheckbox?: string
+  classNameCheckbox?: string
+  labelStyleActive?: string
+  labelStyleInActive?: string
 }
 
-const CheckboxGroup: React.FC<ICheckboxGroup> = ({ checkboxesList = [], onCheckboxGroupChange = () => undefined, checkAll = false }) => {
+const CheckboxGroup: React.FC<ICheckboxGroup> = ({
+  checkAll = false,
+  darkMode = true,
+  checkboxesList = [],
+  onCheckboxGroupChange = () => undefined,
+  className,
+  classNameCheckbox,
+  classNameFormCheckbox,
+  labelStyleActive,
+  labelStyleInActive
+}) => {
   const [parentCheckboxChecked, setParentCheckboxChecked] = useState<boolean>(false)
 
   // *********** [START] HANDLE SELECT ALL CHECKBOXES ***********
@@ -57,24 +73,39 @@ const CheckboxGroup: React.FC<ICheckboxGroup> = ({ checkboxesList = [], onCheckb
 
     return checkboxesList.map((item, index) => (
       <CheckboxItem
+        darkMode={darkMode}
         key={`checkbox-${index}`}
+        checked={item.checked}
         checkboxLabel={item.label}
         checkboxValue={item.value}
-        checked={item.checked}
         checkboxChangeCallback={checkStatus => handleChildCheckboxChange(checkStatus, index)}
+        className={classNameCheckbox}
+        classNameFormCheckbox={classNameFormCheckbox}
+        labelStyleActive={labelStyleActive}
+        labelStyleInActive={labelStyleInActive}
       />
     ))
   }
 
   return (
-    <div className='checkbox-wrapper'>
-      <FormGroup>
-        <div className='checkbox-head'>
-          {checkAll && <CheckboxItem checkboxLabel='All' checkboxValue='all' checked={parentCheckboxChecked} checkboxChangeCallback={handleParentCheckboxChange} />}
-          <div className='checkbox-children'>{renderCheckboxes()}</div>
-        </div>
-      </FormGroup>
-    </div>
+    <FormGroup>
+      <div className={[className].join(' ')}>
+        {checkAll && (
+          <CheckboxItem
+            checkboxLabel='All'
+            checkboxValue='all'
+            checked={parentCheckboxChecked}
+            checkboxChangeCallback={handleParentCheckboxChange}
+            darkMode={darkMode}
+            className={classNameCheckbox}
+            classNameFormCheckbox={classNameFormCheckbox}
+            labelStyleActive={labelStyleActive}
+            labelStyleInActive={labelStyleInActive}
+          />
+        )}
+        <div className='checkbox-children'>{renderCheckboxes()}</div>
+      </div>
+    </FormGroup>
   )
 }
 

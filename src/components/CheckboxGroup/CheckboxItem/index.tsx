@@ -8,6 +8,11 @@ interface ICheckboxItem {
   checkboxValue: string
   checked: boolean
   checkboxChangeCallback?: any
+  darkMode: boolean
+  className?: string
+  classNameFormCheckbox?: string
+  labelStyleActive?: string
+  labelStyleInActive?: string
 }
 
 const BpIcon = styled('span')(({ theme }) => ({
@@ -43,16 +48,36 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   }
 }))
 
-const CheckboxItem: React.FC<ICheckboxItem> = ({ checkboxLabel, checkboxValue, checked, checkboxChangeCallback = () => undefined }) => {
+const CheckboxItem: React.FC<ICheckboxItem> = ({
+  checkboxLabel,
+  checkboxValue,
+  checked,
+  checkboxChangeCallback = () => undefined,
+  darkMode = true,
+  className,
+  classNameFormCheckbox,
+  labelStyleActive,
+  labelStyleInActive
+}) => {
+  const labelColor = () => {
+    // if darkMode: ON
+    if (darkMode) {
+      if (checked) {
+        return labelStyleActive ? labelStyleActive : 'dark:text-vl_white text-vl_black'
+      } else {
+        return labelStyleInActive ? labelStyleInActive : 'dark:text-vl_white-100 text-vl_black-100'
+      }
+    }
+
+    return `${checked ? 'text-vl_black' : 'text-vl_black-100'}`
+  }
+
   const handleCheckboxChange = e => {
     checkboxChangeCallback(e.target.checked)
   }
 
   return (
     <FormControlLabel
-      sx={{
-        marginRight: 0
-      }}
       control={
         <Checkbox
           sx={{
@@ -61,13 +86,15 @@ const CheckboxItem: React.FC<ICheckboxItem> = ({ checkboxLabel, checkboxValue, c
           }}
           disableRipple
           checkedIcon={<BpCheckedIcon />}
-          icon={<BpIcon className='bp-icon' />}
+          icon={<BpIcon className={darkMode ? 'bp-icon' : ''} />}
           checked={checked}
           onChange={handleCheckboxChange}
           value={checkboxValue}
+          className={[className].join(' ')}
         />
       }
-      label={checkboxLabel}
+      label={<div className={['font-bold text-xs', labelColor(), className].join(' ')}>{checkboxLabel}</div>}
+      className={[classNameFormCheckbox].join(' ')}
     />
   )
 }

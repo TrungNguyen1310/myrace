@@ -7,11 +7,12 @@ import './style.scss'
 interface ICheckbox {
   // Require
   onChange: any
+  checked: boolean
   // Optional
   label?: string
   className?: string
+  labelStyle?: string
   classNameCheckbox?: string
-  checked?: boolean // => for single checkbox
   disabled?: boolean
   darkMode?: boolean
 }
@@ -49,55 +50,9 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   }
 }))
 
-const VlCheckbox: React.FC<ICheckbox> = ({ className, classNameCheckbox, label, checked, darkMode = true, onChange, ...props }) => {
-  // const GroupCheckbox = () => {
-  //   const onChecked = (val: string) => {
-  //     return arrayChecked?.includes(val)
-  //   }
-
-  //   const labelStyle = (val: string) => {
-  //     const checked = arrayChecked?.includes(val)
-
-  //     // if darkMode: ON
-  //     if (darkMode) return `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
-
-  //     return `${checked ? 'text-vl_black' : 'text-vl_black-100'}`
-  //   }
-
-  //   return (
-  //     <div>
-  //       {listCheckboxes?.map(({ value, name, label: labelItem }, index) => (
-  //         <FormControlLabel
-  //           key={`checkbox-${index}`}
-  //           sx={{
-  //             marginRight: 0
-  //           }}
-  //           control={
-  //             <Checkbox
-  //               sx={{
-  //                 '&:hover': { bgcolor: 'transparent' },
-  //                 padding: '10px'
-  //               }}
-  //               disableRipple
-  //               checkedIcon={<BpCheckedIcon />}
-  //               icon={<BpIcon className='bp-icon' />}
-  //               {...props}
-  //               name={name}
-  //               value={value}
-  //               checked={onChecked(value)}
-  //               onChange={onChange}
-  //               className={[classNameCheckbox].join(' ')}
-  //             />
-  //           }
-  //           label={labelItem}
-  //           className={[labelStyle(value), className, 'font-bold text-xs'].join(' ')}
-  //         />
-  //       ))}
-  //     </div>
-  //   )
-  // }
-
-  const labelStyle = () => {
+const VlCheckbox: React.FC<ICheckbox> = ({ className, classNameCheckbox, label, checked, darkMode = true, onChange, labelStyle, ...props }) => {
+  const labelColor = () => {
+    if (props.disabled) return 'text-vl_grey-600'
     // if darkMode: ON
     if (darkMode) return `${checked ? 'dark:text-vl_white text-vl_black' : 'dark:text-vl_white-100 text-vl_black-100'}`
 
@@ -107,9 +62,6 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, classNameCheckbox, label, 
   return (
     <FormGroup>
       <FormControlLabel
-        sx={{
-          marginRight: 0
-        }}
         control={
           <Checkbox
             sx={{
@@ -118,15 +70,15 @@ const VlCheckbox: React.FC<ICheckbox> = ({ className, classNameCheckbox, label, 
             }}
             disableRipple
             checkedIcon={<BpCheckedIcon />}
-            icon={<BpIcon className='bp-icon' />}
+            icon={<BpIcon className={darkMode ? 'bp-icon' : ''} />}
             {...props}
             checked={checked}
             onChange={onChange}
             className={[classNameCheckbox].join(' ')}
           />
         }
-        label={label}
-        className={[labelStyle(), className, 'font-bold text-xs'].join(' ')}
+        label={<div className={[labelColor(), labelStyle, 'font-bold text-xs'].join(' ')}>{label}</div>}
+        className={[className].join(' ')}
       />
     </FormGroup>
   )
