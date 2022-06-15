@@ -5,6 +5,7 @@ import LoadingSpinner from 'components/LoadingSpinner'
 import AnimationLayouts from 'layouts/animationLayouts'
 import VlBadge from 'components/Badge'
 import VlCheckbox from 'components/Checkbox'
+import CheckboxGroup, { ICheckboxList } from 'components/CheckboxGroup'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -13,7 +14,33 @@ const Demo: React.FC = () => {
   const [value, setvalue] = useState<boolean>(false)
   const [value1, setvalue1] = useState<boolean>(true)
   const [value2, setvalue2] = useState<boolean>(true)
-  const [value3, setvalue3] = useState<string[]>([])
+  const [value3, setvalue3] = useState<ICheckboxList[]>([
+    {
+      label: 'Shawshank Redemption',
+      value: 'shawshankRedemption',
+      checked: true
+    },
+    {
+      label: 'The Godfather',
+      value: 'theGodfather',
+      checked: false
+    },
+    {
+      label: 'The Dark Knight',
+      value: 'theDarkKnight',
+      checked: true
+    },
+    {
+      label: 'Saving Private Ryan',
+      value: 'savingPrivateRyan',
+      checked: false
+    },
+    {
+      label: 'Schindlers List',
+      value: 'schindlersList',
+      checked: true
+    }
+  ])
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -54,28 +81,10 @@ const Demo: React.FC = () => {
         onChange={e => setvalue2(e.target.checked)}
         checked={value2}
       />
-      {/* <div className='flex flex-row items-center'>
-        <div className='mr-4'>Checkbox Group</div>
-        <VlCheckbox
-          listCheckboxes={[
-            { value: 'apple', name: 'apple', label: 'Apple' },
-            { value: 'lemon', name: 'lemon', label: 'Lemon' },
-            { value: 'melon', name: 'melon', label: 'Melon' }
-          ]}
-          className='mr-4'
-          arrayChecked={value3}
-          onChange={e => {
-            let arr = [...value3]
-
-            if (arr.includes(e.target.value)) {
-              arr = arr.filter(item => item !== e.target.value)
-            } else {
-              arr.push(e.target.value)
-            }
-            setvalue3(arr)
-          }}
-        />
-      </div> */}
+      {/* <div className='flex flex-row items-center'> */}
+      <strong className='mr-4'>Checkbox Group: </strong>
+      <CheckboxGroup checkboxesList={value3} onCheckboxGroupChange={val => setvalue3(val)} checkAll />
+      {/* </div> */}
     </AnimationLayouts>
   )
 }
