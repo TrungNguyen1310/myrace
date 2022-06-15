@@ -45,10 +45,17 @@ const Demo: React.FC = () => {
       </VlBadge>
       <br />
       <br />
-      <VlCheckbox label='Checkbox' onChange={e => setvalue(e.target.checked)} checked={value} />
+      <VlCheckbox label='Checkbox with darkMode' onChange={e => setvalue(e.target.checked)} checked={value} />
+      <VlCheckbox darkMode={false} label='Checkbox without darkMode' onChange={e => setvalue(e.target.checked)} checked={value} />
       <VlCheckbox label='Checkbox' disabled onChange={e => setvalue1(e.target.checked)} checked={value1} />
-      <VlCheckbox label='Checkbox' onChange={e => setvalue2(e.target.checked)} checked={value2} />
-      <div className='flex flex-row'>
+      <VlCheckbox
+        className={value2 ? 'text-primary_blue dark:text-secondary_pink' : 'text-red-400 dark:text-secondary_yellow'}
+        label='Checkbox - Custom color'
+        onChange={e => setvalue2(e.target.checked)}
+        checked={value2}
+      />
+      {/* <div className='flex flex-row items-center'>
+        <div className='mr-4'>Checkbox Group</div>
         <VlCheckbox
           listCheckboxes={[
             { value: 'apple', name: 'apple', label: 'Apple' },
@@ -68,7 +75,7 @@ const Demo: React.FC = () => {
             setvalue3(arr)
           }}
         />
-      </div>
+      </div> */}
     </AnimationLayouts>
   )
 }
