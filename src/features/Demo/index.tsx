@@ -9,6 +9,7 @@ import CheckboxGroup, { ICheckboxList } from 'components/CheckboxGroup'
 import VlInput from 'components/Input'
 import { IconButton, InputAdornment } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import VlProgressBar from 'components/ProgressBar'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -138,6 +139,15 @@ const Demo: React.FC = () => {
         onChange={e => setvalue7(e.target.value)}
       />
       <VlInput variant='standard' classNameInput='dark:text-primary_purple' className='ml-4' label='ABC' placeholder='Input...' value={value8} onChange={e => setvalue8(e.target.value)} />
+      <br />
+      <h1>PROGRESS BAR</h1>
+      <VlProgressBar value={30} className='w-full' />
+      <VlProgressBar value={60} classNameWrapper='mt-3' className='w-[100px]' secondarypink />
+      <VlProgressBar value={90} classNameWrapper='mt-3' className='w-[200px]' secondaryyellow label='90%' />
+      <VlProgressBar value={50} classNameWrapper='mt-3' className='w-[300px]' primary />
+      <VlProgressBar value={0} classNameWrapper='mt-3' className='w-[300px]' primary label='0%' />
+      <br />
+      <h1>RADIO</h1>
     </AnimationLayouts>
   )
 }
