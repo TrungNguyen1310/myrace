@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode, useContext } from 'react'
+import React, { ReactNode } from 'react'
 import { styled } from '@mui/material/styles'
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import { ThemeContext } from 'context/ThemeContext'
 import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrowdown.svg'
 
 import './style.scss'
@@ -14,11 +13,14 @@ interface ISelect {
   onChange: any
   // Optional
   label?: string
+  labelStyle?: string
   placeholder?: string
   className?: string
+  classNameWrapper?: string
   icon?: any
   sx?: any
   disabled?: boolean
+  darkMode?: boolean
   disableUnderline?: boolean
   variant?: 'standard' | 'outlined' | undefined // remove 'filled' value
 }
@@ -60,16 +62,18 @@ const InputLabelStyle = styled(InputLabel)(({ theme }) => ({
   paddingBottom: '8px'
 }))
 
-const VlSelect: React.FC<ISelect> = ({ children, label = '', className, value, placeholder = '', onChange, icon = <ArrowDownIcon />, ...props }) => {
-  const [theme] = useContext(ThemeContext)
-  const baseStyle = `vl-select dark:text-white ${props.variant === 'standard' ? '' : 'pl-[20px]'} h-[48px] rounded-[24px] ${theme === 'dark' && 'darkmode'}`
+const VlSelect: React.FC<ISelect> = ({ children, label = '', className, classNameWrapper, value, placeholder = '', onChange, icon = <ArrowDownIcon />, darkMode = true, labelStyle, ...props }) => {
+  const baseStyle = `vl-select ${darkMode ? 'dark:text-vl_white' : 'text-vl_black'} ${props.variant === 'standard' ? '' : 'pl-[20px]'} h-[48px] rounded-[24px] min-w-[100px]`
   const borderStyle = `${props.variant === 'standard' ? '' : 'border-solid border border-vl_grey-600'}`
-  const labelStyle = `${props.variant === 'standard' ? 'absolute -top-2' : ''}`
+  const labelstyle = `${props.variant === 'standard' ? 'absolute -top-2' : ''}`
+  const labelDarkMode = () => {
+    return darkMode ? (labelStyle ? labelStyle : 'dark:text-white') : ''
+  }
 
   return (
-    <FormControl>
+    <FormControl className={classNameWrapper}>
       {label && (
-        <InputLabelStyle focused={false} htmlFor='my-input' className={`${labelStyle} text-xs font-medium text-black dark:text-white not-italic`}>
+        <InputLabelStyle focused={false} htmlFor='my-input' className={['text-xs font-medium not-italic text-black', labelstyle, labelDarkMode()].join(' ')}>
           {label}
         </InputLabelStyle>
       )}
@@ -79,7 +83,7 @@ const VlSelect: React.FC<ISelect> = ({ children, label = '', className, value, p
         onChange={onChange}
         MenuProps={{ disableScrollLock: true }}
         className={[baseStyle, borderStyle, className].join(' ')}
-        IconComponent={() => <div className={`pr-[18px] ${props.variant === 'standard' ? 'hidden' : 'arrow-icon'}`}>{icon}</div>} // ICON
+        IconComponent={() => <div className={`pr-[18px] ${props.variant === 'standard' ? 'hidden' : darkMode ? 'arrow-icon' : ''}`}>{icon}</div>} // ICON
         displayEmpty
       >
         {/* PLACEHOLDER */}

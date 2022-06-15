@@ -7,10 +7,11 @@ import VlBadge from 'components/Badge'
 import VlCheckbox from 'components/Checkbox'
 import CheckboxGroup, { ICheckboxList } from 'components/CheckboxGroup'
 import VlInput from 'components/Input'
-import { IconButton, InputAdornment } from '@mui/material'
+import { IconButton, InputAdornment, MenuItem } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import VlProgressBar from 'components/ProgressBar'
 import VlRadio from 'components/Radio'
+import VlSelect from 'components/Select'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -69,6 +70,7 @@ const Demo: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [value8, setvalue8] = useState<string>('hello')
   const [value9, setvalue9] = useState<string>('apple')
+  const [value10, setvalue10] = useState<string>('')
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -162,6 +164,34 @@ const Demo: React.FC = () => {
           { value: 'oppo', label: 'Oppo' }
         ]}
       />
+      <br />
+      <h1>SELECT</h1>
+      <VlSelect label='Country 1' placeholder='Select country' value={value10} onChange={e => setvalue10(e.target.value)}>
+        <MenuItem value='vn'>Viet Nam</MenuItem>
+        <MenuItem value='usa'>USA</MenuItem>
+        <MenuItem value='ca'>Canada</MenuItem>
+      </VlSelect>
+
+      <VlSelect className='w-[200px]' classNameWrapper='ml-8' darkMode={false} label='Country 2' placeholder='Select country' value={value10} onChange={e => setvalue10(e.target.value)}>
+        <MenuItem value='vn'>Viet Nam</MenuItem>
+        <MenuItem value='usa'>USA</MenuItem>
+        <MenuItem value='ca'>Canada</MenuItem>
+      </VlSelect>
+
+      <VlSelect
+        classNameWrapper='ml-8'
+        className='dark:text-primary_blue'
+        variant='standard'
+        label='Country 3'
+        labelStyle='dark:text-red-500'
+        placeholder='Select country'
+        value={value10}
+        onChange={e => setvalue10(e.target.value)}
+      >
+        <MenuItem value='vn'>Viet Nam</MenuItem>
+        <MenuItem value='usa'>USA</MenuItem>
+        <MenuItem value='ca'>Canada</MenuItem>
+      </VlSelect>
     </AnimationLayouts>
   )
 }
