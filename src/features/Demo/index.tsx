@@ -12,6 +12,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import VlProgressBar from 'components/ProgressBar'
 import VlRadio from 'components/Radio'
 import VlSelect from 'components/Select'
+import VlSwitch from 'components/Switch'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -71,6 +72,7 @@ const Demo: React.FC = () => {
   const [value8, setvalue8] = useState<string>('hello')
   const [value9, setvalue9] = useState<string>('apple')
   const [value10, setvalue10] = useState<string>('')
+  const [value11, setvalue11] = useState<boolean>(false)
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -192,6 +194,10 @@ const Demo: React.FC = () => {
         <MenuItem value='usa'>USA</MenuItem>
         <MenuItem value='ca'>Canada</MenuItem>
       </VlSelect>
+      <br />
+      <h1>SWITCH</h1>
+      <VlSwitch checked={value11} onChange={e => setvalue11(e.target.checked)} />
+      <VlSwitch label='Toggle' checked={value11} onChange={e => setvalue11(e.target.checked)} />
     </AnimationLayouts>
   )
 }

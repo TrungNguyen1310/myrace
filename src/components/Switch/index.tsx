@@ -11,7 +11,6 @@ interface ISwitch {
   // Optional
   label?: string
   className?: string
-  defaultChecked?: boolean
 }
 
 const SwitchStyled = styled((props: ISwitch | SwitchProps) => <Switch focusVisibleClassName='.Mui-focusVisible' disableRipple {...props} />)(({ theme }) => ({
