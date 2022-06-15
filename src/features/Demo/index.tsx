@@ -10,6 +10,7 @@ import VlInput from 'components/Input'
 import { IconButton, InputAdornment } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import VlProgressBar from 'components/ProgressBar'
+import VlRadio from 'components/Radio'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -67,6 +68,7 @@ const Demo: React.FC = () => {
   const [value7, setvalue7] = useState<string>('ssss')
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [value8, setvalue8] = useState<string>('hello')
+  const [value9, setvalue9] = useState<string>('apple')
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -148,6 +150,18 @@ const Demo: React.FC = () => {
       <VlProgressBar value={0} classNameWrapper='mt-3' className='w-[300px]' primary label='0%' />
       <br />
       <h1>RADIO</h1>
+      <VlRadio
+        value={value9}
+        // darkMode={false}
+        labelStyleActive='dark:text-red-500 text-vl_black'
+        labelStyleInActive='dark:text-sky-400 text-vl_black-100'
+        onChangeRadio={e => setvalue9(e.target.value)}
+        listRadio={[
+          { value: 'apple', label: 'Apple' },
+          { value: 'samsung', label: 'Samsung' },
+          { value: 'oppo', label: 'Oppo' }
+        ]}
+      />
     </AnimationLayouts>
   )
 }

@@ -11,9 +11,12 @@ interface IRadio {
   onChangeRadio: any
   listRadio: { value: string; label: string; disabled?: boolean }[]
   // Optional
-  className?: string
   primary?: boolean
+  darkMode?: boolean
+  className?: string
   radioClassName?: string
+  labelStyleActive?: string
+  labelStyleInActive?: string
 }
 
 const BpIcon = styled('span')(({ theme }) => ({
@@ -34,21 +37,32 @@ const BpIcon = styled('span')(({ theme }) => ({
   }
 }))
 
-const BpCheckedIcon = styled(BpIcon)<{ primary: string }>(({ theme, primary }) => ({
-  backgroundColor: primary === 'true' ? theme.palette.color.primary.primary_blue : theme.palette.color.secondary.secondary_pink,
-  '&:before': {
-    display: 'block',
-    width: 20,
-    height: 20,
-    backgroundImage: `radial-gradient(${theme.palette.color.vl_white.DEFAULT},${theme.palette.color.vl_white.DEFAULT} 24%,transparent 34%)`,
-    content: '""'
-  },
-  'input:hover ~ &': {
-    backgroundColor: primary === 'true' ? theme.palette.color.primary.primary_blue : theme.palette.color.secondary.secondary_pink
-  }
-}))
+const VlRadio: React.FC<IRadio> = ({ className, radioClassName, labelStyleActive, labelStyleInActive, listRadio, value, onChangeRadio, primary = false, darkMode = true, ...props }) => {
+  const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
+    backgroundColor: primary ? theme.palette.color.primary.primary_blue : theme.palette.color.secondary.secondary_pink,
+    '&:before': {
+      display: 'block',
+      width: 20,
+      height: 20,
+      backgroundImage: `radial-gradient(${theme.palette.color.vl_white.DEFAULT},${theme.palette.color.vl_white.DEFAULT} 24%,transparent 34%)`,
+      content: '""'
+    },
+    'input:hover ~ &': {
+      backgroundColor: primary ? theme.palette.color.primary.primary_blue : theme.palette.color.secondary.secondary_pink
+    }
+  }))
 
-const VlRadio: React.FC<IRadio> = ({ className, radioClassName, listRadio, value, onChangeRadio, primary = false, ...props }) => {
+  const labelStyle = (radioVal: string) => {
+    if (darkMode) {
+      if (value === radioVal) {
+        return labelStyleActive ? labelStyleActive : 'text-vl_black dark:text-vl_white'
+      }
+      return labelStyleInActive ? labelStyleInActive : 'text-vl_black-100 dark:text-vl_white-100'
+    }
+
+    return value === radioVal ? 'text-vl_black' : 'text-vl_black-100'
+  }
+
   return (
     <FormControl>
       <RadioGroup {...props} className={className} onChange={onChangeRadio} value={value}>
@@ -65,13 +79,13 @@ const VlRadio: React.FC<IRadio> = ({ className, radioClassName, listRadio, value
                 }}
                 disabled={disabled}
                 disableRipple
-                checkedIcon={<BpCheckedIcon className='bp-check-radio-icon' primary={primary.toString()} />}
-                icon={<BpIcon className='bp-radio-icon' />}
+                checkedIcon={<BpCheckedIcon className={darkMode ? 'bp-check-radio-icon' : ''} />}
+                icon={<BpIcon className={darkMode ? 'bp-radio-icon' : ''} />}
                 className={[radioClassName].join(' ')}
               />
             }
             label={label}
-            className={`label-radio ${value === radioVal ? 'text-vl_black dark:text-vl_white' : 'text-vl_black-100 dark:text-vl_white-100'}`}
+            className={['label-radio', labelStyle(radioVal)].join(' ')}
           />
         ))}
       </RadioGroup>
