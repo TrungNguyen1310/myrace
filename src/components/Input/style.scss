@@ -7,5 +7,9 @@
     font-weight: theme('fontWeight.bold');
     font-size: theme('fontSize.sm');
     line-height: theme('lineHeight.sm');
+
+    input::placeholder {
+      @apply text-vl_grey-700
+    }
   }
 }

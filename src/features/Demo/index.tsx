@@ -6,6 +6,9 @@ import AnimationLayouts from 'layouts/animationLayouts'
 import VlBadge from 'components/Badge'
 import VlCheckbox from 'components/Checkbox'
 import CheckboxGroup, { ICheckboxList } from 'components/CheckboxGroup'
+import VlInput from 'components/Input'
+import { IconButton, InputAdornment } from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -58,6 +61,11 @@ const Demo: React.FC = () => {
       checked: true
     }
   ])
+  const [value5, setvalue5] = useState<string>('')
+  const [value6, setvalue6] = useState<string>('')
+  const [value7, setvalue7] = useState<string>('ssss')
+  const [showPassword, setShowPassword] = useState<boolean>(false)
+  const [value8, setvalue8] = useState<string>('hello')
 
   useEffect(() => {
     dispatch(fetchAll())
@@ -79,6 +87,7 @@ const Demo: React.FC = () => {
           Decrement
         </button>
       </div>
+      <h1>BADGE</h1>
       <VlBadge badgeContent={10} primary>
         <div className='h-[30px] w-[30px] rounded-full bg-red-200 flex items-center justify-center'>VL</div>
       </VlBadge>
@@ -89,6 +98,7 @@ const Demo: React.FC = () => {
       </VlBadge>
       <br />
       <br />
+      <h1>CHECKBOX</h1>
       <VlCheckbox label='Checkbox with darkMode' onChange={e => setvalue(e.target.checked)} checked={value} />
       <VlCheckbox darkMode={false} label='Checkbox without darkMode' onChange={e => setvalue(e.target.checked)} checked={value} />
       <VlCheckbox label='Checkbox' disabled onChange={e => setvalue1(e.target.checked)} checked={value1} />
@@ -107,6 +117,27 @@ const Demo: React.FC = () => {
         checkboxesList={value4}
         onCheckboxGroupChange={val => setvalue4(val)}
       />
+      <h1>INPUT</h1>
+      <VlInput placeholder='Type...' value={value5} onChange={e => setvalue5(e.target.value)} />
+      <VlInput darkMode={false} className='ml-4' label='ABC' placeholder='Input...' value={value6} onChange={e => setvalue6(e.target.value)} />
+      <VlInput
+        type={showPassword ? 'text' : 'password'}
+        endAdornment={
+          <InputAdornment position='start'>
+            <IconButton onClick={() => setShowPassword(!showPassword)} className='dark:text-red-500 text-sky-400 px-[15px] h-10 w-10'>
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        }
+        className='ml-4'
+        classNameInput='dark:text-primary_blue'
+        label='Password'
+        labelStyle='dark:text-red-300'
+        placeholder='Input password...'
+        value={value7}
+        onChange={e => setvalue7(e.target.value)}
+      />
+      <VlInput variant='standard' classNameInput='dark:text-primary_purple' className='ml-4' label='ABC' placeholder='Input...' value={value8} onChange={e => setvalue8(e.target.value)} />
     </AnimationLayouts>
   )
 }
