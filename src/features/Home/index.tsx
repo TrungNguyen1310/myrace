@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Select from 'components/Select'
+import Input from 'components/Input'
 
 const Home = () => {
+  const [value, setvalue] = useState<string>('')
   const options = [
     { label: 'Apple', value: 'apple' },
     { label: 'Lemon', value: 'lemon' },
@@ -21,6 +23,9 @@ const Home = () => {
     <div>
       <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
       <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />
+      <br />
+      <br />
+      <Input label='Email' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' />
     </div>
   )
 }

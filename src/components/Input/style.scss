@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .input-box {
+        @apply relative flex max-w-[400px] flex-col;
+    }
+
+    .vl-input-outlined {
+        @apply min-h-[48px] flex items-center justify-between bg-vl_white mb-2 order-none relative;
+
+        &__input{
+            @apply min-h-[48px] outline-none w-full -mt-[1px] px-5 border-solid border border-vl_grey-600 rounded-3xl text-sm font-bold;
+            &:focus {
+                @apply border-vl_grey-700 
+            }
+        }
+
+        &__icon {
+            @apply absolute right-0
+        }
+    }
+}
