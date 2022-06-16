@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .vl-select-outlined {
+        @apply min-h-[48px] flex items-center rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold relative;
+
+        &::after {
+            content: "";
+            background: url("/assets/icons/arrowdown.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            right: 14px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            transition: all 0.4s;
+        }
+
+    }
+
+    .vl-select-standard {
+        @apply pb-[15px] mb-2 flex items-center bg-vl_white cursor-pointer border-solid border-b-2 border-vl_grey-600 order-none text-sm font-bold relative;
+    }
+
+    .disabled {
+        @apply bg-[#f5f5f5] w-full h-full z-[1] cursor-not-allowed opacity-50;
+    }
+
+    // .select-box {
+    //     .options-container.active + .selected{
+    //         &::after {
+    //             transform: rotateX(180deg);
+    //             top: -6px;
+    //         }
+    //     }
+    // }
+
+    .select-box {
+        .options-container {
+            @apply bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full opacity-0 transition-all duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
+
+            &::-webkit-scrollbar {
+                @apply w-2 bg-vl_grey-300;
+                border-radius: 0 8px 8px 0;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                @apply bg-vl_grey-500;
+                border-radius: 0 8px 8px 0;
+            }
+        }
+
+        .options-container.active {
+            @apply opacity-100 overflow-auto;
+        }
+
+        .option, .selected {
+            @apply cursor-pointer px-6 py-3
+        }
+
+        .option {
+            @apply cursor-pointer;
+            &:hover {
+                @apply bg-vl_grey-600
+            }
+
+            .radio {
+                @apply hidden
+            }
+        }
+
+        label {
+            @apply cursor-pointer
+        }
+    } 
+}
