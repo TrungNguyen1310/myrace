@@ -29,6 +29,7 @@ const Home = () => {
       <br />
       <Input label='Email' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' icon={<SocialIcon />} />
       <Input classNameInput='bg-red-300' className='ml-20 text-sky-500' labelStyle='text-red-300' label='Text' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' />
+      <Input disabled label='Text' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' />
       <Input label='Password' variant='standard' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' icon={<SocialIcon />} />
     </div>
   )

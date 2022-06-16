@@ -1,16 +1,14 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
 
 import Input from '../Input'
 
 export default {
   title: 'Components/Input',
   component: Input,
-  argTypes: {
-    value: { control: '' }
-  },
   args: {
-    // value: ''
+    disabled: false
   }
 } as ComponentMeta<typeof Input>
 
@@ -30,4 +28,13 @@ Standard.args = {
   placeholder: 'Input email...',
   variant: 'standard',
   value: 'OKOOKO'
+}
+
+export const IconInput = Template.bind({})
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+IconInput.args = {
+  label: 'Social',
+  placeholder: 'Type...',
+  // value: 'Social',
+  icon: <SocialIcon />
 }

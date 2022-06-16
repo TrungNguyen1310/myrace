@@ -30,4 +30,13 @@
             @apply pb-[15px] outline-none w-full border-solid border-b-2 border-vl_grey-600 text-sm font-bold;
         }
     }
+
+    .vl-input-standard,
+    .vl-input-outlined {
+        input {
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
+    }
 }

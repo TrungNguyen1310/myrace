@@ -18,12 +18,24 @@ interface IInput {
   icon?: string | ReactNode
 }
 
-const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, labelStyle, value, onChange = () => undefined, placeholder, icon, type = 'text', variant = 'outlined' }) => {
+const Input: React.FC<IInput> = ({
+  className,
+  classNameInput,
+  label: labelText,
+  labelStyle,
+  value,
+  onChange = () => undefined,
+  placeholder,
+  icon,
+  type = 'text',
+  variant = 'outlined',
+  disabled = false
+}) => {
   const outlinedInput = () => (
     <>
       {variant === 'outlined' && (
         <div className='vl-input-outlined'>
-          <input type={type} value={value} onChange={onChange} className={['vl-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
           {icon && <div className='pl-2 vl-input-outlined__icon cursor-pointer'>{icon}</div>}
         </div>
       )}
@@ -34,7 +46,7 @@ const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, 
     <>
       {variant === 'standard' && (
         <div className='vl-input-standard'>
-          <input type={type} value={value} onChange={onChange} className={['vl-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
         </div>
       )}
     </>
