@@ -16,6 +16,11 @@ const Home = () => {
     { label: 'B', value: 'b' },
     { label: 'C', value: 'c' }
   ]
+  const options2 = [
+    { label: 'Viet Nam', value: 'vn' },
+    { label: 'USA', value: 'usa' },
+    { label: 'Canada', value: 'ca' }
+  ]
 
   const onChangeSelect = value => {
     console.log(value)
@@ -25,6 +30,7 @@ const Home = () => {
     <div>
       <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
       <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />
+      <Select defaultValue='vn' variant='outlined' options={options2} onChange={onChangeSelect} label='Country' />
       <br />
       <br />
       <Input label='Email' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' icon={<SocialIcon />} />

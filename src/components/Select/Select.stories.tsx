@@ -31,7 +31,8 @@ export const Outlined = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Outlined.args = {
   label: 'Juice',
-  placeholder: 'Select juice...'
+  placeholder: 'Select juice...',
+  defaultValue: 'apple'
 }
 
 export const Standard = Template.bind({})

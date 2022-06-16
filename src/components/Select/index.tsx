@@ -12,6 +12,7 @@ interface ISelect {
   options: { value: string; label: string }[]
 
   // OPTIONAL
+  defaultValue?: string
   label?: string
   onChange?: any
   variant?: 'standard' | 'outlined'
@@ -55,6 +56,7 @@ const Select: React.FC<ISelect> = ({
   onChange = () => undefined,
   disabled,
   label: labelText,
+  defaultValue,
   variant = 'outlined',
   className,
   classNameSelect,
@@ -62,8 +64,12 @@ const Select: React.FC<ISelect> = ({
   icon
 }) => {
   const optEl = useRef<any>([])
+  const getDefaultValue = (val: string) => {
+    const getOption = options.find(opt => opt.value === val)
+    return getOption?.label || placeholder
+  }
   const [open, setOpen] = useState<boolean>(false)
-  const [activeOpt, setActiveOpt] = useState<string>(placeholder)
+  const [activeOpt, setActiveOpt] = useState<string>(defaultValue ? getDefaultValue(defaultValue) : placeholder)
 
   const detectSelectEventMouse = () => {
     // handle click outside Select component

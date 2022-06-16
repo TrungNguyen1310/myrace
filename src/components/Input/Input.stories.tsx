@@ -35,6 +35,5 @@ export const IconInput = Template.bind({})
 IconInput.args = {
   label: 'Social',
   placeholder: 'Type...',
-  // value: 'Social',
   icon: <SocialIcon />
 }
