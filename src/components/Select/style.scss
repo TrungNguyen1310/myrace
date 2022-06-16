@@ -42,8 +42,10 @@
     // }
 
     .select-box {
+        @apply relative flex max-w-[400px] flex-col;
+
         .options-container {
-            @apply bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full opacity-0 transition-all duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
+            @apply absolute z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 h-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
 
             &::-webkit-scrollbar {
                 @apply w-2 bg-vl_grey-300;
@@ -57,7 +59,7 @@
         }
 
         .options-container.active {
-            @apply opacity-100 overflow-auto;
+            @apply visible opacity-100 overflow-auto h-auto;
         }
 
         .option, .selected {
