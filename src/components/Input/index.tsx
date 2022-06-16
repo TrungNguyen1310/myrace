@@ -10,15 +10,15 @@ interface IInput {
   label?: string
   onChange?: any
   variant?: 'standard' | 'outlined'
-  className?: string
   disabled?: boolean
   placeholder?: string
+  className?: string
   classNameInput?: string
   labelStyle?: string
   icon?: string | ReactNode
 }
 
-const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, labelStyle, value, onChange = () => undefined, placeholder, icon = 'OK', type = 'text', variant = 'outlined' }) => {
+const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, labelStyle, value, onChange = () => undefined, placeholder, icon, type = 'text', variant = 'outlined' }) => {
   const outlinedInput = () => (
     <>
       {variant === 'outlined' && (

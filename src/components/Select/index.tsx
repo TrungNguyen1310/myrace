@@ -91,15 +91,29 @@ const Select: React.FC<ISelect> = ({
   }
 
   // CLASSNAME
-  const outlinedClassname = `vl-select-outlined ${icon ? '' : 'arrow-icon selected'} border-solid border border-vl_grey-700`
-  const standardClassname = 'vl-select-standard border-solid border-b-2 border-vl_grey-700'
-  const classname = () => {
-    if (open) {
-      return variant === 'outlined' ? outlinedClassname : standardClassname
+  const classname = (type: string) => {
+    switch (type) {
+      case 'outlined':
+        if (open) {
+          return `vl-select-outlined ${icon ? '' : 'arrow-icon selected'} border-solid border border-vl_grey-700`
+        }
+        return `vl-select-outlined ${icon ? '' : 'arrow-icon'}`
+      case 'standard':
+        if (open) {
+          return 'vl-select-standard border-solid border-b-2 border-vl_grey-700'
+        }
+        return 'vl-select-standard'
+      default:
+        return
     }
-
-    return variant === 'outlined' ? `vl-select-outlined ${icon ? '' : 'arrow-icon'}` : 'vl-select-standard'
   }
+
+  const Select = (type: string) => (
+    <div className={[classname(type), activeOpt !== placeholder ? 'text-vl_black' : 'text-vl_grey-700', disabled ? 'disabled' : '', classNameSelect].join(' ')} onClick={onClickSelect} ref={ref}>
+      {activeOpt}
+      {icon && <div className='select-box__icon'>{icon}</div>}
+    </div>
+  )
 
   return (
     <div className={['select-box', className].join(' ')}>
@@ -113,10 +127,8 @@ const Select: React.FC<ISelect> = ({
 
       {/* FORM SELECT */}
       <StyledSelect>
-        <div className={[classname(), activeOpt !== placeholder ? 'text-vl_black' : 'text-vl_grey-700', disabled ? 'disabled' : '', classNameSelect].join(' ')} onClick={onClickSelect} ref={ref}>
-          {activeOpt}
-          {icon && <div className='select-box__icon'>{icon}</div>}
-        </div>
+        {variant === 'outlined' && Select(variant)}
+        {variant === 'standard' && Select(variant)}
       </StyledSelect>
     </div>
   )
