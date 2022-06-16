@@ -1,5 +1,5 @@
-import Select from 'components/Select'
 import React from 'react'
+import Select from 'components/Select'
 
 const Home = () => {
   const options = [
@@ -16,6 +16,7 @@ const Home = () => {
   const onChangeSelect = value => {
     console.log(value)
   }
+
   return (
     <div>
       <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useRef, useState } from 'react'
+import React, { ReactNode, useRef, useState } from 'react'
 import styled from 'styled-components'
-import useOutsideClick from 'components/Select/util'
 import ArrowIcon from 'assets/icons/arrowdown.svg'
+import useOutsideClick from 'components/Select/util'
+import OptionSelect from 'components/Select/Option'
 
 import './style.scss'
 
@@ -19,23 +20,32 @@ interface ISelect {
   className?: string
   classNameSelect?: string
   labelStyle?: string
+  icon?: string | ReactNode
 }
 
 const StyledSelect = styled.div`
-  &:after {
-    content: '';
-    background: url(${ArrowIcon});
-    background-size: contain;
-    background-repeat: no-repeat;
+  .vl-select-outlined.arrow-icon {
+    &:after {
+      content: '';
+      background: url(${ArrowIcon});
+      background-size: contain;
+      background-repeat: no-repeat;
 
-    position: absolute;
-    height: 10px;
-    width: 10px;
-    right: 14px;
-    top: 50%;
-    transform: translate(-50%, -50%);
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      right: 14px;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
-    transition: all 0.4s;
+      transition: all 0.4s;
+    }
+  }
+
+  .vl-select-outlined.selected {
+    &::after {
+      transform: translate(-50%, -50%) rotateX(180deg);
+    }
   }
 `
 
@@ -48,7 +58,8 @@ const Select: React.FC<ISelect> = ({
   variant = 'outlined',
   className,
   classNameSelect,
-  labelStyle
+  labelStyle,
+  icon
 }) => {
   const optEl = useRef<any>([])
   const [open, setOpen] = useState<boolean>(false)
@@ -79,38 +90,33 @@ const Select: React.FC<ISelect> = ({
     }
   }
 
-  const renderOptions = () => (
-    <>
-      {options.map((option, index) => (
-        <div className='option p-2' key={option.value} onClick={() => onClickOption(index)}>
-          <input type='radio' className='radio' id={option.value} name={option.value} value={option.value} ref={el => optEl.current.push(el)} />
-          <label htmlFor='automobiles'>{option.label}</label>
-        </div>
-      ))}
-    </>
-  )
+  // CLASSNAME
+  const outlinedClassname = `vl-select-outlined ${icon ? '' : 'arrow-icon selected'} border-solid border border-vl_grey-700`
+  const standardClassname = 'vl-select-standard border-solid border-b-2 border-vl_grey-700'
+  const classname = () => {
+    if (open) {
+      return variant === 'outlined' ? outlinedClassname : standardClassname
+    }
+
+    return variant === 'outlined' ? `vl-select-outlined ${icon ? '' : 'arrow-icon'}` : 'vl-select-standard'
+  }
 
   return (
     <div className={['select-box', className].join(' ')}>
       {/* OPTIONS DROPDOWN */}
-      <div className={['options-container', `${variant === 'outlined' ? 'top-20' : 'top-[70px]'}`, `${open ? 'active' : ''}`].join(' ')}>{renderOptions()}</div>
+      <div className={['options-container', `${variant === 'outlined' ? 'top-20' : 'top-[70px]'}`, `${open ? 'active' : ''}`].join(' ')}>
+        <OptionSelect options={options} onClickOption={onClickOption} refProp={optEl} />
+      </div>
 
       {/* LABEL TEXT */}
       {labelText && <label className={['select-box__labelText text-xs font-medium pb-2', labelStyle].join(' ')}>{labelText}</label>}
 
       {/* FORM SELECT */}
-      <StyledSelect
-        className={[
-          open ? (variant === 'outlined' ? 'border-solid border border-vl_grey-700 selected' : 'border-solid border-b-2 border-vl_grey-700 selected') : '',
-          variant === 'outlined' ? 'vl-select-outlined' : 'vl-select-standard',
-          activeOpt !== placeholder ? 'text-vl_black' : 'text-vl_grey-700',
-          disabled ? 'disabled' : '',
-          classNameSelect
-        ].join(' ')}
-        onClick={onClickSelect}
-        ref={ref}
-      >
-        {activeOpt}
+      <StyledSelect>
+        <div className={[classname(), activeOpt !== placeholder ? 'text-vl_black' : 'text-vl_grey-700', disabled ? 'disabled' : '', classNameSelect].join(' ')} onClick={onClickSelect} ref={ref}>
+          {activeOpt}
+          {icon && <div className='select-box__icon'>{icon}</div>}
+        </div>
       </StyledSelect>
     </div>
   )

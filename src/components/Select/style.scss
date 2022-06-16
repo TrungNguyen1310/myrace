@@ -4,7 +4,7 @@
 
 @layer components {
     .vl-select-outlined {
-        @apply min-h-[48px] flex items-center rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold relative;
+        @apply min-h-[48px] flex items-center justify-between rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold relative;
     }
 
     .vl-select-standard {
@@ -34,12 +34,6 @@
 
         .options-container.active {
             @apply visible opacity-100 overflow-auto h-auto;
-        }
-
-        .selected {
-            &::after {
-                transform: translate(-50%, -50%) rotateX(180deg);
-            }
         }
 
         .option, .selected {
