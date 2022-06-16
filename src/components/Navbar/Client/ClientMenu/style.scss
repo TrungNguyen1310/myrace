@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer components {
-    .active-landing-menu {
-        @apply text-black dark:text-vl_neon
-    }
-}
