@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import useOutsideClick from 'components/Select/util'
 import React, { useRef, useState } from 'react'
+import styled from 'styled-components'
+import useOutsideClick from 'components/Select/util'
+import ArrowIcon from 'assets/icons/arrowdown.svg'
+
 import './style.scss'
 
 interface ISelect {
@@ -17,6 +20,24 @@ interface ISelect {
   classNameSelect?: string
   labelStyle?: string
 }
+
+const StyledSelect = styled.div`
+  &:after {
+    content: '';
+    background: url(${ArrowIcon});
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 14px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: all 0.4s;
+  }
+`
 
 const Select: React.FC<ISelect> = ({
   options = [],
@@ -78,9 +99,9 @@ const Select: React.FC<ISelect> = ({
       {labelText && <label className={['select-box__labelText text-xs font-medium pb-2', labelStyle].join(' ')}>{labelText}</label>}
 
       {/* FORM SELECT */}
-      <div
+      <StyledSelect
         className={[
-          open ? (variant === 'outlined' ? 'border-solid border border-vl_grey-700' : 'border-solid border-b-2 border-vl_grey-700') : '',
+          open ? (variant === 'outlined' ? 'border-solid border border-vl_grey-700 selected' : 'border-solid border-b-2 border-vl_grey-700 selected') : '',
           variant === 'outlined' ? 'vl-select-outlined' : 'vl-select-standard',
           activeOpt !== placeholder ? 'text-vl_black' : 'text-vl_grey-700',
           disabled ? 'disabled' : '',
@@ -90,7 +111,7 @@ const Select: React.FC<ISelect> = ({
         ref={ref}
       >
         {activeOpt}
-      </div>
+      </StyledSelect>
     </div>
   )
 }
