@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import Select from 'components/Select'
 import Input from 'components/Input'
+import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
 
 const Home = () => {
   const [value, setvalue] = useState<string>('')
+
   const options = [
     { label: 'Apple', value: 'apple' },
     { label: 'Lemon', value: 'lemon' },
@@ -25,7 +27,8 @@ const Home = () => {
       <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />
       <br />
       <br />
-      <Input label='Email' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' />
+      <Input label='Email' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' icon={<SocialIcon />} />
+      <Input label='Password' variant='standard' value={value} onChange={e => setvalue(e.target.value)} placeholder='Type...' icon={<SocialIcon />} />
     </div>
   )
 }

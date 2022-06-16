@@ -6,6 +6,7 @@ interface IInput {
   // REQUIRED
   value: string | number | readonly string[] | undefined
   // OPTIONAL
+  type?: string
   label?: string
   onChange?: any
   variant?: 'standard' | 'outlined'
@@ -17,17 +18,35 @@ interface IInput {
   icon?: string | ReactNode
 }
 
-const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, labelStyle, value, onChange = () => undefined, placeholder, icon = 'OK' }) => {
+const Input: React.FC<IInput> = ({ className, classNameInput, label: labelText, labelStyle, value, onChange = () => undefined, placeholder, icon = 'OK', type = 'text', variant = 'outlined' }) => {
+  const outlinedInput = () => (
+    <>
+      {variant === 'outlined' && (
+        <div className='vl-input-outlined'>
+          <input type={type} value={value} onChange={onChange} className={['vl-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+          {icon && <div className='pl-2 vl-input-outlined__icon cursor-pointer'>{icon}</div>}
+        </div>
+      )}
+    </>
+  )
+
+  const standardInput = () => (
+    <>
+      {variant === 'standard' && (
+        <div className='vl-input-standard'>
+          <input type={type} value={value} onChange={onChange} className={['vl-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+        </div>
+      )}
+    </>
+  )
   return (
     <div className={['input-box', className].join(' ')}>
       {/* LABEL TEXT */}
       {labelText && <label className={['input-box__labelText text-xs font-medium pb-2', labelStyle].join(' ')}>{labelText}</label>}
 
       {/* INPUT FORM */}
-      <div className='vl-input-outlined'>
-        <input value={value} onChange={onChange} className={['vl-input-outlined__input', classNameInput].join(' ')} placeholder={placeholder} />
-        {icon && <div className='pl-4 vl-input-outlined__icon'>icon</div>}
-      </div>
+      {outlinedInput()}
+      {standardInput()}
     </div>
   )
 }

@@ -10,15 +10,24 @@
     .vl-input-outlined {
         @apply min-h-[48px] flex items-center justify-between bg-vl_white mb-2 order-none relative;
 
-        &__input{
+        &__input {
             @apply min-h-[48px] outline-none w-full -mt-[1px] px-5 border-solid border border-vl_grey-600 rounded-3xl text-sm font-bold;
+
             &:focus {
-                @apply border-vl_grey-700 
+                @apply border-vl_grey-700
             }
         }
 
         &__icon {
-            @apply absolute right-0
+            @apply absolute right-[20px]
+        }
+    }
+
+    .vl-input-standard {
+        @apply bg-vl_white mb-2 order-none relative;
+
+        &__input {
+            @apply pb-[15px] outline-none w-full border-solid border-b-2 border-vl_grey-600 text-sm font-bold;
         }
     }
 }
