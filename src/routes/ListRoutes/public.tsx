@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Navigate } from 'react-router-dom'
 
+import DefaultLayout from 'layouts/defaultLayout'
 import PageNotFound from 'features/PageNotFound'
 import { ROUTES, routes } from '..'
 import Login from 'features/Login'
@@ -10,7 +11,7 @@ const PublicListRoutes = (isAuth?: string) => {
     <Route>
       <Route>
         {routes.public.map((route, index) => (
-          <Route path={route.path} key={`${route.name}_${index}`} element={route.element} />
+          <Route path={route.path} key={`${route.name}_${index}`} element={<DefaultLayout>{route.element}</DefaultLayout>} />
         ))}
       </Route>
 

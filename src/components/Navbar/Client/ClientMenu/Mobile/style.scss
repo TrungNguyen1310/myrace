@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .add-icon, .user-icon, .dark-menu-icon {
+        svg {
+            path {
+                @apply fill-white
+            }
+            }
+    }
+
+    .menu-icon {
+        svg {
+            path {
+                @apply fill-black
+            }
+            }
+    }
+}
