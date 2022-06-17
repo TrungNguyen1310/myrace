@@ -4,8 +4,24 @@
 
 @layer components {
     .vl-button {
-        &:disabled {
-          @apply bg-vl_grey-300 opacity-50 cursor-not-allowed
+      @apply hover:bg-vl_grey-300 h-[46px] normal-case text-vl_black font-bold text-xs xl:text-sm xl:leading-none leading-none transition-all duration-300;
+
+      &:disabled {
+        @apply bg-vl_grey-300 opacity-50 cursor-not-allowed;
+      }
+
+      &__icon {
+        svg {
+          width: 20px;
         }
+      }
+    }
+
+    .vl-button-icon-only {
+      @apply w-[46px] rounded-full;
+    }
+
+    .vl-button-default {
+      @apply rounded-[23px];
     }
 }

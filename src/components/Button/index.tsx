@@ -3,11 +3,13 @@ import React, { ReactNode } from 'react'
 import './style.scss'
 
 interface BtnProps {
-  children: ReactNode
+  children?: ReactNode
   className?: string
   onClick?: any
   disabled?: boolean
   borderColor?: string | 'none' // use Tailwind classname
+  shape?: 'default' | 'circle'
+  icon?: string | ReactNode
   // PRIMARY
   primary?: boolean
   primaryBlue?: boolean
@@ -26,23 +28,38 @@ const Button: React.FC<BtnProps> = ({
   primaryPurple = false,
   secondaryYellow = false,
   secondaryPink = false,
+  shape = 'default',
+  icon,
   ...props
 }) => {
-  const baseStyle = 'vl-button rounded-[23px] h-[40px] normal-case text-vl_black font-bold text-xs xl:text-sm xl:leading-none leading-none'
+  const shapeStyle = shape === 'default' ? 'vl-button-default' : 'vl-button-icon-only'
+  const baseStyle = 'vl-button'
   const borderStyle = borderColor === 'none' ? '' : `border-solid border ${borderColor}`
   const primarySecondaryStyle = () => {
-    if (primary) return 'bg-vl_neon'
-    if (primaryBlue) return 'bg-primary_blue text-vl_white'
-    if (primaryPurple) return 'bg-primary_purple text-vl_white'
-    if (secondaryYellow) return 'bg-secondary_yellow text-vl_white'
-    if (secondaryPink) return 'bg-secondary_pink text-vl_white'
+    if (primary) return 'bg-vl_neon hover:bg-lime-500'
+    if (primaryBlue) return 'bg-primary_blue text-vl_white hover:bg-blue-500'
+    if (primaryPurple) return 'bg-primary_purple text-vl_white hover:bg-[#906ef8]'
+    if (secondaryYellow) return 'bg-secondary_yellow text-vl_white hover:bg-yellow-300'
+    if (secondaryPink) return 'bg-secondary_pink text-vl_white hover:bg-pink-400'
 
     return ''
   }
 
   return (
-    <button {...props} className={[baseStyle, borderStyle, primarySecondaryStyle(), className].join(' ')}>
-      {children}
+    <button type='button' {...props} className={[className, baseStyle, borderStyle, shapeStyle, primarySecondaryStyle()].join(' ')}>
+      {/* BOTH CHILDREN AND ICON */}
+      {children && icon && (
+        <div className='flex items-center justify-between px-4'>
+          <span className='vl-button__icon'>{icon}</span>
+          <span className='pl-2'>{children}</span>
+        </div>
+      )}
+
+      {/* ONLY CHILDREN */}
+      {children && !icon && <span className={['flex items-center justify-center', shape === 'default' ? 'px-4' : ''].join(' ')}>{children}</span>}
+
+      {/* ONLY ICON */}
+      {icon && !children && <span className='flex items-center justify-center'>{icon}</span>}
     </button>
   )
 }

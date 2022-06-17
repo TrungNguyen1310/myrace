@@ -32,7 +32,7 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
         </li>
       ))}
       <li>
-        <Button primary borderColor='none' className='ml-[12px] 2xl:ml-[37px] w-[98px] hover:bg-lime-500'>
+        <Button primary borderColor='none' className='ml-[12px] 2xl:ml-[37px] w-[98px]'>
           dApp
         </Button>
       </li>
