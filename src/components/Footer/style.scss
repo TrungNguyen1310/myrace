@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .text-right-footer {
+    @apply text-xs leading-[18px] text-black font-bold;
+  }
+
+  .text-right-footer {
+    &:last-child {
+      @apply font-medium text-vl_grey-800;
+    }
+  }
+
+  .lang-select {
+    @apply border-none bg-transparent text-vl_white after:hidden;
+  }
+}

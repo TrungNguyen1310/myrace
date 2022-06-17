@@ -4,7 +4,15 @@
 
 @layer components {
     .vl-select-outlined {
-        @apply min-h-[48px] flex items-center justify-between rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold relative;
+        @apply min-h-[48px] flex items-center justify-between rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold text-vl_grey-700 relative;
+    }
+
+    .vl-select-outlined-selected {
+        @apply text-vl_black;
+    }
+
+    .vl-select-outlined-opened {
+        @apply border-solid border border-vl_grey-700;
     }
 
     .vl-select-standard {
@@ -36,7 +44,7 @@
             @apply visible opacity-100 overflow-auto h-auto;
         }
 
-        .option, .selected {
+        .option, .vl-select-outlined-opened {
             @apply cursor-pointer px-6 py-3
         }
 

@@ -8,6 +8,7 @@ import useMediaQuery from 'hooks/useMediaQuery'
 import SidebarDesktop from 'components/Sidebar/Desktop'
 import SidebarMobile from 'components/Sidebar/Mobile'
 import './style.scss'
+import Footer from 'components/Footer'
 
 interface IAuthLayoutProps {
   children: ReactNode
@@ -65,6 +66,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
         </div>
       </div>
       {mobileScreen && <SidebarMobile activeMenu={activeMenu} onClickMenu={onClickMenu} />}
+      <Footer />
     </>
   )
 }

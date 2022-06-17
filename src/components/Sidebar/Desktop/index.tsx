@@ -12,7 +12,7 @@ interface ISidebarDesktop {
 const SidebarDesktop: React.FC<ISidebarDesktop> = ({ open = false, activeMenu = 0, onClickMenu = () => undefined }) => {
   const { t } = useTranslation()
   return (
-    <aside className={`sidebarDesktop h-full fixed px-[9px] pt-8 duration-300 z-10 dark:bg-black ${open ? 'w-[calc(18px+248px)]' : 'w-sidebarClose'} hidden md:block`} aria-label='Sidebar Desktop'>
+    <aside className={`sidebarDesktop h-auto fixed px-[9px] pt-8 duration-300 z-10 dark:bg-black ${open ? 'w-[calc(18px+248px)]' : 'w-sidebarClose'} hidden md:block`} aria-label='Sidebar Desktop'>
       <div className='pt-[84px] rounded h-full'>
         <ul className='space-y-2'>
           {sideMenu.map(menu => (
