@@ -27,7 +27,8 @@
         @apply relative flex max-w-[400px] flex-col;
 
         .options-container {
-            @apply absolute z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 h-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
+            // @apply absolute z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 h-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
+            @apply absolute -left-[1000px] z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 h-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
 
             &::-webkit-scrollbar {
                 @apply w-2 bg-vl_grey-300;
@@ -41,15 +42,17 @@
         }
 
         .options-container.active {
-            @apply visible opacity-100 overflow-auto h-auto;
+            @apply left-0 overflow-auto h-auto opacity-100 visible;
         }
 
-        .option, .vl-select-outlined-opened {
-            @apply cursor-pointer px-6 py-3
+        .option,
+        .vl-select-outlined-opened {
+            @apply cursor-pointer px-5 py-3
         }
 
         .option {
             @apply cursor-pointer;
+
             &:hover {
                 @apply bg-vl_grey-600
             }
@@ -62,5 +65,5 @@
         label {
             @apply cursor-pointer
         }
-    } 
+    }
 }

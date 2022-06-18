@@ -46,8 +46,8 @@ const Home = () => {
           Search
         </Button>
       </div>
-      <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
-      <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />
+      <Select placement='top' labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
+      <Select placement='top' labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />
       <Select defaultValue='vn' variant='outlined' options={options2} onChange={onChangeSelect} label='Country' />
       <br />
       <br />

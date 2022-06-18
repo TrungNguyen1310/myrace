@@ -56,7 +56,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
 
   return (
     <>
-      <div className='flex min-h-screen layout'>
+      <div className='flex h-full min-h-screen layout'>
         <UserNarbar toggleAppBar={toggleAppBarDesktop} open={openMenuDesktop}>
           <span className='text-black font-bold text-base leading-6 dark:text-white'>MyRace</span>
         </UserNarbar>

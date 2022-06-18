@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
   }, [])
 
   return (
-    <footer className='w-full h-[86px] max-h-[86px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
+    <footer className='w-full h-[86px] max-h-[100px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
       <div className='flex items-center justify-between'>
         <p className='text-right-footer pr-[22px] dark:text-white'>{t('components.footer.privacy_policy')}</p>
@@ -50,12 +50,13 @@ const Footer: React.FC = () => {
         <p className='text-right-footer'>{t('components.footer.copywrite')}</p>
       </div>
       {/* ======= RIGHT ======= */}
+      {/* <div className='flex items-center justify-between relative bg-pink-400 w-full' /> */}
       <div className='flex items-center justify-between relative'>
         {/* <Select variant='standard' disableUnderline value={currency} onChange={e => onChangeSelect(e, 'currency')}>
           <MenuItem value='1'>{t('components.footer.currency.usd')}</MenuItem>
           <MenuItem value='2'>{t('components.footer.currency.vnd')}</MenuItem>
         </Select> */}
-        <Select defaultValue='en' options={options} onChange={opt => onChangeSelect(opt, 'language')} className='px-[41px]' classNameSelect='lang-select' />
+        <Select placement='top' defaultValue='en' options={options} onChange={opt => onChangeSelect(opt, 'language')} className='px-[41px]' classNameSelect='lang-select' />
         <Button shape='circle' onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
           <MoonIcon />
         </Button>

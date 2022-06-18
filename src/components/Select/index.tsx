@@ -18,6 +18,7 @@ interface ISelect {
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string
+  placement?: 'top' | 'bottom'
   className?: string
   classNameSelect?: string
   labelStyle?: string
@@ -61,7 +62,8 @@ const Select: React.FC<ISelect> = ({
   className,
   classNameSelect,
   labelStyle,
-  icon
+  icon,
+  placement = 'bottom'
 }) => {
   const optEl = useRef<any>([])
   const getDefaultValue = (val: string) => {
@@ -121,10 +123,23 @@ const Select: React.FC<ISelect> = ({
     </div>
   )
 
+  const placementHandler = () => {
+    if (open) {
+      switch (placement) {
+        case 'top':
+          return '-top-full'
+        default:
+          return variant === 'outlined' ? 'top-20' : 'top-[70px]'
+      }
+    }
+
+    return ''
+  }
+
   return (
     <div className={['select-box', className].join(' ')}>
       {/* OPTIONS DROPDOWN */}
-      <div className={['options-container', `${variant === 'outlined' ? 'top-20' : 'top-[70px]'}`, `${open ? 'active' : ''}`].join(' ')}>
+      <div className={['options-container', placementHandler(), `${open ? 'active' : ''}`].join(' ')}>
         <OptionSelect options={options} onClickOption={onClickOption} refProp={optEl} />
       </div>
 
