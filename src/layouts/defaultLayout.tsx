@@ -11,7 +11,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children = null }) =
       <div className='flex min-h-screen layout'>
         <ClientNavbar />
         {/* <ClientSearchbar /> */}
-        <div className={'flex-1 h-auto flex justify-start pt-[100px] duration-300'}>{children}</div>
+        <div className={'h-auto pt-[100px] w-full'}>{children}</div>
       </div>
       {/* <Footer /> */}
     </>

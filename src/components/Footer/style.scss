@@ -14,6 +14,7 @@
   }
 
   .select-footer {
+    @apply w-auto;
     .options-container {
       @apply w-[160px];
     }

@@ -24,7 +24,7 @@
     }
 
     .select-box {
-        @apply relative flex flex-col;
+        @apply relative flex flex-col min-w-[100px] w-[400px];
 
         .options-container {
             @apply absolute -left-[1000px] z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
