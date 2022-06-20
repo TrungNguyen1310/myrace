@@ -24,4 +24,11 @@
     }
   }
 
+  .darkmode-btn {
+    svg {
+      path {
+        @apply fill-vl_grey-500
+      }
+    }
+  }
 }

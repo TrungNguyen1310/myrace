@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
       <div className='flex items-center justify-between relative'>
         <Select defaultValue={currency} options={options1} onChange={opt => onChangeSelect(opt, 'currency')} className='select-footer' classNameSelect='currency-select' />
         <Select defaultValue={language} options={options} onChange={opt => onChangeSelect(opt, 'language')} className='px-[41px] select-footer' classNameSelect='lang-select' />
-        <Button shape='circle' onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
+        <Button shape='circle' onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode-btn'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
           <MoonIcon />
         </Button>
       </div>
