@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode, useRef, useState } from 'react'
+import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import ArrowIcon from 'assets/icons/arrowdown.svg'
 import useOutsideClick from 'components/Select/util'
 import OptionSelect from 'components/Select/Option'
 
 import './style.scss'
+import useWindowDimensions from 'hooks/useWindowDimensions'
 
 interface ISelect {
   // REQUIRED
@@ -18,7 +19,7 @@ interface ISelect {
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string
-  placement?: 'top' | 'bottom'
+  // placement?: 'top' | 'bottom'
   className?: string
   classNameSelect?: string
   labelStyle?: string
@@ -62,25 +63,43 @@ const Select: React.FC<ISelect> = ({
   className,
   classNameSelect,
   labelStyle,
-  icon,
-  placement = 'bottom'
+  icon
+  // placement = 'bottom'
 }) => {
   const optEl = useRef<any>([])
+  const optBox = useRef<any>('')
   const getDefaultValue = (val: string) => {
     const getOption = options.find(opt => opt.value === val)
     return getOption?.label || placeholder
   }
   const [open, setOpen] = useState<boolean>(false)
+  const [placement, setPlacement] = useState<number>(80) // placement of dropdown menu => should be auto adjust the position if the select placed at the bottom of the screen
   const [activeOpt, setActiveOpt] = useState<string>(defaultValue ? getDefaultValue(defaultValue) : placeholder)
+  const { height: windowHeight } = useWindowDimensions()
 
+  //**************** Set Position Of The Dropdown Menu Based On Window Screen ****************
+  const setPositionDropdownMenuHandler = () => {
+    const distanceElFromWindowTop = optBox.current.getBoundingClientRect().top
+    const topEl = windowHeight - distanceElFromWindowTop
+
+    if (windowHeight < distanceElFromWindowTop) {
+      setPlacement(topEl - optBox.current.clientHeight + 60)
+    }
+  }
+
+  useEffect(() => {
+    setPositionDropdownMenuHandler()
+  }, [])
+
+  //**************** Handle Click Outside Select Component To Close The Dropdown Option Menu ****************
   const detectSelectEventMouse = () => {
-    // handle click outside Select component
     setTimeout(() => {
       setOpen(false)
     }, 40)
   }
   const ref = useOutsideClick(detectSelectEventMouse)
 
+  //**************** Click The Option Menu Item ****************
   const onClickOption = (i: number) => {
     const getOption = options.find(opt => opt.value === optEl.current[i].value)
     const label = getOption?.label || ''
@@ -90,6 +109,7 @@ const Select: React.FC<ISelect> = ({
     setActiveOpt(label)
   }
 
+  //**************** Click To Open The Select Form ****************
   const onClickSelect = () => {
     if (disabled) {
       setOpen(false)
@@ -97,6 +117,14 @@ const Select: React.FC<ISelect> = ({
       setOpen(!open)
     }
   }
+
+  //**************** Select Component ****************
+  const Select = (type: string) => (
+    <div className={[classname(type), disabled ? 'disabled' : '', classNameSelect].join(' ')} onClick={onClickSelect} ref={ref}>
+      {activeOpt}
+      {icon && <div className='select-box__icon'>{icon}</div>}
+    </div>
+  )
 
   // CLASSNAME
   const classname = (type: string) => {
@@ -116,30 +144,16 @@ const Select: React.FC<ISelect> = ({
     }
   }
 
-  const Select = (type: string) => (
-    <div className={[classname(type), disabled ? 'disabled' : '', classNameSelect].join(' ')} onClick={onClickSelect} ref={ref}>
-      {activeOpt}
-      {icon && <div className='select-box__icon'>{icon}</div>}
-    </div>
-  )
-
-  const placementHandler = () => {
-    if (open) {
-      switch (placement) {
-        case 'top':
-          return '-top-full'
-        default:
-          return variant === 'outlined' ? 'top-20' : 'top-[70px]'
-      }
-    }
-
-    return ''
-  }
-
   return (
     <div className={['select-box', className].join(' ')}>
       {/* OPTIONS DROPDOWN */}
-      <div className={['options-container', placementHandler(), `${open ? 'active' : ''}`].join(' ')}>
+      <div
+        style={{
+          top: `${placement}px`
+        }}
+        className={['options-container', `${open ? 'active' : ''}`].join(' ')}
+        ref={optBox}
+      >
         <OptionSelect options={options} onClickOption={onClickOption} refProp={optEl} />
       </div>
 
