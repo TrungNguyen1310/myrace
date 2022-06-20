@@ -13,7 +13,15 @@
     }
   }
 
-  .lang-select {
-    @apply border-none bg-transparent text-vl_white after:hidden;
+  .select-footer {
+    .options-container {
+      @apply w-[160px];
+    }
+    
+    .lang-select,
+    .currency-select {
+      @apply border-none bg-transparent dark:text-vl_white text-vl_black after:hidden px-0;
+    }
   }
+
 }
