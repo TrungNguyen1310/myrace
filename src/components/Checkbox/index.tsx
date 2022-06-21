@@ -8,6 +8,7 @@ interface ICheckbox {
   checked: boolean
   // Optional
   label?: string
+  value?: string
   className?: string
   labelStyle?: string
   classNameCheckbox?: string
@@ -15,11 +16,11 @@ interface ICheckbox {
   darkMode?: boolean
 }
 
-const Checkbox: React.FC<ICheckbox> = ({ onChange, checked = false, label, disabled, ...props }) => {
+const Checkbox: React.FC<ICheckbox> = ({ onChange, checked = false, label, disabled, value, ...props }) => {
   return (
     <label className={`vl-checkbox ${disabled ? 'vl-checkbox-disabled' : ''}`}>
       <span className={`vl-checkbox__input ${checked ? 'vl-checkbox-checked' : ''}`}>
-        <input disabled={disabled} checked={checked} type='checkbox' onChange={onChange} />
+        <input disabled={disabled} checked={checked} type='checkbox' onChange={onChange} value={value} />
         <span className='vl-checkbox-inner' />
       </span>
       <span className={`vl-checkbox__label ${checked ? 'checked' : ''}`}>{label}</span>

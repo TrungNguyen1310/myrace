@@ -4,7 +4,7 @@
 
 @layer components {
     .vl-checkbox {
-        @apply box-border m-0 p-0 font-bold flex items-center cursor-pointer;
+        @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
         line-height: unset;
 
         &__input {
