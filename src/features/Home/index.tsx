@@ -4,9 +4,12 @@ import Input from 'components/Input'
 import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
 import Button from 'components/Button'
 import Badge from 'components/Badge'
+import Checkbox from 'components/Checkbox'
 
 const Home = () => {
   const [value, setvalue] = useState<string>('')
+  const [value1, setvalue1] = useState<boolean>(true)
+  const [value2, setvalue2] = useState<boolean>(false)
 
   const options = [
     { label: 'Apple', value: 'apple' },
@@ -56,6 +59,9 @@ const Home = () => {
           Search
         </Button>
       </div>
+      <h3>Checkbox</h3>
+      <Checkbox checked={value1} label='OK' onChange={e => setvalue1(e.target.checked)} />
+      <Checkbox checked={value2} label='OK' onChange={e => setvalue2(e.target.checked)} />
       <h3>Select</h3>
       <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
       <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />

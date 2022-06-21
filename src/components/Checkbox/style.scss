@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .vl-checkbox {
+        @apply box-border m-0 p-0 font-bold flex items-center cursor-pointer;
+        line-height: unset;
+
+        &__input {
+            @apply relative;
+
+            input[type=checkbox] {
+                @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
+            }
+
+            .vl-checkbox-inner {
+                @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded transition-all duration-300;
+
+                &::after{
+                    @apply absolute top-1/2 left-1/4 border-solid border-[3px] border-white border-t-0 border-l-0 opacity-0 w-[7px] h-3 rounded-sm;
+                    transform: rotate(45deg) scale(0) translate(-50%,-50%);
+                    transition: all .1s cubic-bezier(.71,-.46,.88,.6),opacity .1s;
+                    content: "";
+                }
+            }
+
+        }
+
+        &__label {
+            @apply text-vl_black-100 text-xs pl-[10px];
+        }
+
+        &__label.checked {
+            @apply text-vl_black;
+        }
+    }
+
+    .vl-checkbox-checked {
+        .vl-checkbox-inner {
+            @apply bg-primary_blue;
+            &::after {
+                @apply opacity-100 absolute border-solid border-[3px] border-white border-t-0 border-l-0 w-[7px] h-3 top-[45%] rounded-sm;
+                transform: rotate(45deg) scale(1) translate(-50%,-50%);
+                transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+            }
+        }
+
+        &::after {
+            @apply absolute top-0 left-0 w-full h-full invisible;
+            content: "";
+        }
+    }
+
+    .vl-checkbox-disabled {
+        @apply cursor-not-allowed;
+        input[type=checkbox] {
+            @apply cursor-not-allowed;
+        }
+
+        .vl-checkbox-checked, &__input {
+            .vl-checkbox-inner {
+                @apply bg-vl_grey-700 opacity-60;
+            }
+        }
+
+        .vl-checkbox__label {
+            @apply text-vl_grey-700;
+        }
+    }
+}
