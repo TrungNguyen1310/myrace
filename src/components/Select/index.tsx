@@ -77,13 +77,12 @@ const Select: React.FC<ISelect> = ({
   const [activeOpt, setActiveOpt] = useState<string>(defaultValue ? getDefaultValue(defaultValue) : placeholder)
   const { height: windowHeight } = useWindowDimensions()
 
-  //**************** Set Position Of The Dropdown Menu Based On Window Screen ****************
+  //**************** Set Position Of The Dropdown Menu Based On Window Viewport ****************
   const setPositionDropdownMenuHandler = () => {
-    const distanceElFromWindowTop = optBox.current.getBoundingClientRect().top
-    const topEl = windowHeight - distanceElFromWindowTop
+    const elementToTopViewport = optBox.current.getBoundingClientRect().top
 
-    if (windowHeight < distanceElFromWindowTop) {
-      setPlacement(topEl - optBox.current.clientHeight + 60)
+    if (windowHeight - elementToTopViewport < 0) {
+      setPlacement(-100)
     }
   }
 
