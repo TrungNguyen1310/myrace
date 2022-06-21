@@ -19,7 +19,6 @@ interface ISelect {
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string
-  // placement?: 'top' | 'bottom'
   className?: string
   classNameSelect?: string
   labelStyle?: string
@@ -64,7 +63,6 @@ const Select: React.FC<ISelect> = ({
   classNameSelect,
   labelStyle,
   icon
-  // placement = 'bottom'
 }) => {
   const optEl = useRef<any>([])
   const optBox = useRef<any>('')
