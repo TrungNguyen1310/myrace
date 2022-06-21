@@ -6,6 +6,7 @@ import Button from 'components/Button'
 import Badge from 'components/Badge'
 import Checkbox from 'components/Checkbox'
 import CheckboxGroup, { ICheckboxList } from 'components/CheckboxGroup'
+import Radio from 'components/Radio'
 
 const Home = () => {
   const [value, setvalue] = useState<string>('')
@@ -35,6 +36,8 @@ const Home = () => {
       checked: false
     }
   ])
+
+  const [value4, setvalue4] = useState<number | string | undefined>('')
 
   const options = [
     { label: 'Apple', value: 'apple' },
@@ -89,6 +92,8 @@ const Home = () => {
       <Checkbox checked={value2} label='OK' onChange={e => setvalue2(e.target.checked)} />
       <h3>Checkbox Group</h3>
       <CheckboxGroup checkAll checkboxesList={value3} onCheckboxGroupChange={val => setvalue3(val)} />
+      <h3>Radio</h3>
+      <Radio value='1' label='1' onChange={e => setvalue4(e.target.value)} />
       <h3>Select</h3>
       <Select labelStyle='text-red-400' className='mb-10' variant='outlined' options={options} onChange={onChangeSelect} label='Juice' />
       <Select labelStyle='text-primary_purple' variant='standard' options={options1} onChange={onChangeSelect} label='ABC' />

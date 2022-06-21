@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .vl-radio {
+        @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
+
+        &__input {
+            @apply relative;
+
+            input[type=radio] {
+                @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
+            }
+
+            .vl-radio-inner {
+                @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded-[10px] transition-all duration-300;
+
+                &::after {
+                    @apply absolute top-1/2 left-1/2 block w-4 h-4 bg-white border-t-0 border-l-0 opacity-0 rounded-2xl -mt-2 -ml-2;
+                    content: "";
+                    transform: scale(0);
+                    transition: all .3s cubic-bezier(.78,.14,.15,.86);
+                }
+            }
+        }
+
+        &__label {
+            @apply text-vl_black-100 text-xs pl-[10px];
+        }
+
+         &__label.checked {
+            @apply text-vl_black;
+        }
+    }
+
+    .vl-radio-checked {
+        .vl-radio-inner { 
+            &::after {
+                @apply opacity-100;
+                transform: scale(.5);
+                transition: all .3s cubic-bezier(.78,.14,.15,.86);
+            }
+        }
+
+        .vl-radio-inner-primary {
+            @apply bg-primary_blue;
+        }
+
+        .vl-radio-inner-secondary {
+            @apply bg-secondary_pink;
+        }
+
+        &::after {
+            @apply absolute top-0 left-0 w-full h-full invisible rounded-[10px];
+            content: "";
+        }
+    }
+}
