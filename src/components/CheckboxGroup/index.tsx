@@ -6,6 +6,7 @@ export interface ICheckboxList {
   label: string
   value: string
   checked: boolean
+  disabled?: boolean
 }
 
 interface ICheckboxGroup {
@@ -17,15 +18,17 @@ interface ICheckboxGroup {
 }
 
 const CheckboxGroup: React.FC<ICheckboxGroup> = ({ checkboxesList, checkAll, className, onCheckboxGroupChange, ...props }) => {
+  // *********** [START] HANDLE SELECT ALL CHECKBOXES ***********
   const [parentCheckboxChecked, setParentCheckboxChecked] = useState<boolean>(false)
-
   useEffect(() => {
     if (checkAll) updateParentWithChildren(checkboxesList)
   }, [checkboxesList, checkAll])
 
   const updateParentWithChildren = checkboxesArr => {
+    const filterCheckboxList = checkboxesArr.filter(item => !item.disabled)
+
     let allChecked = false
-    checkboxesArr.every(item => {
+    filterCheckboxList.every(item => {
       if (!item.checked) {
         allChecked = false
         return false
@@ -39,13 +42,20 @@ const CheckboxGroup: React.FC<ICheckboxGroup> = ({ checkboxesList, checkAll, cla
   }
 
   const handleParentCheckboxChange = e => {
-    const newCheckboxState = checkboxesList.map(aCheckbox => ({
-      ...aCheckbox,
-      checked: e.target.checked
-    }))
+    const newCheckboxState = checkboxesList.map(aCheckbox => {
+      if (!aCheckbox.disabled) {
+        return {
+          ...aCheckbox,
+          checked: e.target.checked
+        }
+      }
+
+      return aCheckbox
+    })
 
     onCheckboxGroupChange(newCheckboxState)
   }
+  // *********** [END] HANDLE SELECT ALL CHECKBOXES ***********
 
   const onChangeCheckboxGroup = (e, index: number) => {
     const newCheckboxState = checkboxesList.map((aCheckbox, i) => (index === i ? { ...aCheckbox, checked: e.target.checked } : aCheckbox))
@@ -55,7 +65,9 @@ const CheckboxGroup: React.FC<ICheckboxGroup> = ({ checkboxesList, checkAll, cla
   const renderCheckboxes = () => {
     if (!checkboxesList) return null
 
-    return checkboxesList.map((item, index) => <Checkbox key={item.value} value={item.value} checked={item.checked} label={item.label} onChange={e => onChangeCheckboxGroup(e, index)} />)
+    return checkboxesList.map((item, index) => (
+      <Checkbox disabled={item.disabled} key={item.value} value={item.value} checked={item.checked} label={item.label} onChange={e => onChangeCheckboxGroup(e, index)} />
+    ))
   }
 
   return (

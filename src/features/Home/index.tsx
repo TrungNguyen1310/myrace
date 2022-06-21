@@ -15,17 +15,24 @@ const Home = () => {
     {
       label: 'Apple',
       value: 'apple',
-      checked: true
+      checked: true,
+      disabled: true
     },
     {
       label: 'Melon',
       value: 'melon',
-      checked: false
+      checked: false,
+      disabled: true
     },
     {
       label: 'Orange',
       value: 'orange',
       checked: true
+    },
+    {
+      label: 'Peache',
+      value: 'peache',
+      checked: false
     }
   ])
 
