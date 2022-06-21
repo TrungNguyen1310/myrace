@@ -73,13 +73,17 @@ const Select: React.FC<ISelect> = ({
   const [open, setOpen] = useState<boolean>(false)
   const [placement, setPlacement] = useState<number>(80) // placement of dropdown menu => should be auto adjust the position if the select placed at the bottom of the screen
   const [activeOpt, setActiveOpt] = useState<string>(defaultValue ? getDefaultValue(defaultValue) : placeholder)
-  const { height: windowHeight } = useWindowDimensions()
+  const { height: innerHeight } = useWindowDimensions()
 
   //**************** Set Position Of The Dropdown Menu Based On Window Viewport ****************
   const setPositionDropdownMenuHandler = () => {
+    const offsetHeightScreen = document.documentElement.offsetHeight
     const elementToTopViewport = optBox.current.getBoundingClientRect().top
+    console.log('innerHeight: ', innerHeight)
+    console.log('offsetHeightScreen: ', offsetHeightScreen)
+    console.log('elementToTopViewport: ', elementToTopViewport)
 
-    if (windowHeight - elementToTopViewport < 0) {
+    if (offsetHeightScreen - elementToTopViewport < 0 || innerHeight - elementToTopViewport < 0) {
       setPlacement(-100)
     }
   }
