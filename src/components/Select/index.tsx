@@ -19,6 +19,7 @@ interface ISelect {
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string
+  placement?: 'default' | 'top'
   className?: string
   classNameSelect?: string
   labelStyle?: string
@@ -62,7 +63,8 @@ const Select: React.FC<ISelect> = ({
   className,
   classNameSelect,
   labelStyle,
-  icon
+  icon,
+  placement: placementProps = 'default'
 }) => {
   const optEl = useRef<any>([])
   const optBox = useRef<any>('')
@@ -79,11 +81,8 @@ const Select: React.FC<ISelect> = ({
   const setPositionDropdownMenuHandler = () => {
     const offsetHeightScreen = document.documentElement.offsetHeight
     const elementToTopViewport = optBox.current.getBoundingClientRect().top
-    console.log('innerHeight: ', innerHeight)
-    console.log('offsetHeightScreen: ', offsetHeightScreen)
-    console.log('elementToTopViewport: ', elementToTopViewport)
 
-    if (offsetHeightScreen - elementToTopViewport < 0 || innerHeight - elementToTopViewport < 0) {
+    if ((offsetHeightScreen - elementToTopViewport < 0 || innerHeight - elementToTopViewport < 0) && placementProps === 'top') {
       setPlacement(-100)
     }
   }
