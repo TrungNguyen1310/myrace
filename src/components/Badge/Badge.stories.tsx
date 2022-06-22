@@ -7,6 +7,11 @@ export default {
   component: Badge,
   args: {
     badgeContent: '20'
+  },
+  argTypes: {
+    primary: { control: 'boolean' },
+    max: { control: 'boolean' },
+    showZero: { control: 'boolean' }
   }
 } as ComponentMeta<typeof Badge>
 

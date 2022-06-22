@@ -10,10 +10,8 @@ interface ICheckbox {
   label?: string
   value?: string
   className?: string
-  labelStyle?: string
   classNameCheckbox?: string
   disabled?: boolean
-  darkMode?: boolean
 }
 
 const Checkbox: React.FC<ICheckbox> = ({ onChange, checked = false, label, disabled, value }) => {
