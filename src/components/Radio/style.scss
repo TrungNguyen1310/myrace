@@ -56,4 +56,21 @@
             content: "";
         }
     }
+
+    .vl-radio-disabled {
+        @apply cursor-not-allowed;
+         input[type=radio] {
+            @apply cursor-not-allowed;
+        }
+
+        .vl-radio-checked, &__input {
+            .vl-radio-inner {
+                @apply bg-vl_grey-700 opacity-60;
+            }
+        }
+
+        .vl-radio__label {
+            @apply text-vl_grey-700;
+        }
+    }
 }

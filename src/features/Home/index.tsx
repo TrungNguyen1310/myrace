@@ -95,7 +95,7 @@ const Home = () => {
       <h3>Checkbox Group</h3>
       <CheckboxGroup checkAll checkboxesList={value3} onCheckboxGroupChange={val => setvalue3(val)} />
       <h3>Radio</h3>
-      <Radio value='1' label='1' />
+      <Radio value='1' label='1' disabled />
       <h3>Radio Group</h3>
       <RadioGroup value={value5} radioList={options2} onChange={e => setvalue5(e.value)} />
       <h3>Select</h3>
