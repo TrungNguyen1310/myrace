@@ -2,6 +2,21 @@
   display: inline-block;
   position: relative;
 }
+
+.lds-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .lds-ripple div {
   position: absolute;
   top: 50%;
