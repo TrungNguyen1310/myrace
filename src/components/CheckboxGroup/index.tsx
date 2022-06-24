@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Checkbox from 'components/Checkbox'
 import React, { useEffect, useState } from 'react'
 
@@ -10,8 +9,10 @@ export interface ICheckboxList {
 }
 
 interface ICheckboxGroup {
+  // REQUIRED
   checkboxesList: ICheckboxList[]
-  onCheckboxGroupChange: any
+  onCheckboxGroupChange: (params: ICheckboxList[]) => void
+  // OPTIONAL
   checkAll?: boolean
   className?: string
   classNameCheckbox?: string

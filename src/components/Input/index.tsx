@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactNode } from 'react'
 import './style.scss'
 
@@ -8,7 +7,7 @@ interface IInput {
   // OPTIONAL
   type?: string
   label?: string
-  onChange?: any
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string

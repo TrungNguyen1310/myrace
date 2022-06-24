@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import './style.scss'
 
 interface ICheckbox {
-  // Require
-  onChange: any
+  // REQUIRED
+  onChange: React.ChangeEventHandler<HTMLInputElement>
   checked: boolean
-  // Optional
+  // OPTIONAL
   label?: string
   value?: string
   className?: string

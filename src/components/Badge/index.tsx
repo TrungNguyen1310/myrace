@@ -2,7 +2,9 @@ import React from 'react'
 import './style.scss'
 
 interface IBadge {
+  // REQUIRED
   badgeContent: string | number
+  // OPTIONAL
   className?: string
   classNameBadge?: string
   bgcolor?: string

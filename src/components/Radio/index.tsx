@@ -1,13 +1,12 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react'
 import './style.scss'
 
 interface IRadio {
-  // Require
+  // REQUIRED
   value: string | number | undefined
   label: string
-  onChange?: any
-  // Optional
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  // OPTIONAL
   primary?: boolean
   checked?: boolean
   disabled?: boolean

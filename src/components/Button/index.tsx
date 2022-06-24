@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactNode } from 'react'
 import './style.scss'
 
 interface BtnProps {
   children?: ReactNode
   className?: string
-  onClick?: any
+  onClick?: React.MouseEventHandler<HTMLElement>
   disabled?: boolean
   borderColor?: string | 'none' // use Tailwind classname
   shape?: 'default' | 'circle'
