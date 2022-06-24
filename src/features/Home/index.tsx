@@ -53,7 +53,7 @@ const Home = () => {
   ]
   const options2 = [
     { label: 'Viet Nam', value: 'vn' },
-    { label: 'USA', value: 'usa' },
+    { label: 'USA', value: 'usa', disabled: true },
     { label: 'Canada', value: 'ca' }
   ]
 
