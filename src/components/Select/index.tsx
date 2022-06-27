@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import ArrowIcon from 'assets/icons/arrowdown.svg'
@@ -15,7 +14,7 @@ interface ISelect {
   // OPTIONAL
   defaultValue?: string
   label?: string
-  onChange?: any
+  onChange?: (value: { value: string; label: string }) => void
   variant?: 'standard' | 'outlined'
   disabled?: boolean
   placeholder?: string
@@ -66,8 +65,8 @@ const Select: React.FC<ISelect> = ({
   icon,
   placement: placementProps = 'default'
 }) => {
-  const optEl = useRef<any>([])
-  const optBox = useRef<any>('')
+  const optEl = useRef<HTMLOptionElement[]>([])
+  const optBox = useRef<HTMLDivElement>(null)
   const getDefaultValue = (val: string) => {
     const getOption = options.find(opt => opt.value === val)
     return getOption?.label || placeholder
@@ -80,7 +79,7 @@ const Select: React.FC<ISelect> = ({
   //**************** Set Position Of The Dropdown Menu Based On Window Viewport ****************
   const setPositionDropdownMenuHandler = () => {
     const offsetHeightScreen = document.documentElement.offsetHeight
-    const elementToTopViewport = optBox.current.getBoundingClientRect().top
+    const elementToTopViewport = optBox?.current?.getBoundingClientRect().top || 0
 
     if ((offsetHeightScreen - elementToTopViewport < 0 || innerHeight - elementToTopViewport < 0) && placementProps === 'top') {
       setPlacement(-100)
@@ -101,7 +100,7 @@ const Select: React.FC<ISelect> = ({
 
   //**************** Click The Option Menu Item ****************
   const onClickOption = (i: number) => {
-    const getOption = options.find(opt => opt.value === optEl.current[i].value)
+    const getOption = options.find(opt => opt.value === optEl.current[i].value) || { value: '', label: '' }
     const label = getOption?.label || ''
 
     onChange(getOption)

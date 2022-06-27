@@ -26,7 +26,7 @@ const SidebarMobile: React.FC<ISidebarMobile> = ({ activeMenu = 0, onClickMenu =
 
   return (
     <>
-      <div className={`${openMenuMobile ? 'opacity-0' : 'opacity-1'} w-full border-solid border-t border-[#CFDBD599] bg-white dark:bg-black duration-300`}>
+      <div className='w-full border-solid border-t border-[#CFDBD599] bg-white dark:bg-black duration-300'>
         <ul className='w-auto flex justify-between items-center px-[11px] h-[76px]'>
           {sideMenu.slice(0, 4).map(menu => (
             <li key={menu.id} className='h-auto w-[56px] flex justify-center m-auto'>
@@ -42,7 +42,6 @@ const SidebarMobile: React.FC<ISidebarMobile> = ({ activeMenu = 0, onClickMenu =
           </li>
         </ul>
       </div>
-      {/* {openMenuMobile && <MobileMenu toggleDrawer={toggleAppBarMobile} open={openMenuMobile} />} */}
     </>
   )
 }

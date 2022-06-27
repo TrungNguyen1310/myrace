@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import Radio from 'components/Radio'
 import React from 'react'
 
@@ -11,13 +10,13 @@ export interface IRadioList {
 interface IRadioGroup {
   radioList: IRadioList[]
   value: string | number | undefined
-  onChange: any
+  onChange: (value: IRadioList) => void
   className?: string
 }
 
 const RadioGroup: React.FC<IRadioGroup> = ({ radioList, value, onChange, className }) => {
   const onChangeRadioGroup = e => {
-    const val = radioList.find(item => item.value === e.target.value)
+    const val = radioList.find(item => item.value === e.target.value) || { label: '', value: '' }
     onChange(val)
   }
 

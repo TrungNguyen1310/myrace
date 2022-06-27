@@ -1,6 +1,5 @@
 import React from 'react'
 import { ReactComponent as MenuIcon } from 'assets/icons/menu.svg'
-import { ReactComponent as AddIcon } from 'assets/icons/add-icon.svg'
 import { ReactComponent as UserIcon } from 'assets/icons/user-icon.svg'
 import Logo from 'assets/images/Logo.svg'
 import './style.scss'
