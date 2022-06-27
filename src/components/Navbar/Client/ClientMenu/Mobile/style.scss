@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import '/src/index.scss';
 
 @layer components {
     .add-icon, .user-icon, .dark-menu-icon {
