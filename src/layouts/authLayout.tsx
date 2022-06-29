@@ -61,7 +61,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
           <span className='text-black font-bold text-base leading-6 dark:text-white'>MyRace</span>
         </UserNarbar>
         <SidebarDesktop open={openMenuDesktop} activeMenu={activeMenu} onClickMenu={onClickMenu} />
-        <div className={['h-auto pt-[100px]', classname()].join(' ')}>
+        <div className={['h-auto pt-[100px] duration-300', classname()].join(' ')}>
           <AnimationLayouts>{children}</AnimationLayouts>
         </div>
       </div>
