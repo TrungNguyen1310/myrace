@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body{
-    font-family: 'Inter';
-}
+@import './styles/vendors/_tailwind';
+@import './styles/vendors/_antd';
+@import './styles/base/_reset';
