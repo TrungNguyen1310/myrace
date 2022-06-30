@@ -1,0 +1,11 @@
+@import '/src/index.scss';
+
+@layer components {
+    .vl-btn {
+        // style button
+        @apply rounded-[23px] h-[46px] w-auto;
+        
+        // style content's button
+        @apply text-sm font-bold not-italic
+    }
+}

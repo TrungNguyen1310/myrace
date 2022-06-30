@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import { Button as ButtonAntd } from 'antd'
+import Button from 'components_ver2/Button'
 
 const Home = () => {
   return (
     <div>
-      <ButtonAntd className='bg-red-500' type='primary'>
-        Primary Button
-      </ButtonAntd>
+      <Button type='primary'>Primary Button</Button>
     </div>
   )
 }
