@@ -32,14 +32,14 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
         </li>
       ))}
       <li>
-        <Button primary borderColor='none' className='ml-[12px] 2xl:ml-[37px] w-[98px]'>
+        <Button primary borderColor='none' className='ml-[12px] 2xl:ml-[37px] w-[98px] h-10'>
           dApp
         </Button>
       </li>
       <li>
         <Button
           disabled
-          className='ml-[6px] w-[98px] dark:text-white'
+          className='ml-[6px] w-[98px] dark:text-white h-10'
           onClick={() =>
             startTransition(() => {
               navigate(ROUTES.SIGNIN)
