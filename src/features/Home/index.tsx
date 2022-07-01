@@ -18,7 +18,7 @@ const Home = () => {
           <Input placeholder='type...' />
         </Form.Item>
         <Form.Item label='Password' name='password'>
-          <Input placeholder='type...' />
+          <Input typeInput='Password' placeholder='type...' />
         </Form.Item>
         <Form.Item>
           <Button htmlType='submit' type='primary' className='w-[360px]'>

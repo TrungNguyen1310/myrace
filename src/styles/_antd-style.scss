@@ -5,3 +5,7 @@
         @apply text-vl_black text-xs not-italic font-medium;
     }
 }
+
+.ant-input-clear-icon {
+    @include block-center;
+}

@@ -31,4 +31,12 @@
     .vl-input-standard.ant-input-affix-wrapper-focused {
         @apply shadow-none;
     }
+    
+    .vl-input-standard.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:focus,
+    .vl-input-standard.ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:focus,
+    .vl-input-standard.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused,
+    .vl-input-standard.ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused {
+        box-shadow: none !important;
+        border-right-width: 0px !important;
+    }
 }
