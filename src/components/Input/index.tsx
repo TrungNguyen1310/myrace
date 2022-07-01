@@ -33,9 +33,9 @@ const Input: React.FC<IInput> = ({
   const outlinedInput = () => (
     <>
       {variant === 'outlined' && (
-        <div className='vl-input-outlined'>
-          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
-          {icon && <div className='pl-2 vl-input-outlined__icon cursor-pointer'>{icon}</div>}
+        <div className='vl-old-input-outlined'>
+          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-old-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+          {icon && <div className='pl-2 vl-old-input-outlined__icon cursor-pointer'>{icon}</div>}
         </div>
       )}
     </>
@@ -44,8 +44,8 @@ const Input: React.FC<IInput> = ({
   const standardInput = () => (
     <>
       {variant === 'standard' && (
-        <div className='vl-input-standard'>
-          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
+        <div className='vl-old-input-standard'>
+          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-old-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
         </div>
       )}
     </>

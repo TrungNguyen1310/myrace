@@ -14,12 +14,12 @@ interface IBadge {
 }
 
 const Badge: React.FC<IBadge> = ({ badgeContent, className, classNameBadge, showZero, max = 99, primary, ...props }) => {
-  const baseStyle = `${primary ? 'vl-badge-primary' : 'vl-badge-base'}`
+  const baseStyle = `${primary ? 'vl-old-badge-primary' : 'vl-old-badge-base'}`
 
   if ((badgeContent === 0 || badgeContent === '0') && !showZero) return null
   return (
     <div className={className}>
-      <div {...props} className={['vl-badge', baseStyle, classNameBadge].join(' ')}>
+      <div {...props} className={['vl-old-badge', baseStyle, classNameBadge].join(' ')}>
         {+badgeContent < max ? badgeContent : `${max}+`}
       </div>
     </div>

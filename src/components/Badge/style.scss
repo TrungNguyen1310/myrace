@@ -1,15 +1,15 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-badge {
+    .vl-old-badge {
         @apply flex items-center justify-center min-w-[26px] min-h-[18px] w-fit h-auto rounded-xl text-xs font-medium text-center px-[9px];
     }
 
-    .vl-badge-base {
+    .vl-old-badge-base {
         @apply bg-vl_white border-solid border border-vl_grey-500 text-vl_black;
     }
 
-    .vl-badge-primary {
+    .vl-old-badge-primary {
         @apply bg-primary_blue border-none text-vl_white font-bold;
     }
 }

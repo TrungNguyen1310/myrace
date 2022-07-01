@@ -1,19 +1,19 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-select-outlined {
+    .vl-old-select-outlined {
         @apply min-h-[48px] flex items-center justify-between rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold text-vl_grey-700 relative;
     }
 
-    .vl-select-outlined-selected {
+    .vl-old-select-outlined-selected {
         @apply text-vl_black;
     }
 
-    .vl-select-outlined-opened {
+    .vl-old-select-outlined-opened {
         @apply border-solid border border-vl_grey-700;
     }
 
-    .vl-select-standard {
+    .vl-old-select-standard {
         @apply pb-[15px] mb-2 flex items-center bg-vl_white cursor-pointer border-solid border-b-2 border-vl_grey-600 order-none text-sm font-bold relative;
     }
 
@@ -43,7 +43,7 @@
         }
 
         .option,
-        .vl-select-outlined-opened {
+        .vl-old-select-outlined-opened {
             @apply cursor-pointer py-3
         }
 

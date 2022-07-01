@@ -1,8 +1,9 @@
 import React from 'react'
 import Input from 'components_ver2/Input'
-import { Form, Select as AntSelect } from 'antd'
+import { Avatar, Form, Select as AntSelect } from 'antd'
 import Button from 'components_ver2/Button'
 import Select from 'components_ver2/Select'
+import Badge from 'components_ver2/Badge'
 
 const { Option } = AntSelect
 
@@ -41,6 +42,23 @@ const Home = () => {
             <Option value='vn'>Viet Nam</Option>
             <Option value='usa'>USA</Option>
           </Select>
+        </Form.Item>
+        <Form.Item>
+          <Badge count={5} primary>
+            <Avatar shape='square' size='large' />
+          </Badge>
+          <Badge count={1} className='ml-5'>
+            <Avatar shape='square' size='large' />
+          </Badge>
+          <Badge count={0} className='ml-5' showZero>
+            <Avatar shape='square' size='large' />
+          </Badge>
+          <Badge count={10} className='ml-5' color='#e227ec'>
+            <Avatar shape='square' size='large' />
+          </Badge>
+          <Badge count={10} className='ml-5' color='green' dot>
+            <Avatar shape='square' size='large' />
+          </Badge>
         </Form.Item>
         <Form.Item>
           <Button htmlType='submit' type='primary' className='w-[360px]'>

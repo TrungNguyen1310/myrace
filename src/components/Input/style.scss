@@ -5,7 +5,7 @@
         @apply relative flex max-w-[400px] flex-col;
     }
 
-    .vl-input-outlined {
+    .vl-old-input-outlined {
         @apply min-h-[48px] flex items-center justify-between bg-vl_white mb-2 order-none relative;
 
         &__input {
@@ -21,7 +21,7 @@
         }
     }
 
-    .vl-input-standard {
+    .vl-old-input-standard {
         @apply bg-vl_white mb-2 order-none relative;
 
         &__input {
@@ -29,8 +29,8 @@
         }
     }
 
-    .vl-input-standard,
-    .vl-input-outlined {
+    .vl-old-input-standard,
+    .vl-old-input-outlined {
         input {
             &:disabled {
                 cursor: not-allowed;

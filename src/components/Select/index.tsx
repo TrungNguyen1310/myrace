@@ -26,7 +26,7 @@ interface ISelect {
 }
 
 const StyledSelect = styled.div`
-  .vl-select-outlined.arrow-icon {
+  .vl-old-select-outlined.arrow-icon {
     &:after {
       content: '';
       background: url(${ArrowIcon});
@@ -44,7 +44,7 @@ const StyledSelect = styled.div`
     }
   }
 
-  .vl-select-outlined.selected {
+  .vl-old-select-outlined.selected {
     &::after {
       transform: translate(-50%, -50%) rotateX(180deg);
     }
@@ -130,14 +130,14 @@ const Select: React.FC<ISelect> = ({
     switch (type) {
       case 'outlined':
         if (open) {
-          return `vl-select-outlined ${icon ? '' : 'arrow-icon vl-select-outlined-opened'}`
+          return `vl-old-select-outlined ${icon ? '' : 'arrow-icon vl-old-select-outlined-opened'}`
         }
-        return [`vl-select-outlined ${icon ? '' : 'arrow-icon'}`, activeOpt !== placeholder ? 'vl-select-outlined-selected' : ''].join(' ')
+        return [`vl-old-select-outlined ${icon ? '' : 'arrow-icon'}`, activeOpt !== placeholder ? 'vl-old-select-outlined-selected' : ''].join(' ')
       case 'standard':
         if (open) {
-          return 'vl-select-standard border-solid border-b-2 border-vl_grey-700'
+          return 'vl-old-select-standard border-solid border-b-2 border-vl_grey-700'
         }
-        return 'vl-select-standard'
+        return 'vl-old-select-standard'
       default:
         return
     }
