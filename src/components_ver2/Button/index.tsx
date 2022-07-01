@@ -10,7 +10,7 @@ interface BtnProps {
 }
 
 const Button: React.FC<BtnProps | ButtonProps> = props => {
-  const { children, className, type } = props
+  const { children, className, type = 'default' } = props
   const bgPrimary = type === 'primary' ? 'bg-primary_blue' : 'bg-transparent'
 
   return (

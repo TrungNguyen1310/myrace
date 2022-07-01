@@ -1,0 +1,5 @@
+@import './vendors/_tailwind';
+
+@mixin block-center {
+    @apply flex items-center justify-center;
+}

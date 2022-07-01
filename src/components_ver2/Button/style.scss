@@ -3,9 +3,20 @@
 @layer components {
     .vl-btn {
         // style button
+        @include block-center;
         @apply rounded-[23px] h-[46px] w-auto;
-        
+
         // style content's button
-        @apply text-sm font-bold not-italic
+        @apply text-sm font-bold not-italic;
+
+        // override css
+        .ant-btn-loading-icon {
+            @include block-center;
+        }
+    }
+
+    .vl-btn.ant-btn-circle {
+        // style button
+        @apply min-w-[46px]
     }
 }
