@@ -31,7 +31,7 @@ const Home = () => {
           <Input typeInput='Password' placeholder='type...' />
         </Form.Item>
         <Form.Item label='Outlined Select' name='outlinedSelect'>
-          <Select disabled placeholder='Select...'>
+          <Select allowClear placement='topLeft' placeholder='Select...'>
             <Option value='vn'>Viet Nam</Option>
             <Option value='usa'>USA</Option>
           </Select>

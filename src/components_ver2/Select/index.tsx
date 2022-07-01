@@ -32,10 +32,11 @@ interface ISelect {
 }
 
 const Select: React.FC<ISelect> = props => {
-  const { children, className, variant = 'outlined' } = props
+  const { children, className, variant = 'outlined', showArrow } = props
   const variantClassname = variant === 'outlined' ? 'vl-select-outlined_ver2' : 'vl-select-standard_ver2'
+
   return (
-    <AntSelect {...props} showArrow={variant === 'outlined'} suffixIcon={<ArrowDownIcon />} className={['vl-select', variantClassname, className].join(' ')}>
+    <AntSelect {...props} showArrow={'showArrow' in props ? showArrow : variant === 'outlined'} suffixIcon={<ArrowDownIcon />} className={['vl-select', variantClassname, className].join(' ')}>
       {children}
     </AntSelect>
   )
