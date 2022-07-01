@@ -19,7 +19,7 @@
     // ======== STANDARD ========
     .vl-input-standard {
         // style input
-        @apply pl-0 border-t-0 border-l-0 border-r-0 border-b border-b-vl_grey-600;
+        @apply pl-0 rounded-none border-t-0 border-l-0 border-r-0 border-b border-b-vl_grey-600;
 
         // // style input effect
         @apply hover:border-r-0 focus:shadow-none focus:border-r-0;
@@ -38,5 +38,6 @@
     .vl-input-standard.ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused {
         box-shadow: none !important;
         border-right-width: 0px !important;
+        border-radius: none !important;
     }
 }
