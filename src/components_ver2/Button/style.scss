@@ -3,15 +3,17 @@
 @layer components {
     .vl-btn {
         // style button
-        @include block-center;
-        @apply rounded-[23px] h-[46px] w-auto;
+        @apply rounded-[23px] h-[46px] w-auto duration-300;
 
         // style content's button
         @apply text-sm font-bold not-italic;
 
         // override css
         .ant-btn-loading-icon {
-            @include block-center;
+            @apply duration-300;
+            .anticon-loading {
+                vertical-align: 1px;
+            }
         }
     }
 
