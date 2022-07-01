@@ -3,3 +3,7 @@
 @mixin block-center {
     @apply flex items-center justify-center;
 }
+
+@mixin text-base-style {
+    @apply text-sm font-normal not-italic;
+}

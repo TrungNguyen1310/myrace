@@ -1,0 +1,24 @@
+@import '/src/index.scss';
+
+@layer components {
+    .vl-input {
+        // style input
+        @apply w-[360px] h-12 px-5 py-0;
+
+        // style input value
+        @include text-base-style;
+        @apply font-bold text-vl_grey-700;
+    }
+
+    .vl-input-outlined {
+        @apply rounded-3xl border-solid border border-vl_grey-600;
+    }
+
+    .vl-input-standard {
+        // style input
+        @apply pl-0 border-t-0 border-l-0 border-r-0 border-b border-b-vl_grey-600;
+
+        // // style input effect
+        @apply hover:border-r-0 focus:shadow-none focus:border-r-0;
+    }
+}

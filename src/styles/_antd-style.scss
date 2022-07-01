@@ -1,0 +1,7 @@
+@import './vendors/_tailwind';
+
+.ant-form-item-label {
+    label {
+        @apply text-vl_black text-xs not-italic font-medium;
+    }
+}
