@@ -24,19 +24,19 @@ const Home = () => {
           outlinedSelect: 'usa'
         }}
       >
-        <Form.Item label='Username' name='username'>
+        <Form.Item label='Username' name='username' rules={[{ required: true, message: 'Please input Username !' }]}>
           <Input placeholder='type...' />
         </Form.Item>
-        <Form.Item label='Password' name='password'>
+        <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please input Password !' }]}>
           <Input typeInput='Password' placeholder='type...' />
         </Form.Item>
-        <Form.Item label='Outlined Select' name='outlinedSelect'>
+        <Form.Item label='Outlined Select' name='outlinedSelect' rules={[{ required: true, message: 'Please select !' }]}>
           <Select allowClear placement='topLeft' placeholder='Select...'>
             <Option value='vn'>Viet Nam</Option>
             <Option value='usa'>USA</Option>
           </Select>
         </Form.Item>
-        <Form.Item label='Standard Select' name='standardSelect'>
+        <Form.Item label='Standard Select' name='standardSelect' rules={[{ required: true, message: 'Please select !' }]}>
           <Select variant='standard' placeholder='Select...'>
             <Option value='vn'>Viet Nam</Option>
             <Option value='usa'>USA</Option>
