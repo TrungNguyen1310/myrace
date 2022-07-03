@@ -56,6 +56,9 @@ const Home = () => {
           <Badge count={10} className='ml-5' color='#e227ec'>
             <Avatar shape='square' size='large' />
           </Badge>
+          <Badge count={11} className='ml-5' color='#e227ec' overflowCount={10}>
+            <Avatar shape='square' size='large' />
+          </Badge>
           <Badge count={10} className='ml-5' color='green' dot>
             <Avatar shape='square' size='large' />
           </Badge>

@@ -8,10 +8,13 @@ interface IBadge {
   children?: ReactNode
   color?: string
   className?: string
+  title?: string
   dot?: boolean
   showZero?: boolean
   primary?: boolean
   offset?: [number, number]
+  overflowCount?: number
+  status?: 'success' | 'processing' | 'default' | 'error' | 'warning'
 }
 
 const Badge: React.FC<IBadge> = props => {
