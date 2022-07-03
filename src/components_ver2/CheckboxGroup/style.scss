@@ -1,9 +1,9 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-checkbox {
+    .vl-checkbox-group {
         @apply font-bold not-italic text-xs text-vl_black-100 flex items-center;
-
+        
         &:hover {
             .ant-checkbox-checked {
                 &::after {
@@ -12,8 +12,13 @@
             }
         }
 
+        .ant-checkbox-wrapper {
+            @apply flex items-center;
+        }
+
         .ant-checkbox {
             @apply top-0;
+
             .ant-checkbox-inner {
                 @apply w-5 h-5 border-none rounded-[4px] bg-vl_grey-300;
             }
@@ -26,6 +31,7 @@
         .ant-checkbox-checked {
             .ant-checkbox-inner {
                 @apply bg-primary_blue;
+
                 &::after {
                     @apply top-[45%] left-[30%] h-[10px];
                 }
@@ -39,7 +45,7 @@
         }
     }
 
-    .vl-checkbox.ant-checkbox-wrapper-checked {
+    .vl-checkbox-group.ant-checkbox-wrapper-checked {
         @apply text-vl_black;
     }
 }

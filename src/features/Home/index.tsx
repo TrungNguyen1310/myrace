@@ -5,6 +5,7 @@ import Button from 'components_ver2/Button'
 import Select from 'components_ver2/Select'
 import Badge from 'components_ver2/Badge'
 import Checkbox from 'components_ver2/Checkbox'
+import CheckboxGroup from 'components_ver2/CheckboxGroup'
 
 const { Option } = AntSelect
 
@@ -24,7 +25,8 @@ const Home = () => {
         onFinish={onFinish}
         initialValues={{
           outlinedSelect: 'usa',
-          fruit: false
+          fruit: false,
+          groupFruits: ['vn']
         }}
       >
         <Form.Item label='Username' name='username' rules={[{ required: true, message: 'Please input Username !' }]}>
@@ -69,6 +71,16 @@ const Home = () => {
           <Checkbox className='pl-10' value='apple'>
             Apple
           </Checkbox>
+        </Form.Item>
+        <Form.Item label='Checkbox Group' name='groupFruits'>
+          <CheckboxGroup
+            className='pl-10'
+            options={[
+              { label: 'Viet Nam', value: 'vn', disabled: true },
+              { label: 'USA', value: 'usa' },
+              { label: 'Canada', value: 'ca' }
+            ]}
+          />
         </Form.Item>
         <Form.Item>
           <Button htmlType='submit' type='primary' className='w-[360px]'>
