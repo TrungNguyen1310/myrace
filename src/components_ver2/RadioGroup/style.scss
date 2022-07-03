@@ -1,0 +1,52 @@
+@import '/src/index.scss';
+
+@layer components {
+    .vl-radio-group {
+        @apply flex items-center;
+        
+        .ant-radio-wrapper {
+            @apply flex items-center;
+        }
+
+        .ant-radio {
+            @apply top-0 h-5 w-5;
+
+            .ant-radio-inner {
+                @apply h-full w-full border-none bg-vl_grey-300 rounded-[10px];
+            }
+        }
+
+        span:last-child {
+            @apply text-xs font-bold text-vl_black-100 pl-[10px];
+        }
+
+    }
+
+    .vl-radio-group .ant-radio-checked {
+        .ant-radio-inner {
+            @apply h-5 w-5 rounded-[10px];
+
+            &::after {
+                @apply bg-vl_white;
+            }
+        }
+    }
+
+    .vl-radio-group .ant-radio-checked+span:last-child {
+        @apply text-xs font-bold text-vl_black pl-[10px];
+    }
+
+    // PRIMARY
+    .vl-radio-group-primary .ant-radio-checked {
+        .ant-radio-inner {
+            @apply bg-primary_blue border-solid border border-primary_blue;
+        }
+    }
+
+    // BASE
+    .vl-radio-group-base .ant-radio-checked {
+        .ant-radio-inner {
+            @apply bg-secondary_pink border-solid border border-secondary_pink;
+        }
+    }
+}

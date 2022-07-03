@@ -9,12 +9,17 @@ interface IRadio {
   defaultChecked?: boolean
   disabled?: boolean
   primary?: boolean
+  value?: string | number
 }
 
 const Radio: React.FC<IRadio> = props => {
   const { children, className, primary } = props
   const primaryClassname = primary ? 'vl-radio-primary' : 'vl-radio-base'
-  return <AntRadio className={['vl-radio', primaryClassname, className].join(' ')}>{children}</AntRadio>
+  return (
+    <AntRadio {...props} className={['vl-radio', primaryClassname, className].join(' ')}>
+      {children}
+    </AntRadio>
+  )
 }
 
 export default Radio
