@@ -16,6 +16,10 @@
             @apply text-xs font-bold text-vl_black-100 pl-[10px];
         }
 
+        .ant-radio-disabled+span:last-child,
+        .ant-radio-checked.ant-radio-disabled+span:last-child {
+            color: #00000040;
+        }
     }
 
     .vl-radio .ant-radio-checked {
@@ -39,10 +43,22 @@
         }
     }
 
+    .vl-radio-primary .ant-radio-checked.ant-radio-disabled {
+        .ant-radio-inner {
+            @apply bg-[#dedede] border-solid border border-[#dedede];
+        }
+    }
+
     // BASE
     .vl-radio-base .ant-radio-checked {
         .ant-radio-inner {
             @apply bg-secondary_pink border-solid border border-secondary_pink;
+        }
+    }
+
+    .vl-radio-base .ant-radio-checked.ant-radio-disabled {
+        .ant-radio-inner {
+            @apply bg-[#dedede] border-solid border border-[#dedede];
         }
     }
 }

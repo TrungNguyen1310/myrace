@@ -41,14 +41,17 @@ const Home = () => {
           outlinedSelect: 'usa',
           fruit: false,
           groupFruits: ['vn'],
-          radioGroup: '1'
+          radioGroup: '1',
+          radioNike: 'nike'
         }}
       >
-        <Form.Item label='Base Radio' name='radioFruit'>
-          <Radio className='pl-10'>Adidas</Radio>
+        <Form.Item label='Base Radio' name='radioAdidas' valuePropName='checked'>
+          <Radio className='pl-10' value='adidas'>
+            Adidas
+          </Radio>
         </Form.Item>
-        <Form.Item label='Primary Radio' name='radioFruit'>
-          <Radio primary className='pl-10'>
+        <Form.Item label='Primary Radio' name='radioNike' valuePropName='checked'>
+          <Radio disabled primary className='pl-10' value='nike'>
             Nike
           </Radio>
         </Form.Item>
