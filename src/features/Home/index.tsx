@@ -4,6 +4,7 @@ import { Avatar, Form, Select as AntSelect } from 'antd'
 import Button from 'components_ver2/Button'
 import Select from 'components_ver2/Select'
 import Badge from 'components_ver2/Badge'
+import Checkbox from 'components_ver2/Checkbox'
 
 const { Option } = AntSelect
 
@@ -22,7 +23,8 @@ const Home = () => {
         onValuesChange={onValuesChange}
         onFinish={onFinish}
         initialValues={{
-          outlinedSelect: 'usa'
+          outlinedSelect: 'usa',
+          fruit: false
         }}
       >
         <Form.Item label='Username' name='username' rules={[{ required: true, message: 'Please input Username !' }]}>
@@ -62,6 +64,11 @@ const Home = () => {
           <Badge count={10} className='ml-5' color='green' dot>
             <Avatar shape='square' size='large' />
           </Badge>
+        </Form.Item>
+        <Form.Item label='Checkbox' name='fruit' valuePropName='checked'>
+          <Checkbox className='pl-10' value='apple'>
+            Apple
+          </Checkbox>
         </Form.Item>
         <Form.Item>
           <Button htmlType='submit' type='primary' className='w-[360px]'>

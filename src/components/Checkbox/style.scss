@@ -1,7 +1,7 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-checkbox {
+    .vl-old-checkbox {
         @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
         line-height: unset;
 
@@ -12,7 +12,7 @@
                 @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
             }
 
-            .vl-checkbox-inner {
+            .vl-old-checkbox-inner {
                 @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded transition-all duration-300;
 
                 &::after{
@@ -34,8 +34,8 @@
         }
     }
 
-    .vl-checkbox-checked {
-        .vl-checkbox-inner {
+    .vl-old-checkbox-checked {
+        .vl-old-checkbox-inner {
             @apply bg-primary_blue;
             &::after {
                 @apply opacity-100 absolute border-solid border-[3px] border-white border-t-0 border-l-0 w-[7px] h-3 top-[45%] rounded-sm;
@@ -50,19 +50,19 @@
         }
     }
 
-    .vl-checkbox-disabled {
+    .vl-old-checkbox-disabled {
         @apply cursor-not-allowed;
         input[type=checkbox] {
             @apply cursor-not-allowed;
         }
 
-        .vl-checkbox-checked, &__input {
-            .vl-checkbox-inner {
+        .vl-old-checkbox-checked, &__input {
+            .vl-old-checkbox-inner {
                 @apply bg-vl_grey-700 opacity-60;
             }
         }
 
-        .vl-checkbox__label {
+        .vl-old-checkbox__label {
             @apply text-vl_grey-700;
         }
     }
