@@ -18,7 +18,8 @@
         }
 
         .ant-select-selection-placeholder, .ant-select-selection-item {
-            @apply flex items-center;
+            @include text-base-style;
+            @apply flex items-center font-bold;
         }
 
         .ant-select-arrow {

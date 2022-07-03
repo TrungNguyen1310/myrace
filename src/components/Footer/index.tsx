@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
-import Select from '../Select'
+import Select from 'components_ver2/Select'
 import './style.scss'
-import Button from 'components/Button'
+import Button from 'components_ver2/Button'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
@@ -26,12 +26,12 @@ const Footer: React.FC = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
 
-  const onChangeSelect = (opt, type: string) => {
+  const onChangeSelect = (value, type: string) => {
     if (type === 'currency') {
-      setCurrency(opt.value)
+      setCurrency(value)
     } else {
-      i18n.changeLanguage(opt.value)
-      setLanguage(opt.value)
+      i18n.changeLanguage(value)
+      setLanguage(value)
     }
   }
 
@@ -56,11 +56,14 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <Select placement='top' defaultValue={currency} options={options1} onChange={opt => onChangeSelect(opt, 'currency')} className='select-footer' classNameSelect='currency-select' />
-        <Select placement='top' defaultValue={language} options={options} onChange={opt => onChangeSelect(opt, 'language')} className='px-[41px] select-footer' classNameSelect='lang-select' />
-        <Button shape='circle' onClick={toggleDarkMode} className={`${theme === 'dark' && 'darkmode-btn'} border-solid border border-vl_grey-500 w-[46px] h-[46px]`}>
-          <MoonIcon />
-        </Button>
+        <Select showArrow={false} bordered={false} defaultValue={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select w-fit' />
+        <Select showArrow={false} bordered={false} defaultValue={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select w-fit' />
+        <Button
+          shape='circle'
+          icon={<MoonIcon />}
+          onClick={toggleDarkMode}
+          className={`${theme === 'dark' && 'darkmode-btn'} border-solid border border-vl_grey-500 w-[46px] h-[46px] dark:bg-transparent`}
+        />
       </div>
     </footer>
   )

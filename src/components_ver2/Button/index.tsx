@@ -15,11 +15,17 @@ interface BtnProps {
 
 const Button: React.FC<BtnProps | ButtonProps> = props => {
   const { children, className, type = 'default', icon } = props
-  const bgPrimary = type === 'primary' ? 'bg-primary_blue' : 'bg-transparent'
+  const bgPrimary = () => {
+    if (className?.includes('bg-')) {
+      return ''
+    }
+    return type === 'primary' ? 'bg-primary_blue' : 'bg-vl_white'
+  }
+
   const btnIconStyle = icon ? 'flex items-center justify-center' : ''
 
   return (
-    <AntButton {...props} className={['vl-btn', className, bgPrimary, btnIconStyle].join(' ')}>
+    <AntButton {...props} className={['vl-btn', className, bgPrimary(), btnIconStyle].join(' ')}>
       {children}
     </AntButton>
   )

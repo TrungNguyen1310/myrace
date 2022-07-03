@@ -17,6 +17,10 @@
         }
     }
 
+    .vl-btn-base {
+        @apply bg-vl_white;
+    }
+
     .vl-btn.ant-btn-circle {
         // style button
         @apply min-w-[46px]

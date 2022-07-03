@@ -5,7 +5,7 @@ import { ReactComponent as ArrowDownIcon } from 'assets/icons/arrowdown.svg'
 import './style.scss'
 
 interface ISelect {
-  children: ReactNode
+  children?: ReactNode
   clearIcon?: ReactNode
   suffixIcon?: ReactNode
   removeIcon?: ReactNode
@@ -15,6 +15,7 @@ interface ISelect {
   placeholder?: string
   value?: string
   searchValue?: string
+  defaultValue?: string | string[] | number | number[]
   open?: boolean
   loading?: boolean
   virtual?: boolean
@@ -23,6 +24,7 @@ interface ISelect {
   showArrow?: boolean
   allowClear?: boolean
   showSearch?: boolean
+  bordered?: boolean
   onChange?: any
   status?: 'error' | 'warning'
   mode?: 'multiple' | 'tags'

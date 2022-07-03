@@ -10,17 +10,10 @@
       @apply font-medium text-vl_grey-800;
     }
   }
-
-  .select-footer {
-    @apply w-auto;
-    .options-container {
-      @apply w-[160px];
-    }
-    
-    .lang-select,
-    .currency-select {
-      @apply border-none bg-transparent dark:text-vl_white text-vl_black after:hidden px-0;
-    }
+  
+  .lang-select.ant-select-single,
+  .currency-select.ant-select-single {
+    @apply w-fit border-none bg-transparent dark:text-vl_white text-vl_black after:hidden px-0;
   }
 
   .darkmode-btn {

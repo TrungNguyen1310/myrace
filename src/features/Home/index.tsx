@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Input from 'components_ver2/Input'
 import { Avatar, Form, Select as AntSelect } from 'antd'
-import type { RadioChangeEvent } from 'antd'
 import Button from 'components_ver2/Button'
 import Select from 'components_ver2/Select'
 import Badge from 'components_ver2/Badge'
@@ -13,8 +12,6 @@ import RadioGroup from 'components_ver2/RadioGroup'
 const { Option } = AntSelect
 
 const Home = () => {
-  const [value, setvalue] = useState('2')
-
   const onValuesChange = e => {
     console.log('okoko: ', e)
   }
@@ -22,17 +19,9 @@ const Home = () => {
   const onFinish = e => {
     console.log('onFinish: ', e)
   }
-  const onChange = (e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value)
-    setvalue(e.target.value)
-  }
 
   return (
     <div>
-      <RadioGroup onChange={onChange} className='pl-10' value={value}>
-        <Radio value='1'>Adidas</Radio>
-        <Radio value='2'>Nike</Radio>
-      </RadioGroup>
       <Form
         layout='vertical'
         onValuesChange={onValuesChange}

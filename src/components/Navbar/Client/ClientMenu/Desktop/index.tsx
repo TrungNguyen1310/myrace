@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ROUTES } from 'routes'
 import { IMenuItem, clientMenu } from 'utils/menuList'
 import '../style.scss'
-import Button from 'components/Button'
+import Button from 'components_ver2/Button'
 
 interface MenuDesktopProps {
   onClickMenu: (menu: IMenuItem) => void
@@ -32,14 +32,12 @@ const ViewMenuDesktop: React.FC<MenuDesktopProps> = ({ activeMenu = 1, onClickMe
         </li>
       ))}
       <li>
-        <Button primary borderColor='none' className='ml-[12px] 2xl:ml-[37px] w-[98px] h-10'>
-          dApp
-        </Button>
+        <Button className='ml-[12px] 2xl:ml-[37px] w-[98px] h-10 bg-vl_neon border-none hover:bg-vl_neon hover:text-vl_black'>dApp</Button>
       </li>
       <li>
         <Button
           disabled
-          className='ml-[6px] w-[98px] dark:text-white h-10'
+          className='ml-[6px] w-[98px] h-10'
           onClick={() =>
             startTransition(() => {
               navigate(ROUTES.SIGNIN)
