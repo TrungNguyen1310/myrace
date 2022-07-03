@@ -6,10 +6,6 @@ import Badge from '../Badge'
 export default {
   title: 'ComponentsVer2/Badge',
   component: Badge,
-  argTypes: {
-    loading: { control: 'radio', options: [true, false] },
-    disabled: { control: 'boolean' }
-  },
   args: {}
 } as ComponentMeta<typeof Badge>
 
