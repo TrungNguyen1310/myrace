@@ -6,6 +6,7 @@ import Select from 'components_ver2/Select'
 import Badge from 'components_ver2/Badge'
 import Checkbox from 'components_ver2/Checkbox'
 import CheckboxGroup from 'components_ver2/CheckboxGroup'
+import Radio from 'components_ver2/Radio'
 
 const { Option } = AntSelect
 
@@ -29,6 +30,14 @@ const Home = () => {
           groupFruits: ['vn']
         }}
       >
+        <Form.Item label='Base Radio' name='radioFruit'>
+          <Radio className='pl-10'>Adidas</Radio>
+        </Form.Item>
+        <Form.Item label='Primary Radio' name='radioFruit'>
+          <Radio primary className='pl-10'>
+            Nike
+          </Radio>
+        </Form.Item>
         <Form.Item label='Username' name='username' rules={[{ required: true, message: 'Please input Username !' }]}>
           <Input placeholder='type...' />
         </Form.Item>

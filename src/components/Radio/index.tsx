@@ -26,12 +26,12 @@ const Radio: React.FC<IRadio> = ({ value, onChange = () => undefined, primary, l
   }
 
   return (
-    <label className={['vl-radio', disabled ? 'vl-radio-disabled' : ''].join(' ')}>
-      <span className={['vl-radio__input', value && checked ? 'vl-radio-checked' : ''].join(' ')}>
+    <label className={['vl-old-radio', disabled ? 'vl-old-radio-disabled' : ''].join(' ')}>
+      <span className={['vl-old-radio__input', value && checked ? 'vl-old-radio-checked' : ''].join(' ')}>
         <input checked={checked} disabled={disabled} type='radio' onChange={onChangeRadio} value={value} />
-        <span className={['vl-radio-inner', `vl-radio-inner-${primary ? 'primary' : 'secondary'}`].join(' ')} />
+        <span className={['vl-old-radio-inner', `vl-old-radio-inner-${primary ? 'primary' : 'secondary'}`].join(' ')} />
       </span>
-      <span className={['vl-radio__label', value && checked ? 'checked' : ''].join(' ')}>{label}</span>
+      <span className={['vl-old-radio__label', value && checked ? 'checked' : ''].join(' ')}>{label}</span>
     </label>
   )
 }

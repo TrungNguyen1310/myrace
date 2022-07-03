@@ -1,7 +1,7 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-radio {
+    .vl-old-radio {
         @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
 
         &__input {
@@ -11,7 +11,7 @@
                 @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
             }
 
-            .vl-radio-inner {
+            .vl-old-radio-inner {
                 @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded-[10px] transition-all duration-300;
 
                 &::after {
@@ -32,8 +32,8 @@
         }
     }
 
-    .vl-radio-checked {
-        .vl-radio-inner { 
+    .vl-old-radio-checked {
+        .vl-old-radio-inner { 
             &::after {
                 @apply opacity-100;
                 transform: scale(.5);
@@ -41,11 +41,11 @@
             }
         }
 
-        .vl-radio-inner-primary {
+        .vl-old-radio-inner-primary {
             @apply bg-primary_blue;
         }
 
-        .vl-radio-inner-secondary {
+        .vl-old-radio-inner-secondary {
             @apply bg-secondary_pink;
         }
 
@@ -55,19 +55,19 @@
         }
     }
 
-    .vl-radio-disabled {
+    .vl-old-radio-disabled {
         @apply cursor-not-allowed;
          input[type=radio] {
             @apply cursor-not-allowed;
         }
 
-        .vl-radio-checked, &__input {
-            .vl-radio-inner {
+        .vl-old-radio-checked, &__input {
+            .vl-old-radio-inner {
                 @apply bg-vl_grey-700 opacity-60;
             }
         }
 
-        .vl-radio__label {
+        .vl-old-radio__label {
             @apply text-vl_grey-700;
         }
     }
