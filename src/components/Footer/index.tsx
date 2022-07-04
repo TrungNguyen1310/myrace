@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
   }
 
   return (
-    <footer className='w-full h-[86px] max-h-[100px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
+    <footer className='w-full h-[86px] hidden px-8 bg-vl_white-200 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
       <div className='flex items-center justify-between'>
         <p className='text-right-footer pr-[22px] dark:text-white'>{t('components.footer.privacy_policy')}</p>
@@ -57,8 +57,8 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <Select showArrow={false} bordered={false} value={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select w-fit' />
-        <Select showArrow={false} bordered={false} value={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select w-fit' />
+        <Select showArrow={false} bordered={false} value={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select' />
+        <Select showArrow={false} bordered={false} value={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select' />
         <Button
           shape='circle'
           icon={<MoonIcon />}

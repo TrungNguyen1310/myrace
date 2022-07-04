@@ -1,0 +1,55 @@
+@import '/src/index.scss';
+
+@layer components {
+    .navbar-menu {
+        @apply text-vl_grey-700 dark:text-vl_white text-base font-bold ;
+    }
+
+    .navbar-menu li.ant-menu-item-selected {    
+        @apply dark:text-vl_neon text-vl_black #{!important};
+    }
+
+    .navbar-menu .ant-menu-item {    
+        &:hover {
+            @apply dark:text-vl_neon text-vl_black #{!important};
+        }
+    }
+
+    .user-icon, .dark-menu-icon {
+        svg {
+            path {
+                @apply fill-white
+            }
+            }
+    }
+
+    .menu-icon {
+        svg {
+            path {
+                @apply fill-black
+            }
+            }
+    }
+}
+
+// CUSTOM menu > li
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item {
+    padding: 0;
+    padding-left: 30px;
+
+    &::after {
+        border-bottom: none;
+    }
+
+    &:hover {
+        transition: all .1s ease-in-out;
+        // color: theme('colors.vl_neon');
+        &::after {
+            border-bottom: none;
+        }
+    }
+}
+
+// .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected {
+//     color: theme('colors.vl_neon');
+// }

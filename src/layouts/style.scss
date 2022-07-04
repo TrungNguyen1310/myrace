@@ -21,3 +21,13 @@
     opacity: 0;
   }
 }
+
+// VER 2
+@import '/src/index.scss';
+
+@layer components {
+  .default-header {
+    @apply px-8;
+  }
+
+}
