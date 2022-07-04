@@ -22,6 +22,17 @@ const Footer: React.FC = () => {
   ]
   const [theme, setTheme] = useContext(ThemeContext)
 
+  const getCurrentLanguage = () => {
+    const lang = localStorage.getItem('i18nextLng') || 'en'
+
+    setLanguage(lang)
+    i18n.changeLanguage(lang)
+  }
+
+  useEffect(() => {
+    getCurrentLanguage()
+  }, [])
+
   const toggleDarkMode = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
@@ -35,16 +46,6 @@ const Footer: React.FC = () => {
     }
   }
 
-  const getCurrentLanguage = () => {
-    const lang = localStorage.getItem('i18nextLng') || 'en'
-    setLanguage(lang)
-    i18n.changeLanguage(lang)
-  }
-
-  useEffect(() => {
-    getCurrentLanguage()
-  }, [])
-
   return (
     <footer className='w-full h-[86px] max-h-[100px] hidden px-8 bg-vl_white-200 absolute z-20 dark:bg-black md:flex items-center justify-between'>
       {/* ======= LEFT ======= */}
@@ -56,8 +57,8 @@ const Footer: React.FC = () => {
       </div>
       {/* ======= RIGHT ======= */}
       <div className='flex items-center justify-between relative'>
-        <Select showArrow={false} bordered={false} defaultValue={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select w-fit' />
-        <Select showArrow={false} bordered={false} defaultValue={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select w-fit' />
+        <Select showArrow={false} bordered={false} value={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select w-fit' />
+        <Select showArrow={false} bordered={false} value={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select w-fit' />
         <Button
           shape='circle'
           icon={<MoonIcon />}

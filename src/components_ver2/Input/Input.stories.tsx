@@ -15,7 +15,7 @@ export default {
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = args => <Input {...args} />
-const PasswordTemplate: ComponentStory<typeof Input> = args => <Input typeInput='Password' {...args} />
+const PasswordTemplate: ComponentStory<typeof Input> = args => <Input inputType='Password' {...args} />
 
 export const Default = Template.bind({})
 

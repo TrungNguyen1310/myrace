@@ -57,7 +57,7 @@ const Home = () => {
           <Input placeholder='type...' />
         </Form.Item>
         <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please input Password !' }]}>
-          <Input typeInput='Password' placeholder='type...' />
+          <Input inputType='Password' placeholder='type...' />
         </Form.Item>
         <Form.Item label='Outlined Select' name='outlinedSelect' rules={[{ required: true, message: 'Please select !' }]}>
           <Select allowClear placement='topLeft' placeholder='Select...'>

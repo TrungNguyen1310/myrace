@@ -17,8 +17,9 @@ interface IBadge {
   status?: 'success' | 'processing' | 'default' | 'error' | 'warning'
 }
 
-const Badge: React.FC<IBadge> = props => {
-  const { children, className, primary, color } = props
+const Badge: React.FC<IBadge> = ({ primary = false, ...props }) => {
+  const { children, className, color } = props
+
   const primaryClassname = primary ? 'vl-badge-primary' : color ? '' : 'vl-badge-base'
   return (
     <AntBadge {...props} className={['vl-badge', primaryClassname, className].join(' ')}>

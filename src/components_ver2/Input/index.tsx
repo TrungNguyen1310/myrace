@@ -8,7 +8,7 @@ interface IInput {
   addonAfter?: ReactNode
   addonBefore?: ReactNode
   maxLength?: number
-  typeInput?: 'Password' | 'default'
+  inputType?: 'Password' | 'default'
   label?: string
   variant?: 'standard' | 'outlined'
   disabled?: boolean
@@ -25,12 +25,12 @@ interface IInput {
 }
 
 const Input: React.FC<IInput> = props => {
-  const { className, variant = 'outlined', typeInput = 'default' } = props
+  const { className, variant = 'outlined', inputType = 'default', ...rest } = props
   const variantClassname = variant === 'outlined' ? 'vl-input-outlined' : 'vl-input-standard'
 
-  if (typeInput === 'Password') return <AntInput.Password {...props} className={['vl-input', variantClassname, className].join(' ')} />
+  if (inputType === 'Password') return <AntInput.Password {...rest} className={['vl-input', variantClassname, className].join(' ')} />
 
-  return <AntInput {...props} className={['vl-input', variantClassname, className].join(' ')} />
+  return <AntInput {...rest} className={['vl-input', variantClassname, className].join(' ')} />
 }
 
 export default Input
