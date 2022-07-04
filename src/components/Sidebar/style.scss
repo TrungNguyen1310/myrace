@@ -3,14 +3,14 @@
 @layer components {
   .menu,
   .active-menu {
-    @apply w-full h-[56px] rounded-[28px] justify-start hover:bg-vl_grey-100 text-vl_grey-700 hover:text-black hover:font-bold;
+    // style menu
+    @apply w-full h-[56px] rounded-[28px] flex items-center justify-start p-[17px];
+    // style menu effects
+    @apply duration-300 text-vl_grey-700 hover:text-black hover:font-bold hover:bg-vl_grey-100 cursor-pointer;
   }
 
   .active-menu {
     @apply bg-vl_grey-100;
-  }
-
-  .active-menu {
     .menu-title {
       @apply text-vl_black;
     }

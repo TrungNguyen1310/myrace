@@ -17,9 +17,9 @@ const SidebarDesktop: React.FC<ISidebarDesktop> = ({ open = false, activeMenu = 
         <ul className='space-y-2'>
           {sideMenu.map(menu => (
             <li key={menu.id} className='h-[56px]'>
-              <a onClick={() => onClickMenu(menu)} className={`${activeMenu === menu.id ? 'active-menu' : 'menu'} flex items-center justify-start p-[17px] h-full cursor-pointer`}>
+              <a onClick={() => onClickMenu(menu)} className={`${activeMenu === menu.id ? 'active-menu' : 'menu'}`}>
                 <div>{menu.icon}</div>
-                <p className={`ml-[14px] whitespace-nowrap duration-300 font-bold menu-title ${open ? 'opacity-1 visible' : 'opacity-0 invisible'}`}>{t(menu.name)}</p>
+                <p className={`ml-[14px] whitespace-nowrap font-bold menu-title ${open ? 'opacity-1 visible' : 'opacity-0 invisible'}`}>{t(menu.name)}</p>
               </a>
             </li>
           ))}
