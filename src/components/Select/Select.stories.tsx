@@ -1,44 +1,34 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
+import { Select as AntSelect } from 'antd'
 import Select from '../Select'
 
+const { Option } = AntSelect
+
 export default {
-  title: 'Components/Select',
+  title: 'ComponentsVer2/Select',
   component: Select,
+  argTypes: {
+    disabled: { control: 'boolean' }
+  },
   args: {
-    disabled: false,
-    options: [
-      {
-        value: 'apple',
-        label: 'Apple'
-      },
-      {
-        value: 'lemon',
-        label: 'Lemon'
-      },
-      {
-        value: 'melon',
-        label: 'melon'
-      }
-    ]
+    placeholder: 'Select...'
   }
 } as ComponentMeta<typeof Select>
 
-const Template: ComponentStory<typeof Select> = args => <Select {...args} />
+const Template: ComponentStory<typeof Select> = args => (
+  <Select {...args} className='mt-20'>
+    <Option value='vn'>Viet Nam</Option>
+    <Option value='usa'>USA</Option>
+  </Select>
+)
 
-export const Outlined = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Outlined.args = {
-  label: 'Juice',
-  placeholder: 'Select juice...',
-  defaultValue: 'apple'
-}
+export const Default = Template.bind({})
 
-export const Standard = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Standard.args = {
-  label: 'Juice',
-  placeholder: 'Select juice...',
+Default.args = {}
+
+export const VariantInput = Template.bind({})
+
+VariantInput.args = {
   variant: 'standard'
 }

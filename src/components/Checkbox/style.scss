@@ -1,69 +1,45 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-old-checkbox {
-        @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
-        line-height: unset;
+    .vl-checkbox {
+        @apply font-bold not-italic text-xs text-vl_black-100 flex items-center;
 
-        &__input {
-            @apply relative;
-
-            input[type=checkbox] {
-                @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
-            }
-
-            .vl-old-checkbox-inner {
-                @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded transition-all duration-300;
-
-                &::after{
-                    @apply absolute top-1/2 left-1/4 border-solid border-[3px] border-white border-t-0 border-l-0 opacity-0 w-[7px] h-3 rounded-sm;
-                    transform: rotate(45deg) scale(0) translate(-50%,-50%);
-                    transition: all .1s cubic-bezier(.71,-.46,.88,.6),opacity .1s;
-                    content: "";
+        &:hover {
+            .ant-checkbox-checked {
+                &::after {
+                    @apply border-none;
                 }
             }
-
         }
 
-        &__label {
-            @apply text-vl_black-100 text-xs pl-[10px];
-        }
-
-        &__label.checked {
-            @apply text-vl_black;
-        }
-    }
-
-    .vl-old-checkbox-checked {
-        .vl-old-checkbox-inner {
-            @apply bg-primary_blue;
-            &::after {
-                @apply opacity-100 absolute border-solid border-[3px] border-white border-t-0 border-l-0 w-[7px] h-3 top-[45%] rounded-sm;
-                transform: rotate(45deg) scale(1) translate(-50%,-50%);
-                transition: all .2s cubic-bezier(.12,.4,.29,1.46) .1s;
+        .ant-checkbox {
+            @apply top-0;
+            .ant-checkbox-inner {
+                @apply w-5 h-5 border-none rounded-[4px] bg-vl_grey-300;
             }
         }
 
-        &::after {
-            @apply absolute top-0 left-0 w-full h-full invisible;
-            content: "";
-        }
-    }
-
-    .vl-old-checkbox-disabled {
-        @apply cursor-not-allowed;
-        input[type=checkbox] {
-            @apply cursor-not-allowed;
+        span:last-child {
+            @apply px-[10px];
         }
 
-        .vl-old-checkbox-checked, &__input {
-            .vl-old-checkbox-inner {
-                @apply bg-vl_grey-700 opacity-60;
+        .ant-checkbox-checked {
+            .ant-checkbox-inner {
+                @apply bg-primary_blue;
+                &::after {
+                    @apply top-[45%] left-[30%] h-[10px];
+                }
             }
         }
 
-        .vl-old-checkbox__label {
-            @apply text-vl_grey-700;
+        .ant-checkbox-disabled {
+            .ant-checkbox-inner {
+                @apply bg-[#f5f5f5];
+            }
         }
+    }
+
+    .vl-checkbox.ant-checkbox-wrapper-checked {
+        @apply text-vl_black;
     }
 }

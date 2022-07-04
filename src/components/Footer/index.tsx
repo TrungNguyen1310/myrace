@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
-import Select from 'components_ver2/Select'
+import Select from 'components/Select'
 import './style.scss'
-import Button from 'components_ver2/Button'
+import Button from 'components/Button'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()

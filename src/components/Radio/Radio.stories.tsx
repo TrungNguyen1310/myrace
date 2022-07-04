@@ -1,41 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
 import Radio from '../Radio'
+
 export default {
-  title: 'Components/Radio',
+  title: 'ComponentsVer2/Radio',
   component: Radio,
-  args: {
-    label: 'Apple'
-  }
+  argTypes: {
+    disabled: { control: 'boolean' }
+  },
+  args: {}
 } as ComponentMeta<typeof Radio>
 
-const Template: ComponentStory<typeof Radio> = args => {
-  const [value, setValue] = useState(false)
+const Template: ComponentStory<typeof Radio> = args => (
+  <Radio {...args} className='ml-5'>
+    {args.children}
+  </Radio>
+)
 
-  return <Radio {...args} value='apple' checked={value} onChange={e => setValue(e.target.checked)} />
-}
-
-const TemplateWithDefaultValue: ComponentStory<typeof Radio> = args => {
-  return <Radio {...args} />
-}
-
-export const SimpleRadio = Template.bind({})
-
-SimpleRadio.args = {
-  label: 'Lemon'
-}
-
-export const DefaultValueRadio = TemplateWithDefaultValue.bind({})
-
-DefaultValueRadio.args = {
-  label: 'Default value',
-  value: 'default-value',
-  checked: true
-}
-
-export const DisabledRadio = Template.bind({})
-
-DisabledRadio.args = {
-  disabled: true
+export const Default = Template.bind({})
+Default.args = {
+  children: 'Apple',
+  value: 'apple'
 }

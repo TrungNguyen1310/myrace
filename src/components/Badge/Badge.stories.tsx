@@ -1,49 +1,52 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
+import { Avatar } from 'antd'
 import Badge from '../Badge'
+
 export default {
-  title: 'Components/Badge',
+  title: 'ComponentsVer2/Badge',
   component: Badge,
-  args: {
-    badgeContent: '20'
-  },
-  argTypes: {
-    primary: { control: 'boolean' },
-    max: { control: 'boolean' },
-    showZero: { control: 'boolean' }
-  }
+  args: {}
 } as ComponentMeta<typeof Badge>
 
 const Template: ComponentStory<typeof Badge> = args => (
-  <div className='rounded-full w-[40px] h-[40px] bg-red-300 relative flex items-center justify-center'>
-    <Badge {...args} className='absolute -top-2 -right-4' />
-    <span>VL</span>
-  </div>
+  <Badge {...args} className='ml-5'>
+    <Avatar shape='square' size='large' />
+  </Badge>
 )
 
-export const SimpleBadge = Template.bind({})
-
-SimpleBadge.args = {
-  badgeContent: '11'
+export const Default = Template.bind({})
+Default.args = {
+  count: 10
 }
 
-export const PrimaryBadge = Template.bind({})
-
-PrimaryBadge.args = {
-  primary: true
+export const Primary = Template.bind({})
+Primary.args = {
+  primary: true,
+  count: 10
 }
 
-export const SimpleBadgeWithMaxContent = Template.bind({})
-
-SimpleBadgeWithMaxContent.args = {
-  max: 100,
-  badgeContent: '111'
+export const Showzero = Template.bind({})
+Showzero.args = {
+  count: 0,
+  showZero: true
 }
 
-export const ShowZero = Template.bind({})
+export const CustomColorBadge = Template.bind({})
+CustomColorBadge.args = {
+  count: 50,
+  color: '#27ec2a'
+}
 
-ShowZero.args = {
-  showZero: true,
-  badgeContent: '0'
+export const OverFlowBadge = Template.bind({})
+OverFlowBadge.args = {
+  count: 101,
+  overflowCount: 100
+}
+
+export const Dot = Template.bind({})
+Dot.args = {
+  count: 101,
+  dot: true,
+  color: '#22eae4'
 }

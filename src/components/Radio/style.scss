@@ -1,74 +1,64 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-old-radio {
-        @apply box-border m-0 p-0 font-bold flex items-center w-fit cursor-pointer;
+    .vl-radio {
+        @apply flex items-center;
 
-        &__input {
-            @apply relative;
+        .ant-radio {
+            @apply top-0 h-5 w-5;
 
-            input[type=radio] {
-                @apply box-border p-0 w-full h-full absolute z-10 opacity-0 cursor-pointer;
-            }
-
-            .vl-old-radio-inner {
-                @apply relative top-0 left-0 block w-5 h-5 bg-vl_grey-300 border-none rounded-[10px] transition-all duration-300;
-
-                &::after {
-                    @apply absolute top-1/2 left-1/2 block w-4 h-4 bg-white border-t-0 border-l-0 opacity-0 rounded-2xl -mt-2 -ml-2;
-                    content: "";
-                    transform: scale(0);
-                    transition: all .3s cubic-bezier(.78,.14,.15,.86);
-                }
+            .ant-radio-inner {
+                @apply h-full w-full border-none bg-vl_grey-300 rounded-[10px];
             }
         }
 
-        &__label {
-            @apply text-vl_black-100 text-xs pl-[10px];
+        span:last-child {
+            @apply text-xs font-bold text-vl_black-100 pl-[10px];
         }
 
-         &__label.checked {
-            @apply text-vl_black;
+        .ant-radio-disabled+span:last-child,
+        .ant-radio-checked.ant-radio-disabled+span:last-child {
+            color: #00000040;
         }
     }
 
-    .vl-old-radio-checked {
-        .vl-old-radio-inner { 
+    .vl-radio .ant-radio-checked {
+        .ant-radio-inner {
+            @apply h-5 w-5 rounded-[10px];
+
             &::after {
-                @apply opacity-100;
-                transform: scale(.5);
-                transition: all .3s cubic-bezier(.78,.14,.15,.86);
+                @apply bg-vl_white;
             }
-        }
-
-        .vl-old-radio-inner-primary {
-            @apply bg-primary_blue;
-        }
-
-        .vl-old-radio-inner-secondary {
-            @apply bg-secondary_pink;
-        }
-
-        &::after {
-            @apply absolute top-0 left-0 w-full h-full invisible rounded-[10px];
-            content: "";
         }
     }
 
-    .vl-old-radio-disabled {
-        @apply cursor-not-allowed;
-         input[type=radio] {
-            @apply cursor-not-allowed;
-        }
+    .vl-radio .ant-radio-checked + span:last-child {
+        @apply text-xs font-bold text-vl_black pl-[10px];
+    }
 
-        .vl-old-radio-checked, &__input {
-            .vl-old-radio-inner {
-                @apply bg-vl_grey-700 opacity-60;
-            }
+    // PRIMARY
+    .vl-radio-primary .ant-radio-checked {
+        .ant-radio-inner {
+            @apply bg-primary_blue border-solid border border-primary_blue;
         }
+    }
 
-        .vl-old-radio__label {
-            @apply text-vl_grey-700;
+    .vl-radio-primary .ant-radio-checked.ant-radio-disabled {
+        .ant-radio-inner {
+            @apply bg-[#dedede] border-solid border border-[#dedede];
+        }
+    }
+
+    // BASE
+    .vl-radio-base .ant-radio-checked {
+        .ant-radio-inner {
+            @apply bg-secondary_pink border-solid border border-secondary_pink;
+        }
+    }
+
+    .vl-radio-base .ant-radio-checked.ant-radio-disabled {
+        .ant-radio-inner {
+            @apply bg-[#dedede] border-solid border border-[#dedede];
         }
     }
 }

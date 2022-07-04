@@ -1,46 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
 import RadioGroup from '../RadioGroup'
+import Radio from 'components/Radio'
+
 export default {
-  title: 'Components/RadioGroup',
+  title: 'ComponentsVer2/RadioGroup',
   component: RadioGroup,
-  args: {
-    label: 'Apple'
-  }
+  argTypes: {
+    disabled: { control: 'boolean' }
+  },
+  args: {}
 } as ComponentMeta<typeof RadioGroup>
 
-const options = [
-  { label: 'Viet Nam', value: 'vn' },
-  { label: 'USA', value: 'usa' },
-  { label: 'Canada', value: 'ca' }
-]
+const Template: ComponentStory<typeof RadioGroup> = args => (
+  <RadioGroup {...args} className='ml-5'>
+    <Radio value='1'>Adidas</Radio>
+    <Radio value='2'>Nike</Radio>
+  </RadioGroup>
+)
 
-const SimpleRadioGroup: ComponentStory<typeof RadioGroup> = args => {
-  const [value, setvalue] = useState<number | string | undefined>('')
-
-  return <RadioGroup {...args} value={value} radioList={options} onChange={e => setvalue(e.value)} />
-}
-
-const DisabledTemplate: ComponentStory<typeof RadioGroup> = args => {
-  const [value, setvalue] = useState<number | string | undefined>('')
-
-  return (
-    <RadioGroup
-      {...args}
-      value={value}
-      radioList={[
-        { label: 'Apple', value: 'apple' },
-        { label: 'Lemon', value: 'lemon', disabled: true },
-        { label: 'Melon', value: 'melon' }
-      ]}
-      onChange={e => setvalue(e.value)}
-    />
-  )
-}
-
-export const Template = SimpleRadioGroup.bind({})
-Template.args = {}
-
-export const Disabled = DisabledTemplate.bind({})
-Disabled.args = {}
+export const Default = Template.bind({})
+Default.args = {}

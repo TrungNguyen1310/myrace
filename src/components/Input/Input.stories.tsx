@@ -1,39 +1,41 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons'
 
 import Input from '../Input'
-
 export default {
-  title: 'Components/Input',
+  title: 'ComponentsVer2/Input',
   component: Input,
+  argTypes: {
+    disabled: { control: 'boolean' }
+  },
   args: {
-    disabled: false
+    placeholder: 'Type...'
   }
 } as ComponentMeta<typeof Input>
 
 const Template: ComponentStory<typeof Input> = args => <Input {...args} />
+const PasswordTemplate: ComponentStory<typeof Input> = args => <Input inputType='Password' {...args} />
 
-export const Outlined = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Outlined.args = {
-  label: 'Email',
-  placeholder: 'Input email...'
-}
+export const Default = Template.bind({})
 
-export const Standard = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Standard.args = {
-  label: 'Email',
-  placeholder: 'Input email...',
-  variant: 'standard',
-  value: 'OKOOKO'
+Default.args = {}
+
+export const VariantInput = Template.bind({})
+
+VariantInput.args = {
+  variant: 'standard'
 }
 
 export const IconInput = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
+
 IconInput.args = {
-  label: 'Social',
-  placeholder: 'Type...',
-  icon: <SocialIcon />
+  prefix: <UserOutlined />,
+  suffix: <InfoCircleOutlined />
+}
+
+export const PasswordInput = PasswordTemplate.bind({})
+
+PasswordInput.args = {
+  iconRender: visible => (visible ? <InfoCircleOutlined /> : <UserOutlined />)
 }

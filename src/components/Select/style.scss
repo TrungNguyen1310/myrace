@@ -1,66 +1,58 @@
 @import '/src/index.scss';
 
 @layer components {
-    .vl-old-select-outlined {
-        @apply min-h-[48px] flex items-center justify-between rounded-3xl py-3 px-5 bg-vl_white mb-2 cursor-pointer border-solid border border-vl_grey-600 order-none text-sm font-bold text-vl_grey-700 relative;
+    .vl-select{
+        // style select
     }
+    .vl-select.ant-select-single {
+        // style select
+        @apply w-[360px];
 
-    .vl-old-select-outlined-selected {
-        @apply text-vl_black;
-    }
+        .ant-select-selector {
+            border: none;
+            @apply h-12;
 
-    .vl-old-select-outlined-opened {
-        @apply border-solid border border-vl_grey-700;
-    }
-
-    .vl-old-select-standard {
-        @apply pb-[15px] mb-2 flex items-center bg-vl_white cursor-pointer border-solid border-b-2 border-vl_grey-600 order-none text-sm font-bold relative;
-    }
-
-    .disabled {
-        @apply bg-[#f5f5f5] w-full h-full z-[1] cursor-not-allowed opacity-50;
-    }
-
-    .select-box {
-        @apply relative flex flex-col min-w-[100px] w-[400px];
-
-        .options-container {
-            @apply absolute -left-[1000px] z-10 bg-vl_white py-1 border-solid border border-vl_grey-600 max-h-[240px] w-full invisible opacity-0 transition-opacity duration-500 rounded-lg overflow-hidden order-1 text-vl_grey-700;
-
-            &::-webkit-scrollbar {
-                @apply w-2 bg-vl_grey-300;
-                border-radius: 0 8px 8px 0;
-            }
-
-            &::-webkit-scrollbar-thumb {
-                @apply bg-vl_grey-500;
-                border-radius: 0 8px 8px 0;
+            .ant-select-selection-search-input {
+                @apply h-12;
             }
         }
 
-        .options-container.active {
-            @apply left-0 overflow-auto opacity-100 visible;
+        .ant-select-selection-placeholder, .ant-select-selection-item {
+            @include text-base-style;
+            @apply flex items-center font-bold;
         }
 
-        .option,
-        .vl-old-select-outlined-opened {
-            @apply cursor-pointer py-3
+        .ant-select-arrow {
+            @apply right-5;
         }
 
-        .option {
-            @apply cursor-pointer;
-
-            &:hover {
-                @apply bg-vl_grey-600
-            }
-
-            .radio {
-                @apply hidden
-            }
+        .ant-select-clear {
+            @apply -mt-2 right-6;
         }
+    }
 
-        label {
-            @apply cursor-pointer
+    // OUTLINED
+    .vl-select-outlined.ant-select-single {
+        .ant-select-selector {
+            border: none;
+            @apply h-12 rounded-[23px] border-solid border border-vl_grey-600 px-5;
         }
+    }
+
+    // STANDARD
+    .vl-select-standard.ant-select-single {
+        .ant-select-selector {
+            border: none;
+            @apply h-12 rounded-none border-t-0 border-l-0 border-r-0 border-solid border-b border-vl_grey-600 px-0;
+        }
+    }
+
+    .vl-select-standard.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+        @apply hover:border-r-0;
+    }
+
+    .vl-select-standard.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+        @apply shadow-none border-r-0;
+        outline: none;
     }
 }

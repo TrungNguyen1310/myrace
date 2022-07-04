@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { ROUTES } from 'routes'
 import { IMenuItem, clientMenu } from 'utils/menuList'
 import '../style.scss'
-import Button from 'components_ver2/Button'
+import Button from 'components/Button'
 
 interface MenuDesktopProps {
   onClickMenu: (menu: IMenuItem) => void

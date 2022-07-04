@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar } from 'antd'
-import Button from 'components_ver2/Button'
+import Button from 'components/Button'
 import { useTranslation } from 'react-i18next'
 import AvatarImg from 'assets/images/avatar.png'
 

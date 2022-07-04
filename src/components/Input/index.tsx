@@ -1,65 +1,36 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ReactNode } from 'react'
+import { Input as AntInput } from 'antd'
 import './style.scss'
 
 interface IInput {
-  // REQUIRED
-  value: string | number | readonly string[] | undefined
   // OPTIONAL
-  type?: string
+  addonAfter?: ReactNode
+  addonBefore?: ReactNode
+  maxLength?: number
+  inputType?: 'Password' | 'default'
   label?: string
-  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
   variant?: 'standard' | 'outlined'
   disabled?: boolean
+  status?: 'error' | 'warning'
+  iconRender?: (visible: boolean) => ReactNode
   placeholder?: string
   className?: string
-  classNameInput?: string
-  labelStyle?: string
-  icon?: string | ReactNode
+  prefix?: string | ReactNode
+  suffix?: string | ReactNode
+  allowClear?: boolean | { clearIcon: ReactNode }
+  defaultValue?: string
+  onChange?: (e: any) => void
+  onPressEnter?: (e: any) => void
 }
 
-const Input: React.FC<IInput> = ({
-  className,
-  classNameInput,
-  label: labelText,
-  labelStyle,
-  value,
-  onChange = () => undefined,
-  placeholder,
-  icon,
-  type = 'text',
-  variant = 'outlined',
-  disabled = false
-}) => {
-  const outlinedInput = () => (
-    <>
-      {variant === 'outlined' && (
-        <div className='vl-old-input-outlined'>
-          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-old-input-outlined__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
-          {icon && <div className='pl-2 vl-old-input-outlined__icon cursor-pointer'>{icon}</div>}
-        </div>
-      )}
-    </>
-  )
+const Input: React.FC<IInput> = props => {
+  const { className, variant = 'outlined', inputType = 'default', ...rest } = props
+  const variantClassname = variant === 'outlined' ? 'vl-input-outlined' : 'vl-input-standard'
 
-  const standardInput = () => (
-    <>
-      {variant === 'standard' && (
-        <div className='vl-old-input-standard'>
-          <input disabled={disabled} type={type} value={value} onChange={onChange} className={['vl-old-input-standard__input', icon ? 'pr-12' : '', classNameInput].join(' ')} placeholder={placeholder} />
-        </div>
-      )}
-    </>
-  )
-  return (
-    <div className={['input-box', className].join(' ')}>
-      {/* LABEL TEXT */}
-      {labelText && <label className={['input-box__labelText text-xs font-medium pb-2', labelStyle].join(' ')}>{labelText}</label>}
+  if (inputType === 'Password') return <AntInput.Password {...rest} className={['vl-input', variantClassname, className].join(' ')} />
 
-      {/* INPUT FORM */}
-      {outlinedInput()}
-      {standardInput()}
-    </div>
-  )
+  return <AntInput {...rest} className={['vl-input', variantClassname, className].join(' ')} />
 }
 
 export default Input

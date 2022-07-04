@@ -1,61 +1,39 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { SearchOutlined } from '@ant-design/icons'
 import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
 
 import Button from '../Button'
 export default {
-  title: 'Components/Button',
+  title: 'ComponentsVer2/Button',
   component: Button,
+  argTypes: {
+    loading: { control: 'radio', options: [true, false] },
+    disabled: { control: 'boolean' }
+  },
   args: {}
 } as ComponentMeta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />
+const Template: ComponentStory<typeof Button> = args => <Button {...args}>{args.children}</Button>
+
+export const Default = Template.bind({})
+
+Default.args = {
+  type: 'default',
+  children: 'Button',
+  icon: <SocialIcon />
+}
 
 export const Primary = Template.bind({})
 
 Primary.args = {
-  primary: true,
-  children: 'Button'
+  type: 'primary',
+  children: 'Primary Button'
 }
 
-export const PrimaryBlue = Template.bind({})
+export const ShapeBtn = Template.bind({})
 
-PrimaryBlue.args = {
-  primaryBlue: true,
-  children: 'Primary Blue Button'
-}
-
-export const PrimaryPurple = Template.bind({})
-
-PrimaryPurple.args = {
-  primaryPurple: true,
-  children: 'Primary Purple Button'
-}
-
-export const SecondaryYellow = Template.bind({})
-
-SecondaryYellow.args = {
-  secondaryYellow: true,
-  children: 'Secondary Yellow Button'
-}
-
-export const SecondaryPink = Template.bind({})
-
-SecondaryPink.args = {
-  secondaryPink: true,
-  children: 'Secondary Pink Button'
-}
-
-export const ShapeButton = Template.bind({})
-
-ShapeButton.args = {
-  children: 'VL',
-  shape: 'circle'
-}
-
-export const IconButton = Template.bind({})
-
-IconButton.args = {
-  children: 'Search',
-  icon: <SocialIcon />
+ShapeBtn.args = {
+  shape: 'circle',
+  icon: <SearchOutlined />
 }

@@ -1,31 +1,26 @@
-import Radio from 'components/Radio'
-import React from 'react'
+import React, { ReactNode } from 'react'
+import type { RadioChangeEvent } from 'antd'
+import { Radio as AntRadio } from 'antd'
 
-export interface IRadioList {
-  label: string
-  value: string
-  disabled?: boolean
-}
+import './style.scss'
 
 interface IRadioGroup {
-  radioList: IRadioList[]
-  value: string | number | undefined
-  onChange: (value: IRadioList) => void
+  children?: ReactNode
   className?: string
+  value?: string | number
+  primary?: boolean
+  onChange?: (e: RadioChangeEvent) => void
+  options?: string[] | { label: string; value: string; disabled?: boolean }[]
 }
 
-const RadioGroup: React.FC<IRadioGroup> = ({ radioList, value, onChange, className }) => {
-  const onChangeRadioGroup = e => {
-    const val = radioList.find(item => item.value === e.target.value) || { label: '', value: '' }
-    onChange(val)
-  }
-
-  const renderRadioList = () => {
-    if (!radioList) return null
-    return radioList.map(item => <Radio checked={value === item.value} disabled={item.disabled} key={item.value} value={item.value} label={item.label} onChange={e => onChangeRadioGroup(e)} />)
-  }
-
-  return <div className={[className].join(' ')}>{renderRadioList()}</div>
+const RadioGroup: React.FC<IRadioGroup> = props => {
+  const { children, className, primary = false } = props
+  const primaryClassname = primary ? 'vl-radio-group-primary' : 'vl-radio-group-base'
+  return (
+    <AntRadio.Group {...props} className={['vl-radio-group', primaryClassname, className].join(' ')}>
+      {children}
+    </AntRadio.Group>
+  )
 }
 
 export default RadioGroup

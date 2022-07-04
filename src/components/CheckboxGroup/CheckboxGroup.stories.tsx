@@ -1,67 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
 import CheckboxGroup from '../CheckboxGroup'
+
 export default {
-  title: 'Components/CheckboxGroup',
+  title: 'ComponentsVer2/CheckboxGroup',
   component: CheckboxGroup,
-  args: {
-    checkboxesList: [
-      {
-        label: 'Apple',
-        value: 'apple',
-        checked: true,
-        disabled: true
-      },
-      {
-        label: 'Melon',
-        value: 'melon',
-        checked: false,
-        disabled: true
-      },
-      {
-        label: 'Orange',
-        value: 'orange',
-        checked: true
-      },
-      {
-        label: 'Peache',
-        value: 'peache',
-        checked: false
-      }
-    ]
-  }
+  argTypes: {
+    disabled: { control: 'boolean' }
+  },
+  args: {}
 } as ComponentMeta<typeof CheckboxGroup>
 
-const SimpleCheckboxGroup: ComponentStory<typeof CheckboxGroup> = args => {
-  const [value, setValue] = useState([
-    {
-      label: 'Apple',
-      value: 'apple',
-      checked: true,
-      disabled: true
-    },
-    {
-      label: 'Melon',
-      value: 'melon',
-      checked: false,
-      disabled: true
-    },
-    {
-      label: 'Orange',
-      value: 'orange',
-      checked: true
-    },
-    {
-      label: 'Peache',
-      value: 'peache',
-      checked: false
-    }
-  ])
+const Template: ComponentStory<typeof CheckboxGroup> = args => <CheckboxGroup {...args} className='ml-5' />
 
-  return <CheckboxGroup {...args} checkboxesList={value} onCheckboxGroupChange={val => setValue(val)} />
+export const Default = Template.bind({})
+Default.args = {
+  options: ['apple', 'lemon', 'melon']
 }
 
-export const Template = SimpleCheckboxGroup.bind({})
+export const DefaultValue = Template.bind({})
+DefaultValue.args = {
+  options: ['apple', 'lemon', 'melon'],
+  defaultValue: ['lemon']
+}
 
-Template.args = {}
+export const DisabledValue = Template.bind({})
+DisabledValue.args = {
+  options: [
+    { label: 'Apple', value: 'apple' },
+    { label: 'Lemon', value: 'lemon', disabled: true },
+    { label: 'Melon', value: 'melon' }
+  ],
+  defaultValue: ['lemon']
+}

@@ -1,13 +1,13 @@
 import React from 'react'
-import Input from 'components_ver2/Input'
+import Input from 'components/Input'
 import { Avatar, Form, Select as AntSelect } from 'antd'
-import Button from 'components_ver2/Button'
-import Select from 'components_ver2/Select'
-import Badge from 'components_ver2/Badge'
-import Checkbox from 'components_ver2/Checkbox'
-import CheckboxGroup from 'components_ver2/CheckboxGroup'
-import Radio from 'components_ver2/Radio'
-import RadioGroup from 'components_ver2/RadioGroup'
+import Button from 'components/Button'
+import Select from 'components/Select'
+import Badge from 'components/Badge'
+import Checkbox from 'components/Checkbox'
+import CheckboxGroup from 'components/CheckboxGroup'
+import Radio from 'components/Radio'
+import RadioGroup from 'components/RadioGroup'
 
 const { Option } = AntSelect
 

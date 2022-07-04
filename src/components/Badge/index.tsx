@@ -1,28 +1,30 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import { Badge as AntBadge } from 'antd'
 import './style.scss'
 
 interface IBadge {
-  // REQUIRED
-  badgeContent: string | number
-  // OPTIONAL
+  count: ReactNode
+  text?: ReactNode
+  children?: ReactNode
+  color?: string
   className?: string
-  classNameBadge?: string
-  bgcolor?: string
-  primary?: boolean
-  max?: number
+  title?: string
+  dot?: boolean
   showZero?: boolean
+  primary?: boolean
+  offset?: [number, number]
+  overflowCount?: number
+  status?: 'success' | 'processing' | 'default' | 'error' | 'warning'
 }
 
-const Badge: React.FC<IBadge> = ({ badgeContent, className, classNameBadge, showZero, max = 99, primary, ...props }) => {
-  const baseStyle = `${primary ? 'vl-old-badge-primary' : 'vl-old-badge-base'}`
+const Badge: React.FC<IBadge> = ({ primary = false, ...props }) => {
+  const { children, className, color } = props
 
-  if ((badgeContent === 0 || badgeContent === '0') && !showZero) return null
+  const primaryClassname = primary ? 'vl-badge-primary' : color ? '' : 'vl-badge-base'
   return (
-    <div className={className}>
-      <div {...props} className={['vl-old-badge', baseStyle, classNameBadge].join(' ')}>
-        {+badgeContent < max ? badgeContent : `${max}+`}
-      </div>
-    </div>
+    <AntBadge {...props} className={['vl-badge', primaryClassname, className].join(' ')}>
+      {children}
+    </AntBadge>
   )
 }
 
