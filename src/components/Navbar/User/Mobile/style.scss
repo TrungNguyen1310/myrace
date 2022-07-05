@@ -1,0 +1,9 @@
+@import '/src/index.scss';
+
+@layer components {
+    .nav-menu-mobile {
+        li {
+            @apply p-2;
+        }
+    }
+}
