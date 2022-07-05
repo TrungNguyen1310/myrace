@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from 'assets/images/Logo.svg'
-import UserMenu from './UserMenu'
+import NavbarDesktop from './Desktop'
+import NavbarMobile from './Mobile'
 
 interface INavbarProps {
   toggleSideMenu?: () => void
@@ -11,10 +11,14 @@ const UserNavbar: React.FC<INavbarProps> = ({ toggleSideMenu = () => undefined }
     toggleSideMenu()
   }
   return (
-    <div className='h-full w-full flex items-center justify-between'>
-      <img onClick={onToggleSideMenu} src={Logo} className='cursor-pointer' alt='Logo' />
-      <UserMenu />
-    </div>
+    <>
+      <div className='h-full w-full lg:hidden block'>
+        <NavbarMobile />
+      </div>
+      <div className='h-full w-full lg:block hidden'>
+        <NavbarDesktop onToggleSideMenu={onToggleSideMenu} />
+      </div>
+    </>
   )
 }
 
