@@ -1,12 +1,14 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useState, useTransition } from 'react'
 import { Layout, Menu } from 'antd'
-import Footer from 'components/Footer'
-import './style.scss'
-import UserNavbar from 'components/NavbarVer2/User'
-import { sideMenu } from 'utils/menuList'
+import type { MenuProps } from 'antd'
 import { useTranslation } from 'react-i18next'
+import Footer from 'components/Footer'
+import { sideMenu } from 'utils/menuList'
+import UserNavbar from 'components/NavbarVer2/User'
+import './style.scss'
 
 import './style.scss'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const { Header, Footer: AntFooter, Content, Sider } = Layout
 
@@ -15,8 +17,32 @@ interface IAuthLayoutProps {
 }
 
 const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
+  const navigate = useNavigate()
   const { t } = useTranslation()
+  const { pathname } = useLocation()
+  const [pending, startTransition] = useTransition()
+
+  const getCurrentRoute = () => {
+    const getCurrentMenu = sideMenu.find(menu => menu.path === pathname)
+    if (getCurrentMenu) {
+      return getCurrentMenu.id
+    } else {
+      return 1
+    }
+  }
+
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [activeMenu, setActiveMenu] = useState<number>(getCurrentRoute())
+
+  const onClickMenu: MenuProps['onClick'] = e => {
+    const getMenuPath = sideMenu.find(menu => menu.id === +e.key) || sideMenu[1]
+    const path = getMenuPath?.path || ''
+
+    setActiveMenu(getMenuPath.id)
+    startTransition(() => {
+      navigate(path)
+    })
+  }
 
   const sideMenuList = () => {
     return sideMenu.map(menu => {
@@ -42,7 +68,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
           className={['vl-sider-menu mt-[84px]', collapsed ? 'vl-sider-menu-close' : 'vl-sider-menu-open'].join(' ')}
         >
           <div className={['flex flex-col justify-between fixed ml-[9px]', collapsed ? 'w-auto' : 'w-[248px]'].join(' ')}>
-            <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline' items={sideMenuList()} />
+            <Menu theme='dark' onClick={onClickMenu} selectedKeys={[`${activeMenu}`]} mode='inline' items={sideMenuList()} />
           </div>
         </Sider>
         <Content className='mt-[84px]'>{children}</Content>
