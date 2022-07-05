@@ -1,14 +1,13 @@
-import React, { ReactNode, useState, useTransition } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { Layout, Menu } from 'antd'
 import type { MenuProps } from 'antd'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import Footer from 'components/Footer'
 import { sideMenu } from 'utils/menuList'
 import UserNavbar from 'components/NavbarVer2/User'
+import { useNavigateHook } from 'hooks/useNavigate'
 import './style.scss'
-
-import './style.scss'
-import { useLocation, useNavigate } from 'react-router-dom'
 
 const { Header, Footer: AntFooter, Content, Sider } = Layout
 
@@ -17,10 +16,9 @@ interface IAuthLayoutProps {
 }
 
 const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
-  const navigate = useNavigate()
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const [pending, startTransition] = useTransition()
+  const [navigate] = useNavigateHook()
 
   const getCurrentRoute = () => {
     const getCurrentMenu = sideMenu.find(menu => menu.path === pathname)
@@ -39,9 +37,7 @@ const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
     const path = getMenuPath?.path || ''
 
     setActiveMenu(getMenuPath.id)
-    startTransition(() => {
-      navigate(path)
-    })
+    navigate(path)
   }
 
   const sideMenuList = () => {
