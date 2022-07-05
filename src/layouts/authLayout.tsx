@@ -1,73 +1,78 @@
-import React, { ReactNode, useEffect, useState, useTransition } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
-
-import { IMenuItem, sideMenu } from 'utils/menuList'
-import UserNarbar from 'components/Navbar/User/UserNavbar'
-import AnimationLayouts from 'layouts/animationLayouts'
-import useMediaQuery from 'hooks/useMediaQuery'
-import SidebarDesktop from 'components/Sidebar/Desktop'
-import SidebarMobile from 'components/Sidebar/Mobile'
-import './style.scss'
+import React, { ReactNode, useState } from 'react'
+import { Layout, Menu } from 'antd'
+import type { MenuProps } from 'antd'
+import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import Footer from 'components/Footer'
+import { sideMenu } from 'utils/menuList'
+import UserNavbar from 'components/Navbar/User'
+import { useNavigateHook } from 'hooks/useNavigate'
+import './style.scss'
+
+const { Header, Footer: AntFooter, Content, Sider } = Layout
 
 interface IAuthLayoutProps {
   children: ReactNode
 }
 
 const AuthLayout: React.FC<IAuthLayoutProps> = ({ children }) => {
-  const navigate = useNavigate()
+  const { t } = useTranslation()
   const { pathname } = useLocation()
-  const mobileScreen = useMediaQuery('(max-width: 768px)')
-  const [pending, startTransition] = useTransition()
-  const [activeMenu, setActiveMenu] = useState<number>(1)
-  const [openMenuDesktop, setOpenMenuDesktop] = useState<boolean>(false)
+  const [navigate] = useNavigateHook()
 
-  useEffect(() => {
-    setActiveMenuByCurrentRoute()
-  }, [])
-
-  const setActiveMenuByCurrentRoute = () => {
+  const getCurrentRoute = () => {
     const getCurrentMenu = sideMenu.find(menu => menu.path === pathname)
     if (getCurrentMenu) {
-      setActiveMenu(getCurrentMenu.id)
+      return getCurrentMenu.id
     } else {
-      setActiveMenu(0)
+      return 1
     }
   }
 
-  const onClickMenu = (menu: IMenuItem) => {
-    startTransition(() => {
-      setActiveMenu(menu.id)
-      navigate(menu.path)
+  const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [activeMenu, setActiveMenu] = useState<number>(getCurrentRoute())
+
+  const onClickMenu: MenuProps['onClick'] = e => {
+    const getMenuPath = sideMenu.find(menu => menu.id === +e.key) || sideMenu[1]
+    const path = getMenuPath?.path || ''
+
+    setActiveMenu(getMenuPath.id)
+    navigate(path)
+  }
+
+  const sideMenuList = () => {
+    return sideMenu.map(menu => {
+      return {
+        key: menu.id,
+        label: t(menu.name),
+        icon: menu.icon
+      }
     })
   }
 
-  const toggleAppBarDesktop = (value: boolean) => {
-    setOpenMenuDesktop(value)
-  }
-
-  const classname = () => {
-    if (mobileScreen) {
-      return ''
-    }
-
-    return openMenuDesktop ? 'p-[calc(5rem+12rem)]' : 'p-20'
-  }
-
   return (
-    <>
-      <div className='flex h-full min-h-screen layout'>
-        <UserNarbar toggleAppBar={toggleAppBarDesktop} open={openMenuDesktop}>
-          <span className='text-black font-bold text-base leading-6 dark:text-white'>MyRace</span>
-        </UserNarbar>
-        <SidebarDesktop open={openMenuDesktop} activeMenu={activeMenu} onClickMenu={onClickMenu} />
-        <div className={['h-auto pt-[100px] duration-300', classname()].join(' ')}>
-          <AnimationLayouts>{children}</AnimationLayouts>
-        </div>
-      </div>
-      {mobileScreen && <SidebarMobile activeMenu={activeMenu} onClickMenu={onClickMenu} />}
-      <Footer />
-    </>
+    <Layout className='min-h-screen'>
+      <Header style={{ position: 'fixed', zIndex: 100, width: '100%' }} className='bg-vl_white dark:bg-vl_black shadow-primary_100 w-full h-[84px] default-header'>
+        <UserNavbar toggleSideMenu={() => setCollapsed(!collapsed)} />
+      </Header>
+      <Layout className='bg-transparent w-full min-h-screen'>
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
+          onCollapse={value => setCollapsed(value)}
+          className={['vl-sider-menu mt-[84px]', collapsed ? 'vl-sider-menu-close' : 'vl-sider-menu-open'].join(' ')}
+        >
+          <div className={['flex flex-col justify-between fixed ml-[9px]', collapsed ? 'w-auto' : 'w-[248px]'].join(' ')}>
+            <Menu theme='dark' onClick={onClickMenu} selectedKeys={[`${activeMenu}`]} mode='inline' items={sideMenuList()} />
+          </div>
+        </Sider>
+        <Content className='mt-[84px]'>{children}</Content>
+      </Layout>
+      <AntFooter className='p-0'>
+        <Footer />
+      </AntFooter>
+    </Layout>
   )
 }
 

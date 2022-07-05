@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Navigate } from 'react-router-dom'
 
-import DefaultLayout from 'layouts/defaultLayoutVer2'
+import DefaultLayout from 'layouts/defaultLayout'
 import PageNotFound from 'features/PageNotFound'
 import { ROUTES, routes } from '..'
 import Login from 'features/Login'

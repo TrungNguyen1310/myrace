@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import NavbarDesktop from 'components/NavbarVer2/Client/Desktop'
-import NavbarMobile from 'components/NavbarVer2/Client/Mobile'
+import NavbarDesktop from 'components/Navbar/Client/Desktop'
+import NavbarMobile from 'components/Navbar/Client/Mobile'
 import { clientMenu, IMenuItem } from 'utils/menuList'
 import './style.scss'
 
