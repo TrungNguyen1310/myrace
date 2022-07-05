@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next'
 import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
 import { ThemeContext } from 'context/ThemeContext'
 import Select from 'components/Select'
-import './style.scss'
 import Button from 'components/Button'
+import './style.scss'
 
 const Footer: React.FC = () => {
   const { i18n, t } = useTranslation()
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
         <p className='text-right-footer'>{t('components.footer.copywrite')}</p>
       </div>
       {/* ======= RIGHT ======= */}
-      <div className='flex items-center justify-between relative'>
+      <div className='flex items-center justify-between relative footer-right'>
         <Select showArrow={false} bordered={false} value={currency} options={options1} onChange={val => onChangeSelect(val, 'currency')} className='lang-select' />
         <Select showArrow={false} bordered={false} value={language} options={options} onChange={val => onChangeSelect(val, 'language')} className='px-[41px] currency-select' />
         <Button

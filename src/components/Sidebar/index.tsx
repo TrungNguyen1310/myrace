@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { sideMenu } from 'utils/menuList'
 import { useNavigateHook } from 'hooks/useNavigate'
+import './style.scss'
 
 const { Sider } = Layout
 

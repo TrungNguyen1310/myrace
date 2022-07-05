@@ -16,11 +16,18 @@
     @apply w-fit border-none bg-transparent dark:text-vl_white text-vl_black after:hidden px-0;
   }
 
+  
   .darkmode-btn {
     svg {
       path {
         @apply fill-vl_grey-500
       }
     }
+  }
+}
+
+.footer-right {
+  .ant-select-single .ant-select-selector .ant-select-selection-item {
+    transition: none;
   }
 }

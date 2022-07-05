@@ -1,0 +1,86 @@
+@import '/src/index.scss';
+
+@layer components {
+    .vl-sider-menu {
+    // CSS SIDER
+    @apply pb-0 dark:bg-vl_black bg-vl_white;
+    
+    .ant-layout-sider-children {
+      @apply bg-transparent relative;
+    }
+
+    // CSS SIDER > ul (.ant-menu)
+    .ant-menu {
+      @apply bg-transparent mt-[44px];
+
+      // CSS SIDER > ul > li (.ant-menu-item)
+      .ant-menu-item {
+        @apply h-[56px] rounded-[28px] hover:bg-vl_grey-100 my-0 mb-2;
+        @apply flex items-center justify-start;
+        padding-left: 21px !important;
+
+        &:hover {
+          .ant-menu-item-icon + span {
+            @apply text-vl_black;
+          }
+
+          .ant-menu-item-icon {
+            path {
+              @apply fill-black
+            }
+          }
+        }
+
+        .ant-menu-item-icon + span {
+          @include text-base-style;
+          @apply font-bold ml-[14px] text-vl_grey-700;
+        }
+
+        .ant-menu-item-icon {
+          @apply min-w-[22px] -ml-1;
+        }
+      }
+
+      // CSS SIDER > ul > li (.ant-menu-item) [SELECTED]
+      .ant-menu-item-selected {
+        @apply bg-vl_grey-100 #{!important};
+
+        .ant-menu-item-icon + span {
+          @apply text-vl_black;
+        }
+
+        .ant-menu-item-icon {
+          path {
+            @apply fill-black
+          }
+        }
+      }
+    }
+  }
+
+  // TOGGLE EXPAND SIDER
+  .vl-sider-menu-open {
+    // calc(18px+248px) = 276px
+    // explain: 
+    /*
+      - li (248x56)px
+      - padding left right: 9px x 2 = 18px
+    */
+    @apply max-w-[266px] min-w-[266px] w-[266px] #{!important};
+  }
+
+  // TOGGLE COLLAPSE SIDER
+  .vl-sider-menu-close {
+    // calc(18px+56px) = 74px
+    // explain: 
+    /*
+      - li (56x56)px
+      - padding left right: 9px x 2 = 18px
+    */
+    @apply max-w-[74px] min-w-[74px] w-[74px] #{!important};
+  }
+}
+
+.ant-menu.ant-menu-inline-collapsed {
+  width: 56px !important;
+}
