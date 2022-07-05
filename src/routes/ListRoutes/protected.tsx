@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { routes } from '..'
-import AuthLayout from 'layouts/authLayout'
+import AuthLayout from 'layouts/authLayoutVer2'
 
 const PrivateListRoutes = () => (
   <Route>

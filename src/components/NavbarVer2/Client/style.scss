@@ -5,10 +5,12 @@
         @apply text-vl_grey-700 dark:text-vl_white text-base font-bold ;
     }
 
+    // CUSTOM menu > li
     .navbar-menu li.ant-menu-item-selected {    
         @apply dark:text-vl_neon text-vl_black #{!important};
     }
 
+    // CUSTOM menu > li
     .navbar-menu .ant-menu-item {    
         &:hover {
             @apply dark:text-vl_neon text-vl_black #{!important};
@@ -43,13 +45,8 @@
 
     &:hover {
         transition: all .1s ease-in-out;
-        // color: theme('colors.vl_neon');
         &::after {
             border-bottom: none;
         }
     }
 }
-
-// .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected {
-//     color: theme('colors.vl_neon');
-// }
