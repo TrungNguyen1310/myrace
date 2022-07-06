@@ -225,6 +225,7 @@ module.exports = {
           }
           // ==================== BASE ====================
         })
-    })
+    }),
+    require('tailwind-scrollbar')
   ]
 }

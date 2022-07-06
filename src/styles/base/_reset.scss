@@ -1,3 +1,14 @@
 body{
     font-family: 'Inter';
 }
+
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+}
+
+@layer base {
+    body{
+        @apply scrollbar-thin scrollbar-track-transparent;
+        --scrollbar-thumb: #b6b5b5;
+    }
+}
