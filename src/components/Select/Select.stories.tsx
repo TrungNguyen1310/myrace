@@ -6,7 +6,7 @@ import Select from '../Select'
 const { Option } = AntSelect
 
 export default {
-  title: 'ComponentsVer2/Select',
+  title: 'Components/Select',
   component: Select,
   argTypes: {
     disabled: { control: 'boolean' }

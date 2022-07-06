@@ -4,7 +4,7 @@ import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons'
 
 import Input from '../Input'
 export default {
-  title: 'ComponentsVer2/Input',
+  title: 'Components/Input',
   component: Input,
   argTypes: {
     disabled: { control: 'boolean' }

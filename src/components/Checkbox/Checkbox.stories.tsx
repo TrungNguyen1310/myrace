@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Checkbox from '../Checkbox'
 
 export default {
-  title: 'ComponentsVer2/Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {
     disabled: { control: 'boolean' }

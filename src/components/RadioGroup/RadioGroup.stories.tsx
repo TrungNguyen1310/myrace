@@ -4,7 +4,7 @@ import RadioGroup from '../RadioGroup'
 import Radio from 'components/Radio'
 
 export default {
-  title: 'ComponentsVer2/RadioGroup',
+  title: 'Components/RadioGroup',
   component: RadioGroup,
   argTypes: {
     disabled: { control: 'boolean' }

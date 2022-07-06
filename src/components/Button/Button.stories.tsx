@@ -5,7 +5,7 @@ import { ReactComponent as SocialIcon } from 'assets/icons/social.svg'
 
 import Button from '../Button'
 export default {
-  title: 'ComponentsVer2/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     loading: { control: 'radio', options: [true, false] },

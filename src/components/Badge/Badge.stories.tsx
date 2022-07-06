@@ -4,7 +4,7 @@ import { Avatar } from 'antd'
 import Badge from '../Badge'
 
 export default {
-  title: 'ComponentsVer2/Badge',
+  title: 'Components/Badge',
   component: Badge,
   args: {}
 } as ComponentMeta<typeof Badge>

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import Radio from '../Radio'
 
 export default {
-  title: 'ComponentsVer2/Radio',
+  title: 'Components/Radio',
   component: Radio,
   argTypes: {
     disabled: { control: 'boolean' }
