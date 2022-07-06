@@ -1,0 +1,28 @@
+.vl-switch {
+    @apply bg-vl_white rounded-xl border-solid border border-vl_grey-500 min-w-[40px] w-10 h-[22px];
+
+    .ant-switch-handle {
+        @apply w-4 h-4;
+
+        &::before {
+            @apply bg-vl_black;
+        }
+        .ant-switch-loading-icon.anticon {
+            @apply top-[1px];
+        }
+    }
+}
+
+.vl-switch.ant-switch-checked {
+    @apply bg-primary_blue;
+
+    .ant-switch-handle {
+        &::before {
+            @apply bg-vl_white;
+        }
+    }
+}
+
+.vl-switch.ant-switch-disabled {
+    @apply cursor-not-allowed;
+}

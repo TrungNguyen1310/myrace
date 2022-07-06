@@ -8,6 +8,7 @@ import Checkbox from 'components/Checkbox'
 import CheckboxGroup from 'components/CheckboxGroup'
 import Radio from 'components/Radio'
 import RadioGroup from 'components/RadioGroup'
+import Switch from 'components/Switch'
 
 const { Option } = AntSelect
 
@@ -34,6 +35,9 @@ const Home = () => {
           radioNike: 'nike'
         }}
       >
+        <Form.Item label='Switch' name='switchVal'>
+          <Switch />
+        </Form.Item>
         <Form.Item label='Base Radio' name='radioAdidas' valuePropName='checked'>
           <Radio className='pl-10' value='adidas'>
             Adidas
