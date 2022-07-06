@@ -2,7 +2,7 @@
 
 @layer components {
     .vl-checkbox {
-        @apply font-bold not-italic text-xs text-vl_black-100 flex items-center;
+        @apply font-bold not-italic text-xs text-vl_black-100 flex items-center w-fit;
 
         &:hover {
             .ant-checkbox-checked {

@@ -2,7 +2,7 @@
 
 @layer components {
     .vl-radio {
-        @apply flex items-center;
+        @apply flex items-center w-fit;
 
         .ant-radio {
             @apply top-0 h-5 w-5;
