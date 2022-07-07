@@ -9,6 +9,7 @@ import CheckboxGroup from 'components/CheckboxGroup'
 import Radio from 'components/Radio'
 import RadioGroup from 'components/RadioGroup'
 import Switch from 'components/Switch'
+import ProgressBar from 'components/Progress'
 
 const { Option } = AntSelect
 
@@ -23,6 +24,11 @@ const Home = () => {
 
   return (
     <div>
+      <ProgressBar percent={50} className='w-32' />
+      <br />
+      <ProgressBar percent={20} className='w-32' secondaryPink />
+      <br />
+      <ProgressBar percent={90} className='w-32' secondaryYellow />
       <Form
         layout='vertical'
         onValuesChange={onValuesChange}

@@ -1,0 +1,54 @@
+@import '/src/index.scss';
+
+@layer components {
+    .vl-progress-bar {
+        @apply min-w-[66px];
+    
+        .ant-progress-inner {
+            @apply h-[6px];
+
+            .ant-progress-bg {
+                @apply h-full #{!important};
+            }
+        }
+    }
+
+    .vl-progress-bar-primary {
+        .ant-progress-inner {
+            // background
+            @apply color-primary_purple_100;
+    
+            .ant-progress-bg {
+                @apply bg-primary_blue;
+            }
+        }
+    }
+
+    .vl-progress-bar-pink {
+        .ant-progress-inner {
+            // background
+            @apply color-secondary_pink_100;
+    
+            .ant-progress-bg {
+                @apply bg-secondary_pink;
+            }
+        }
+    }
+
+    .vl-progress-bar-yellow {
+        .ant-progress-inner {
+            // background
+            @apply color-secondary_yellow_100;
+    
+            .ant-progress-bg {
+                @apply bg-secondary_yellow;
+            }
+        }
+    }
+
+    .vl-progress-bar-zero {
+        .ant-progress-inner {
+            @apply bg-[#F5F5FA];
+        }
+    }
+}
