@@ -1,6 +1,7 @@
 import React from 'react'
-import Input from 'components/Input'
 import { Avatar, Form, Select as AntSelect } from 'antd'
+
+import Input from 'components/Input'
 import Button from 'components/Button'
 import Select from 'components/Select'
 import Badge from 'components/Badge'
@@ -10,6 +11,7 @@ import Radio from 'components/Radio'
 import RadioGroup from 'components/RadioGroup'
 import Switch from 'components/Switch'
 import ProgressBar from 'components/Progress'
+import Pagination from 'components/Pagination'
 
 const { Option } = AntSelect
 
@@ -29,6 +31,8 @@ const Home = () => {
       <ProgressBar percent={20} className='w-32' secondary_pink />
       <br />
       <ProgressBar percent={90} className='w-32' secondary_yellow />
+      <br />
+      <Pagination defaultCurrent={12} total={500} />
       <Form
         layout='vertical'
         onValuesChange={onValuesChange}
