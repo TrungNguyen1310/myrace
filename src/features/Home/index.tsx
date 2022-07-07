@@ -26,9 +26,9 @@ const Home = () => {
     <div>
       <ProgressBar percent={50} className='w-32' />
       <br />
-      <ProgressBar percent={20} className='w-32' secondaryPink />
+      <ProgressBar percent={20} className='w-32' secondary_pink />
       <br />
-      <ProgressBar percent={90} className='w-32' secondaryYellow />
+      <ProgressBar percent={90} className='w-32' secondary_yellow />
       <Form
         layout='vertical'
         onValuesChange={onValuesChange}
@@ -41,7 +41,7 @@ const Home = () => {
           radioNike: 'nike'
         }}
       >
-        <Form.Item label='Switch' name='switchVal'>
+        <Form.Item label='Switch' name='switchVal' valuePropName='checked'>
           <Switch />
         </Form.Item>
         <Form.Item label='Base Radio' name='radioAdidas' valuePropName='checked'>

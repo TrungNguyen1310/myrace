@@ -9,18 +9,18 @@ interface IProgress {
   trailColor?: string
   showInfo?: boolean
   primary?: boolean
-  secondaryPink?: boolean
-  secondaryYellow?: boolean
+  secondary_pink?: boolean
+  secondary_yellow?: boolean
   type?: 'line' | 'circle' | 'dashboard'
 }
 
-const ProgressBar: React.FC<IProgress> = props => {
-  const { percent, className, showInfo = false, primary = true, secondaryPink = false, secondaryYellow = false, strokeColor = '', trailColor = '' } = props
+const ProgressBar: React.FC<IProgress> = ({ secondary_pink = false, secondary_yellow = false, ...props }) => {
+  const { percent, className, showInfo = false, primary = true, strokeColor = '', trailColor = '' } = props
   const classname = () => {
     if (strokeColor || trailColor) return ''
-    if (primary && !secondaryPink && !secondaryYellow) return 'vl-progress-bar-primary'
-    if (secondaryPink) return 'vl-progress-bar-pink'
-    if (secondaryYellow) return 'vl-progress-bar-yellow'
+    if (primary && !secondary_pink && !secondary_yellow) return 'vl-progress-bar-primary'
+    if (secondary_pink) return 'vl-progress-bar-pink'
+    if (secondary_yellow) return 'vl-progress-bar-yellow'
 
     return ''
   }
