@@ -1,3 +1,63 @@
+@import '/src/index.scss';
+
 @layer components {
-    .vl-pagination {}
+    .vl-pagination {
+        @apply flex items-center;
+
+        // item li
+        .ant-pagination-item {
+            @apply flex items-center justify-center rounded-[20px] w-10 h-10 border-none;
+            @apply text-xs font-medium;
+            // style effects
+            &:hover {
+                @apply bg-primary_blue;
+                a {
+                    @apply text-vl_white;
+                }
+            }
+
+            a {
+                @apply text-vl_black;
+            }
+        }
+
+        li {
+            @apply mx-1;
+        }
+        
+        li:nth-first-child(2) {
+            @apply ml-0;
+        }
+        li:nth-last-child(2) {
+            @apply mr-6;
+        }
+
+        .ant-pagination-item.ant-pagination-item-active {
+            @apply bg-primary_blue font-bold;
+
+            a {
+                @apply text-vl_white;
+            }
+        }
+
+        // button prev, next
+        .ant-pagination-next, .ant-pagination-prev {
+            @apply w-fit h-fit;
+
+            .ant-pagination-item-link {
+                border: none;
+                @apply flex items-center justify-center rounded-[20px] w-10 h-10 border-solid border border-vl_green-100 opacity-60;
+
+                &:hover {
+                    span {
+                        @apply text-primary_blue;
+                    }
+                }
+            }
+        }
+
+        .ant-pagination-prev {
+            @apply mr-6;
+        }
+    }
 }
