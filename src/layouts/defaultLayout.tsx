@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react'
 import { Layout } from 'antd'
-import ClientNavbar from 'components/Navbar/Client'
+
 import Footer from 'components/Footer'
+import ClientNavbar from 'components/Navbar/Client'
 import './style.scss'
 
 const { Header, Footer: AntFooter, Content } = Layout

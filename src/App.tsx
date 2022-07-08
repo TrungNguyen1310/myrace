@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { ProtectedRoutes } from 'routes/ProtectedRoutes'
 
-import LoadingSpinner from 'components/LoadingSpinner'
+import { LoadingSpinner } from 'components'
 import { RouteScrollToTop } from 'utils/routeScrollToTop'
 import { PublicListRoutes } from 'routes/ListRoutes/public'
 import { PrivateListRoutes } from 'routes/ListRoutes/protected'

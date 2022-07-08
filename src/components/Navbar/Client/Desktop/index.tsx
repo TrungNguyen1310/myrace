@@ -2,11 +2,12 @@ import React from 'react'
 import { Menu } from 'antd'
 import type { MenuProps } from 'antd'
 import { useTranslation } from 'react-i18next'
+
 import { ROUTES } from 'routes'
-import Button from 'components/Button'
+import { Button } from 'components'
 import Logo from 'assets/images/Logo.svg'
-import { clientMenu, IMenuItem } from 'utils/menuList'
 import { useNavigateHook } from 'hooks/useNavigate'
+import { clientMenu, IMenuItem } from 'utils/menuList'
 
 interface INavbarDesktop {
   onClickMenu: (menu: IMenuItem) => void

@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
+
+import { LoadingSpinner } from 'components'
 import { decrement, increment, fetchAll } from './demoSlice'
 import { useAppDispatch, useAppSelector } from 'hooks/reduxHooks'
-import LoadingSpinner from 'components/LoadingSpinner'
 
 const Demo: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -14,8 +15,8 @@ const Demo: React.FC = () => {
 
   if (loading) return <LoadingSpinner />
 
-  // console.log('albumsList: ', albumsList)
-  // console.log('users: ', users)
+  console.log('albumsList: ', albumsList)
+  console.log('users: ', users)
 
   return (
     <div>

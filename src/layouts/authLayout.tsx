@@ -1,10 +1,11 @@
 import React, { ReactNode, useState } from 'react'
 import { Layout } from 'antd'
+
 import Footer from 'components/Footer'
+import SidebarMenu from 'components/Sidebar'
 import UserNavbar from 'components/Navbar/User'
 
 import './style.scss'
-import SidebarMenu from 'components/Sidebar'
 
 const { Header, Footer: AntFooter, Content } = Layout
 

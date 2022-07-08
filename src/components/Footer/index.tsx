@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
+import { Select, Button } from 'components'
 import { ThemeContext } from 'context/ThemeContext'
-import Select from 'components/Select'
-import Button from 'components/Button'
+import { ReactComponent as MoonIcon } from 'assets/icons/moon.svg'
+
 import './style.scss'
 
 const Footer: React.FC = () => {
